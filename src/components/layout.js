@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { theme } from "../styles/theme"
-import Header from "./header"
-import "./layout.css"
+import { theme } from '../styles/theme';
+import Header from './header';
+import './layout.css';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,14 +23,14 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: ${props => props.theme.colors.red};
   }
-`
+`;
 
 const Body = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
-`
+`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -58,10 +58,10 @@ const Layout = ({ children }) => (
       </ThemeProvider>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

@@ -1,8 +1,8 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 // import {  } from "../components/link"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export default ({ data }) => {
   return (
@@ -23,8 +23,8 @@ export default ({ data }) => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -48,4 +48,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
