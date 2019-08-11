@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { GitHub, Twitter } from 'react-feather';
 
 import { theme } from '../styles/theme';
 import Header from './header';
@@ -51,7 +52,24 @@ const Layout = ({ children }) => (
           <Body>
             <main>{children}</main>
             <footer>
-              © Alexander Keliris (Rigellute) {new Date().getFullYear()}
+              <p>
+                © Alexander Keliris (Rigellute)
+                {new Date().getFullYear()}{' '}
+                <a
+                  href="https://github.com/Rigellute?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHub size={20} />
+                </a>{' '}
+                <a
+                  href="https://twitter.com/AlexKeliris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twitter size={20} />
+                </a>
+              </p>
             </footer>
           </Body>
         </>

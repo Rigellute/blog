@@ -21,7 +21,7 @@ pre[class*="language-"] {
 /* Inline code blocks */
 :not(pre) > code {
   overflow: auto;
-  padding: 0.2rem 0.3rem;
+  padding: .1rem .3rem .2rem;
   border-radius: 0.4rem;
   color: rgba(230, 230, 220, 1);
   background-color: rgba(0, 38, 53, 1);
