@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+console.log('Are we out here?', process.env.GA_TRACKING_ID);
 module.exports = {
   siteMetadata: {
     title: `Alexander Keliris`,
@@ -8,6 +12,12 @@ module.exports = {
     twitterUsername: '@AlexKeliris',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TRACKING_ID,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
