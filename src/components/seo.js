@@ -17,8 +17,10 @@ function SEO({ description, lang, meta, title }) {
         site {
           siteMetadata {
             title
-            description
-            author
+            titleTemplate
+            defaultDescription: description
+            defaultImage: image
+            twitterUsername
           }
         }
       }
