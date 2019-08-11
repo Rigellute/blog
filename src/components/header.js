@@ -6,11 +6,11 @@ import Iris from "../iris-keyboard.inline.svg"
 
 const HeaderLink = styled(Link)`
   margin: 0;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.foreground};
 `
 
 const HeaderStyle = styled.header`
-  background: ${props => props.theme.colors.spaceCadet};
+  background: ${props => props.theme.colors.background};
   padding: 3.45rem 1.0875rem;
   display: flex;
   flex-direction: column;

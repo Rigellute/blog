@@ -16,7 +16,8 @@ import "./layout.css"
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.foreground};
+    color: ${props => props.theme.colors.background};
   }
 
   a {
