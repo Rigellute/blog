@@ -17,3 +17,7 @@ gatsby develop
 #### Deployment
 
 Pushing to master will auto deploy via the Github integration with zeit now.
+
+#### SVGs
+
+In order to resolve SVGs, you must be include `.inline` in the name.

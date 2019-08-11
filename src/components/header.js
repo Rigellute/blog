@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import Iris from '../IrisLight.inline.svg';
+import Iris from '../images/IrisLight.inline.svg';
 
 const HeaderLink = styled(Link)`
   margin: 0;
