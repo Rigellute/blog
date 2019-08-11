@@ -13,3 +13,7 @@ yarn start
 
 gatsby develop
 ```
+
+#### Deployment
+
+Pushing to master will auto deploy via the Github integration with zeit now.

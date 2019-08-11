@@ -7,6 +7,10 @@ import Iris from '../IrisLight.inline.svg';
 const HeaderLink = styled(Link)`
   margin: 0;
   color: ${props => props.theme.colors.foreground};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const HeaderStyle = styled.header`
@@ -25,19 +29,12 @@ const IrisContainer = styled.div`
 
 const Header = ({ siteTitle }) => (
   <HeaderStyle>
-    <h1>
-      <HeaderLink
-        to="/"
-        style={{
-          textDecoration: `none`,
-        }}
-      >
-        {siteTitle}
-      </HeaderLink>
-    </h1>
-    <IrisContainer>
-      <Iris />
-    </IrisContainer>
+    <HeaderLink to="/" style={{}}>
+      <h1>{siteTitle}</h1>
+      <IrisContainer>
+        <Iris />
+      </IrisContainer>
+    </HeaderLink>
   </HeaderStyle>
 );
 
