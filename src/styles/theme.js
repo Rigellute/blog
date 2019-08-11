@@ -1,3 +1,4 @@
+// https://rigel.netlify.com/
 const colors = {
   backgroundDark: '#001a25',
   foreground: '#e6e6dc',
