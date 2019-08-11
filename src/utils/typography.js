@@ -1,11 +1,7 @@
 import Typography from 'typography';
 import typographyTheme from 'typography-theme-sutro';
-import { theme } from '../styles/theme.js';
 
-const typography = new Typography({
-  ...typographyTheme,
-  color: theme.colors.background,
-});
+const typography = new Typography(typographyTheme);
 
 export const { scale, rhythm, options } = typography;
 export default typography;
