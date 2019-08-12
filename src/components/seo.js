@@ -19,7 +19,6 @@ function SEO({ description, lang, meta, title }) {
             title
             titleTemplate
             defaultDescription: description
-            defaultImage: image
             twitterUsername
           }
         }

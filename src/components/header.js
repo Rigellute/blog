@@ -15,7 +15,7 @@ const HeaderLink = styled(Link)`
 
 const HeaderStyle = styled.header`
   background: ${props => props.theme.colors.background};
-  padding: 3.45rem 1.0875rem;
+  padding: 2.45rem 1.0875rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

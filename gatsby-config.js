@@ -1,14 +1,12 @@
 require('dotenv').config({
   path: `.env`,
 });
-console.log('Are we out here?', process.env.GA_TRACKING_ID);
 module.exports = {
   siteMetadata: {
     title: `Alexander Keliris`,
     titleTemplate: '%s · Blog',
     description: `Thoughts, notes and projects.`,
     author: `@AlexKeliris`,
-    image: 'Profile.jpg',
     twitterUsername: '@AlexKeliris',
   },
   plugins: [
