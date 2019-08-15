@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Iris from '../images/IrisLight.inline.svg';
 
 const HeaderLink = styled(Link)`
+  text-decoration: none;
   margin: 0;
   color: ${props => props.theme.colors.foreground};
   display: flex;
