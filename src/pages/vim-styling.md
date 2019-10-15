@@ -1,6 +1,6 @@
 ---
-title: "How to create a vim theme"
-date: "2019-06-09"
+title: 'How to create a vim theme'
+date: '2019-06-09'
 isDraft: true
 ---
 
@@ -20,7 +20,7 @@ Luckily there is a very nice abstraction called [`estilo`](LINK), which generate
 
 Once you're up and running with estilo.
 
-```sh
+```bash
 mkdir new-vim-theme
 cd new-vim-theme
 estilo init
@@ -28,13 +28,13 @@ estilo init
 
 Work on your styles and run
 
-```sh
+```bash
 estilo render
 ```
 
 Now you want to see your styles. Quickest way I've found so far is to symlink the generated vim script into the `plugged` directory. Which for me is in `~/.config/nvim/plugged`.
 
-```sh
+```bash
 ln -s ~/new-vim-theme ~/.config/nvim/plugged
 ```
 

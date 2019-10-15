@@ -30,7 +30,7 @@ Note that I will use vim and nvim interchangeably for the rest of this post.
 
 ###### macOS
 
-```sh
+```bash
 brew install neovim
 ```
 
@@ -46,7 +46,7 @@ Your configuration file lives in `~/.config/nvim/init.vim`.
 
 Of course, we will be using vim to edit our config :wink.
 
-```sh
+```bash
 nvim ~/.config/nvim/init.vim
 ```
 
