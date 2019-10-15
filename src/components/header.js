@@ -14,6 +14,11 @@ const HeaderLink = styled(Link)`
   align-items: center;
 `;
 
+const AboutLink = styled(Link)`
+  text-decoration: none;
+  color: ${props => props.theme.colors.foreground};
+`;
+
 const HeaderStyle = styled.header`
   background: ${props => props.theme.colors.background};
   padding: 2.45rem 1.0875rem;
@@ -36,6 +41,7 @@ const Header = ({ siteTitle }) => (
         <Iris />
       </IrisContainer>
     </HeaderLink>
+    <AboutLink to="/about">About</AboutLink>
   </HeaderStyle>
 );
 

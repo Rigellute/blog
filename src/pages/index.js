@@ -29,7 +29,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { isDraft: { ne: true } } }
+      filter: { frontmatter: { isHiddenFromPosts: { ne: true } } }
     ) {
       totalCount
       edges {

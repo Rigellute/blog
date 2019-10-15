@@ -1,7 +1,7 @@
 ---
 title: 'How to create a vim theme'
 date: '2019-06-09'
-isDraft: true
+isHiddenFromPosts: true
 ---
 
 Starting a new colorscheme for Vim can be challenging.

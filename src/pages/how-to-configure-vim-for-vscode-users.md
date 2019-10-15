@@ -1,7 +1,7 @@
 ---
 title: 'How to configure vim for VSCode users'
 date: '2019-06-09'
-isDraft: true
+isHiddenFromPosts: true
 ---
 
 The goal of this post is to get new vim users coming from VSCode up and running as fast as possible with vim.

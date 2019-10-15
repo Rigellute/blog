@@ -1,7 +1,7 @@
 ---
 title: 'Spotify for the terminal written in Rust'
 date: '2019-10-15'
-isDraft: false
+isHiddenFromPosts: false
 ---
 
 ![Demo](https://user-images.githubusercontent.com/12150276/64545371-84af3580-d320-11e9-867d-c368fd888b3b.gif)
