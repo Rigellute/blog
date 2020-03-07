@@ -23,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: ${props => props.theme.colors.red};
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
   }
 `;
 
@@ -78,8 +80,6 @@ const Layout = ({ children }) => (
   />
 );
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+Layout.propTypes = { children: PropTypes.node.isRequired };
 
 export default Layout;
