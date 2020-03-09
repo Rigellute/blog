@@ -1,48 +1,23 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 import Iris from '../images/IrisLight.inline.svg';
 
-const HeaderLink = styled(Link)`
-  text-decoration: none;
-  margin: 0;
-  color: ${props => props.theme.colors.foreground};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const AboutLink = styled(Link)`
-  text-decoration: none;
-  color: ${props => props.theme.colors.foreground};
-`;
-
-const HeaderStyle = styled.header`
-  background: ${props => props.theme.colors.background};
-  padding: 2.45rem 1.0875rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-`;
-
-const IrisContainer = styled.div`
-  width: 14rem;
-`;
-
 const Header = ({ siteTitle }) => (
-  <HeaderStyle>
-    <HeaderLink to="/" style={{}}>
+  <header className="p-6 flex flex-col justify-center items-center mb-12 bg-background">
+    <Link
+      className="flex flex-col justify-center items-center text-foreground no-underline hover:underline"
+      to="/"
+    >
       <h1>{siteTitle}</h1>
-      <IrisContainer>
+      <div className="w-56">
         <Iris />
-      </IrisContainer>
-    </HeaderLink>
-    <AboutLink to="/about">About</AboutLink>
-  </HeaderStyle>
+      </div>
+    </Link>
+    <Link className="text-foreground no-underline hover:underline" to="/about">
+      About
+    </Link>
+  </header>
 );
 
 Header.propTypes = {

@@ -8,32 +8,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { GitHub, Twitter } from 'react-feather';
 
-import { theme } from '../styles/theme';
 import Header from './header';
 import './layout.css';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme.colors.foreground};
-    color: ${props => props.theme.colors.background};
-  }
-
-  a {
-    color: ${props => props.theme.colors.red};
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-  }
-`;
-
-const Body = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
-`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -47,35 +25,35 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <Body>
-            <main>{children}</main>
-            <footer>
-              <p>
-                © Alexander Keliris (Rigellute)
-                {new Date().getFullYear()}{' '}
-                <a
-                  href="https://github.com/Rigellute?tab=repositories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHub size={20} />
-                </a>{' '}
-                <a
-                  href="https://twitter.com/AlexKeliris"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter size={20} />
-                </a>
-              </p>
-            </footer>
-          </Body>
-        </>
-      </ThemeProvider>
+      <div>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div className="container">
+          <main>{children}</main>
+        </div>
+        <footer className="py-6">
+          <div className="container flex ">
+            <div className="text-sm">
+              © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
+            </div>
+            <a
+              href="https://github.com/Rigellute?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center ml-2"
+            >
+              <div className="mr-1">github</div> <GitHub size={20} />
+            </a>
+            <a
+              href="https://twitter.com/AlexKeliris"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center ml-2"
+            >
+              <div className="mr-1">twitter</div> <Twitter size={20} />
+            </a>
+          </div>
+        </footer>
+      </div>
     )}
   />
 );
