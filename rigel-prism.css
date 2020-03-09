@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Mono&display=swap");
-pre[class*="language-"] {
-  font-family: "Fira Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
-    monospace;
+pre[class*='language-'] {
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -12,7 +9,7 @@ pre[class*="language-"] {
   background-color: rgba(0, 38, 53, 1);
 }
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1rem;
   overflow: auto;
   border-radius: 0.4rem;
@@ -21,7 +18,7 @@ pre[class*="language-"] {
 /* Inline code blocks */
 :not(pre) > code {
   overflow: auto;
-  padding: .1rem .3rem .2rem;
+  padding: 0.1rem 0.3rem 0.2rem;
   border-radius: 0.4rem;
   color: rgba(230, 230, 220, 1);
   background-color: rgba(0, 38, 53, 1);
@@ -164,4 +161,3 @@ pre.line-numbers > code {
 div.code-toolbar {
   position: relative;
 }
-
