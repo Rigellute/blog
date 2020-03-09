@@ -9,13 +9,13 @@ export default ({ data }) => {
       <SEO title="Home" />
       <div>
         <h1>Thoughts and notes</h1>
-        <h6>{data.allMarkdownRemark.totalCount} Posts</h6>
+        <p className="text-sm">{data.allMarkdownRemark.totalCount} Posts</p>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
               <h2 className="mb-1 hover:underline">{node.frontmatter.title}</h2>
             </Link>
-            <div className="text-sm">{node.frontmatter.date}</div>
+            <div className="text-sm font-semibold">{node.frontmatter.date}</div>
             <p>{node.excerpt}</p>
           </div>
         ))}

@@ -13,6 +13,7 @@ import { GitHub, Twitter } from 'react-feather';
 import Header from './header';
 import './layout.css';
 
+const container = 'container px-4 md:px-8 lg:px-32 xl:px-48';
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -27,11 +28,11 @@ const Layout = ({ children }) => (
     render={data => (
       <div>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="container">
+        <div className={container}>
           <main>{children}</main>
         </div>
         <footer className="py-6">
-          <div className="container flex ">
+          <div className={`${container} flex`}>
             <div className="text-sm">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
