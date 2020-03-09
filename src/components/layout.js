@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { GitHub, Twitter } from 'react-feather';
 
-import Header from './header';
+import Nav from './nav';
 import './layout.css';
 
 const container = 'container px-4 md:px-8 lg:px-32 xl:px-48';
@@ -27,7 +27,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <div>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Nav siteTitle={data.site.siteMetadata.title} />
         <div className={container}>
           <main>{children}</main>
         </div>

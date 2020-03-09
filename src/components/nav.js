@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Iris from '../images/IrisLight.inline.svg';
 
-const Header = ({ siteTitle }) => {
+const Nav = ({ siteTitle }) => {
   const [isMenuOpen, setMenuOpen] = React.useState(0);
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
@@ -59,12 +59,12 @@ const Header = ({ siteTitle }) => {
   );
 };
 
-Header.propTypes = {
+Nav.propTypes = {
   siteTitle: PropTypes.string,
 };
 
-Header.defaultProps = {
+Nav.defaultProps = {
   siteTitle: ``,
 };
 
-export default Header;
+export default Nav;
