@@ -10,10 +10,10 @@ const Header = ({ siteTitle }) => (
       to="/"
     >
       <h1>{siteTitle}</h1>
-      <div className="w-56">
-        <Iris />
-      </div>
     </Link>
+    <div className="w-56">
+      <Iris />
+    </div>
     <Link className="text-foreground no-underline hover:underline" to="/about">
       About
     </Link>
