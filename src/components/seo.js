@@ -18,7 +18,7 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             titleTemplate
-            defaultDescription: description
+            description
             twitterUsername
           }
         }

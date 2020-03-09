@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Alexander Keliris`,
     titleTemplate: '%s · Blog',
-    description: `Thoughts, notes and projects.`,
+    description: `Thoughts, notes and projects of Alexander Keliris (Rigellute)`,
     author: `@AlexKeliris`,
     twitterUsername: '@AlexKeliris',
   },
