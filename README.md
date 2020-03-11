@@ -1,10 +1,12 @@
 # Alexander Keliris blog
 
-Use this blog to share thoughts, ideas and projects.
+The purpose of this blog is to share thoughts, ideas and projects.
+
+### Tech
+
+The blog is built with [Gatsby](https://www.gatsbyjs.org/) and [Tailwind CSS](https://tailwindcss.com/) along with the [Rigel](https://rigel.netlify.com/) theme.
 
 ### Running
-
-The blog is built with [Gatsby](https://www.gatsbyjs.org/)
 
 ```sh
 yarn start
@@ -14,10 +16,16 @@ yarn start
 gatsby develop
 ```
 
-#### Deployment
+### Lint
+
+```sh
+yarn lint
+```
+
+### Deployment
 
 Pushing to master will auto deploy via the Github integration with zeit now.
 
-#### SVGs
+### SVGs
 
 In order to resolve SVGs, you must be include `.inline` in the name.
