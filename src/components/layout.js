@@ -11,7 +11,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import { GitHub, Twitter } from 'react-feather';
 
 import Nav from './nav';
-import './layout.css';
 
 const container = 'container px-4 md:px-8 lg:px-32 xl:px-48';
 const Layout = ({ children }) => (

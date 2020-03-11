@@ -2,7 +2,7 @@
 
 /* Global */
 html {
-  @apply leading-relaxed text-lg antialiased bg-foreground text-background;
+  @apply leading-normal text-lg antialiased bg-foreground text-background;
 }
 
 /* Headers */
