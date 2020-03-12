@@ -1,6 +1,6 @@
 ---
 title: 'Improving spotify-tui: going async'
-date: '2020-03-06'
+date: '2020-03-12'
 ---
 
 In [spotify-tui](https://github.com/Rigellute/spotify-tui) versions 0.15.0 and prior there was a major issue that caused the UI to freeze and not respond to user key events.
