@@ -10,7 +10,6 @@ export default ({ data }) => {
       <SEO title="Home" />
       <div>
         <h1>Thoughts and notes</h1>
-        <p className="text-sm">{data.allMarkdownRemark.totalCount} Posts</p>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link style={{ textDecoration: 'none' }} to={node.fields.slug}>
@@ -31,7 +30,6 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { isHiddenFromPosts: { ne: true } } }
     ) {
-      totalCount
       edges {
         node {
           id
