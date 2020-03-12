@@ -1,5 +1,5 @@
 ---
-title: 'Fixing spotify-tui on slow connections'
+title: 'Improving spotify-tui: going async'
 date: '2020-03-06'
 ---
 
@@ -11,19 +11,21 @@ This post attempts to outline the problem and the solution.
 
 The architecture of `spotify-tui` is one big loop that draws to the terminal, receives new key events and performs network calls.
 
-The "freezing" behaviour lies somewhere in here.
+The freezing behaviour lies somewhere in here.
 
-## Rendering loop
+## Drawing the UI
 
-There are plenty of loops and data transformations happening on each loop but nothing so serious to clog up the CPU. So unlikely that the rendering loop is causing this "freezing" problem.
+We draw the terminal UI on each loop. Could something in here involve a heavy CPU bound operation?
+
+There are plenty of data transformations happening on each loop. But from what I can tell, nothing so serious to clog up the CPU. So unlikely that the rendering loop is causing this freezing problem.
 
 ## User key events
 
-These events are emitted from their own thread and won't block the main UI rendering loop. So, again, the "freezing" problem was unlikely to be here.
+These events are emitted from their own thread and won't block the main UI rendering loop. So, again, the freezing problem was unlikely to be here.
 
 ## Blocking network requests
 
-So the cause of the "freezing" behaviour is now obvious - the network calls to the Spotify API were blocking the main UI loop 😄.
+So the cause of the freezing behaviour is now obvious - the network calls to the Spotify API were blocking the main UI loop 😄.
 
 When the internet connection is fast it's not noticeable, but this is a different story on bad connections.
 
@@ -40,7 +42,7 @@ I new that the author of `rspotify` had plans to migrate to using `async/await` 
 
 After upgrading `spotify-tui` to the new `async/await` version of `rspotify` I simply kept the `spotify-tui` architecture as it was and followed the compiler errors telling me I needed to `await` the future.
 
-Rather expectedly, using `async/await` alone changed nothing with regards to the main "freezing" issue.
+Rather expectedly, using `async/await` alone changed nothing with regards to the main freezing issue.
 
 Even with an `async` runtime, we were still `await`ing within the main rendering loop and so pausing execution until the future was resolved.
 
