@@ -25,11 +25,9 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div>
+      <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
-        <div className={container}>
-          <main>{children}</main>
-        </div>
+        <main className={`flex-grow ${container}`}>{children}</main>
         <footer className="py-6">
           <div className={`${container} flex`}>
             <div className="text-sm">
