@@ -23,7 +23,7 @@ module.exports = {
         magentaBright: '#fb94ff',
         cyan: '#00cccc',
         cyanBright: '#00ffff',
-        white: '#77929e',
+        rigelWhite: '#77929e',
         whiteBright: '#b7cff9',
       },
     },
