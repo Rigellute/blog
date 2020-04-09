@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { GitHub, Twitter } from 'react-feather';
+import { IconLink } from './icon-link';
 
 import Nav from './nav';
 
@@ -28,27 +28,23 @@ const Layout = ({ children }) => (
       <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
         <main className={`flex-grow ${container}`}>{children}</main>
-        <footer className="py-6">
-          <div className={`${container} flex`}>
-            <div className="text-sm">
+        <footer className="py-6 mt-8 bg-background">
+          <div className={`${container} flex justify-between`}>
+            <div className="text-sm text-gray-400">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
-            <a
-              href="https://github.com/Rigellute?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center ml-2"
-            >
-              <div className="mr-1">github</div> <GitHub size={20} />
-            </a>
-            <a
-              href="https://twitter.com/AlexKeliris"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center ml-2"
-            >
-              <div className="mr-1">twitter</div> <Twitter size={20} />
-            </a>
+            <div className="flex">
+              <IconLink
+                isInverted
+                href="https://github.com/Rigellute?tab=repositories"
+                Icon={IconLink.Github}
+              />
+              <IconLink
+                isInverted
+                href="https://twitter.com/AlexKeliris"
+                Icon={IconLink.Twitter}
+              />
+            </div>
           </div>
         </footer>
       </div>

@@ -11,7 +11,7 @@ module.exports = {
         background: '#002635',
         black: '#00384d',
         blackBright: '#517f8d',
-        red: '#c43060',
+        // red: '#c43060',
         redBright: '#ff5a67',
         green: '#7fc06e',
         greenBright: '#9cf087',

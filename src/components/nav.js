@@ -2,21 +2,26 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Iris from '../images/IrisLight.inline.svg';
+import MenuIcon from '../images/menu-icon.inline.svg';
+import CrossIcon from '../images/menu-cross.inline.svg';
+import { IconLink } from '../components/icon-link';
 
 const Nav = ({ siteTitle }) => {
   const [isMenuOpen, setMenuOpen] = React.useState(0);
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
-    <nav className="bg-background">
-      <div className="container px-4 md:px-8 lg:px-32 xl:px-48 py-6 lg:py-10 flex items-center justify-between flex-wrap">
+    <nav className="container mb-4 px-4 md:px-8 lg:px-32 xl:px-48 pt-6 lg:pt-10 ">
+      <div className="flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0 text-foreground mr-6">
           <div className="w-16 md:w-32 lg:w-48 mr-3 md:mr-5">
-            <Iris />
+            <Link to="/">
+              <Iris />
+            </Link>
           </div>
           <Link
             to="/"
-            className="text-foreground no-underline hover:underline font-semibold text-xl lg:text-2xl tracking-tight"
+            className="text-gray-900 no-underline font-semibold text-xl lg:text-3xl tracking-tight"
           >
             {siteTitle}
           </Link>
@@ -24,35 +29,50 @@ const Nav = ({ siteTitle }) => {
         <div className="block lg:hidden">
           <button
             onClick={() => setMenuOpen(!isMenuOpen)}
-            className="flex items-center px-3 py-2 border rounded text-foreground border-white hover:text-blueBright hover:border-blueBright"
+            className="flex items-center px-3 py-2 text-gray-500 focus:outline-none focus:text-gray-700"
           >
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
+            {isMenuOpen ? (
+              <CrossIcon class="fill-current w-4 h-4" />
+            ) : (
+              <MenuIcon class="fill-current w-4 h-4" />
+            )}
           </button>
         </div>
-        <div
-          className={`${navItemsClass} w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-        >
-          <div className="text-sm lg:flex-grow">
+        <div className={`hidden lg:flex justify-end xl:w-1/4`}>
+          <div className="flex justify-start items-center">
             <Link
-              className="block mt-4 lg:inline-block lg:mt-0 text-blueBright hover:text-cyan mr-4 no-underline hover:underline"
+              className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 mr-4 no-underline font-normal"
               to="/about"
             >
               About
             </Link>
-            <Link
-              className="block mt-4 lg:inline-block lg:mt-0 text-blueBright hover:text-cyan mr-4 no-underline hover:underline"
-              to="/"
-            >
-              Articles
-            </Link>
+            <IconLink
+              href="https://github.com/Rigellute?tab=repositories"
+              Icon={IconLink.Github}
+            />
+            <IconLink
+              href="https://twitter.com/AlexKeliris"
+              Icon={IconLink.Twitter}
+            />
           </div>
+        </div>
+      </div>
+      <div className={`lg:hidden ${navItemsClass}`}>
+        <Link
+          className="block mt-4 lg:inline-block lg:mt-0 text-gray-600 hover:text-gray-900 mr-4 no-underline font-normal"
+          to="/about"
+        >
+          <p>About</p>
+        </Link>
+        <div className="flex">
+          <IconLink
+            href="https://github.com/Rigellute?tab=repositories"
+            Icon={IconLink.Github}
+          />
+          <IconLink
+            href="https://twitter.com/AlexKeliris"
+            Icon={IconLink.Twitter}
+          />
         </div>
       </div>
     </nav>

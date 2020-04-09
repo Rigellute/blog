@@ -2,30 +2,30 @@
 
 /* Global */
 html {
-  @apply leading-relaxed text-lg antialiased bg-foreground text-background;
+  @apply leading-relaxed text-lg antialiased text-gray-900 bg-white;
 }
 
 /* Headers */
 h1 {
-  @apply text-4xl my-6 font-bold;
+  @apply text-3xl my-6 font-bold;
 }
 
 h2 {
-  @apply text-3xl my-6 font-bold;
+  @apply text-2xl my-6 font-bold;
 }
 
 h3,
 h4 {
-  @apply text-2xl my-3 font-semibold;
+  @apply text-xl my-3 font-semibold;
 }
 
 h5,
 h6 {
-  @apply text-xl my-2;
+  @apply text-lg my-2;
 }
 
 a {
-  @apply text-red underline;
+  @apply text-red-700 underline font-semibold;
   text-decoration-thickness: 2px;
 }
 
