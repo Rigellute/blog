@@ -13,4 +13,4 @@ I am the author of [spotify-tui](https://github.com/Rigellute/spotify-tui) - a S
 
 I want to be using Rust full time! Please get in touch if you are using it!
 
-When I'm not programming, I play music (piano, guitar and lute), read books, swing kettle bells, go rock climbing, gaze at the stars, paint with watercolours and spend time with friends and family.
+When I'm not programming, I play music (piano, guitar and lute), build mechanical keyboards, read books, swing kettle bells, go rock climbing, gaze at the stars, paint with watercolours and spend time with friends and family.
