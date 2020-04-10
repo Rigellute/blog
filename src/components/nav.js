@@ -32,9 +32,9 @@ const Nav = ({ siteTitle }) => {
             className="flex items-center px-3 py-2 text-gray-500 focus:outline-none focus:text-gray-700"
           >
             {isMenuOpen ? (
-              <CrossIcon class="fill-current w-4 h-4" />
+              <CrossIcon className="fill-current w-4 h-4" />
             ) : (
-              <MenuIcon class="fill-current w-4 h-4" />
+              <MenuIcon className="fill-current w-4 h-4" />
             )}
           </button>
         </div>
