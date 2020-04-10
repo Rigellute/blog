@@ -65,6 +65,7 @@ mark {
 }
 
 /* Highlight rule for gerbode search */
+/* purgecss ignore */
 .gerbode-card em {
   @apply highlight not-italic;
 }
