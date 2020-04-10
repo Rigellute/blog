@@ -18,9 +18,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
       <div className="flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0 text-foreground mr-6">
           <div className="w-16 md:w-32 lg:w-48 mr-3 md:mr-5">
-            <Link to="/">
-              <Iris />
-            </Link>
+            <Iris />
           </div>
           <Link
             to="/"
@@ -31,6 +29,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
         </div>
         <div className="block lg:hidden">
           <button
+            aria-label="Menu"
             onClick={() => setMenuOpen(!isMenuOpen)}
             className="flex items-center px-3 py-2 text-gray-500 focus:outline-none focus:text-gray-700"
           >
