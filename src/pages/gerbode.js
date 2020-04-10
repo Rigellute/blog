@@ -20,24 +20,29 @@ const propertyList = [
 
 export default function Gerbode() {
   const [inputValue, updateInput] = React.useState('');
+  const [errorMessage, setErrorMessage] = React.useState('');
   const [searchResults, updateSearchResults] = React.useState({ hits: [] });
 
   React.useEffect(() => {
     async function query() {
       try {
-        const result = await index.search(inputValue, {
-          attributesToHighlight: '*',
-        });
-        console.log(result);
-        updateSearchResults(result);
+        if (inputValue) {
+          const result = await index.search(inputValue, {
+            attributesToHighlight: '*',
+          });
+          updateSearchResults(result);
+
+          if (errorMessage) {
+            setErrorMessage('');
+          }
+        }
       } catch (e) {
-        /* handle error */
-        console.log(e);
+        setErrorMessage(e.message);
       }
     }
 
     query();
-  }, [inputValue]);
+  }, [inputValue, errorMessage]);
 
   return (
     <Layout>
@@ -61,6 +66,13 @@ export default function Gerbode() {
           <SearchIcon className="fill-none pointer-events-none text-gray-600 w-4 h-4" />
         </div>
       </div>
+
+      {errorMessage ? (
+        <div className="w-full p-4 bg-red-400 rounded-lg">
+          <div className="text-2xl">Error</div>
+          {errorMessage}
+        </div>
+      ) : null}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {searchResults.hits.map(result => (
