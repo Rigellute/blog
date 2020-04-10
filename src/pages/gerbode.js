@@ -11,6 +11,13 @@ const meili = new MeiliSearch({
 
 const index = meili.getIndex('gerbode');
 
+const propertyList = [
+  { value: 'subtitle', title: 'Subtitle' },
+  { value: 'date', title: 'Date' },
+  { value: 'key', title: 'Key' },
+  { value: 'type_of_piece', title: 'Type of Piece' },
+];
+
 export default function Gerbode() {
   const [inputValue, updateInput] = React.useState('');
   const [searchResults, updateSearchResults] = React.useState({ hits: [] });
@@ -18,7 +25,9 @@ export default function Gerbode() {
   React.useEffect(() => {
     async function query() {
       try {
-        const result = await index.search(inputValue);
+        const result = await index.search(inputValue, {
+          attributesToHighlight: '*',
+        });
         console.log(result);
         updateSearchResults(result);
       } catch (e) {
@@ -35,7 +44,8 @@ export default function Gerbode() {
       <SEO title="Gerbode Lute Music Search" />
       <h1>Search Lute Music</h1>
       <p>
-        This index contains more than 8000 lute pieces compiled by{' '}
+        This index contains more than {(16000).toLocaleString()} lute music
+        documents in French tablature compiled by{' '}
         <a href="http://www.gerbode.net/">Sarge Gerbode</a>. Start typing the
         composer or title to get results e.g. "Flow my".
       </p>
@@ -55,21 +65,27 @@ export default function Gerbode() {
         {searchResults.hits.map(result => (
           <div
             key={result.id}
-            className="flex flex-col justify-between w-full bg-white rounded shadow-lg mb-4"
+            className="custom-card flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
           >
             <div className="px-6 py-4">
-              <h3>
-                {result.composer} - {result.title}
-              </h3>
-              {result.subtitle ? (
-                <div>
-                  Subtitle:{' '}
-                  <span className="font-semibold">{result.subtitle}</span>
-                </div>
-              ) : null}
-              <div>
-                Date: <span className="font-semibold">{result.date}</span>
-              </div>
+              <h3
+                dangerouslySetInnerHTML={{
+                  __html: `${result._formatted.composer} - ${result._formatted.title}`,
+                }}
+              />
+              {propertyList.map(property => {
+                const item = result[property.value];
+                const formatted = result._formatted[property.value];
+                return item ? (
+                  <div>
+                    {property.title}:{' '}
+                    <span
+                      className="font-semibold"
+                      dangerouslySetInnerHTML={{ __html: formatted }}
+                    />
+                  </div>
+                ) : null;
+              })}
             </div>
             <div className="px-6 py-4">
               <span className="inline-block py-1 text-sm font-semibold mr-5">
