@@ -35,7 +35,7 @@ const Layout = ({ children }) => (
             </div>
             <div className="flex">
               <IconLink
-                className="mr-3"
+                className="mr-3 xl:mr-4"
                 isInverted
                 href="https://github.com/Rigellute?tab=repositories"
                 Icon={IconLink.Github}

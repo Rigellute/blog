@@ -65,9 +65,9 @@ export default function Gerbode() {
         {searchResults.hits.map(result => (
           <div
             key={result.id}
-            className="custom-card flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
+            className="gerbode-card flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
           >
-            <div className="px-6 py-4">
+            <div className="px-4 py-4">
               <h3
                 dangerouslySetInnerHTML={{
                   __html: `${result._formatted.composer} - ${result._formatted.title}`,
@@ -87,7 +87,7 @@ export default function Gerbode() {
                 ) : null;
               })}
             </div>
-            <div className="px-6 py-4">
+            <div className="px-4 py-4">
               <span className="inline-block py-1 text-sm font-semibold mr-5">
                 <a href={result.pdf}>PDF</a>
               </span>

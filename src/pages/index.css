@@ -56,8 +56,17 @@ pre {
   @apply mb-4;
 }
 
-.custom-card em {
-  @apply bg-blue-200 p-1 not-italic rounded;
+.highlight {
+  @apply bg-blue-200 p-1 rounded;
+}
+
+mark {
+  @apply highlight font-semibold;
+}
+
+/* Highlight rule for gerbode search */
+.gerbode-card em {
+  @apply highlight not-italic;
 }
 
 @import 'tailwindcss/components';

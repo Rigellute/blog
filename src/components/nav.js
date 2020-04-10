@@ -41,13 +41,13 @@ const Nav = ({ siteTitle }) => {
         <div className={`hidden lg:flex justify-end xl:w-1/4`}>
           <div className="flex justify-start items-center">
             <Link
-              className="block mr-2 xl:mr-4 mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 no-underline font-normal"
+              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 no-underline font-normal"
               to="/about"
             >
               About
             </Link>
             <IconLink
-              className="mr-2 xl:mr-4"
+              className="mr-3 xl:mr-4"
               href="https://github.com/Rigellute?tab=repositories"
               Icon={IconLink.Github}
             />
