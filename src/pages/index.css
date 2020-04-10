@@ -56,6 +56,10 @@ pre {
   @apply mb-4;
 }
 
+.custom-card em {
+  @apply bg-blue-200 p-1 not-italic rounded;
+}
+
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
