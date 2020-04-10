@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 import SearchIcon from '../images/search.inline.svg';
 
 const meili = new MeiliSearch({
-  host: 'http://gerbode.rigellute.com',
+  host: 'https://gerbode.rigellute.com',
   apiKey: '06aea15cdfe8e997d057bf3a38f1663189b352026cebed8e0aae0767d89632be',
 });
 
@@ -61,6 +61,7 @@ export default function Gerbode() {
           <SearchIcon className="fill-none pointer-events-none text-gray-600 w-4 h-4" />
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {searchResults.hits.map(result => (
           <div
@@ -77,7 +78,7 @@ export default function Gerbode() {
                 const item = result[property.value];
                 const formatted = result._formatted[property.value];
                 return item ? (
-                  <div>
+                  <div key={property.value}>
                     {property.title}:{' '}
                     <span
                       className="font-semibold"
