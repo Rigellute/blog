@@ -57,7 +57,7 @@ pre {
 }
 
 .highlight {
-  @apply bg-blue-200 p-1 rounded;
+  @apply bg-blue-200 p-1 pr-0 rounded;
 }
 
 mark {
