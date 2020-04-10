@@ -32,21 +32,22 @@ const Nav = ({ siteTitle }) => {
             className="flex items-center px-3 py-2 text-gray-500 focus:outline-none focus:text-gray-700"
           >
             {isMenuOpen ? (
-              <CrossIcon class="fill-current w-4 h-4" />
+              <CrossIcon className="fill-current w-4 h-4" />
             ) : (
-              <MenuIcon class="fill-current w-4 h-4" />
+              <MenuIcon className="fill-current w-4 h-4" />
             )}
           </button>
         </div>
         <div className={`hidden lg:flex justify-end xl:w-1/4`}>
           <div className="flex justify-start items-center">
             <Link
-              className="block mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 mr-4 no-underline font-normal"
+              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 no-underline font-normal"
               to="/about"
             >
               About
             </Link>
             <IconLink
+              className="mr-3 xl:mr-4"
               href="https://github.com/Rigellute?tab=repositories"
               Icon={IconLink.Github}
             />
@@ -66,10 +67,12 @@ const Nav = ({ siteTitle }) => {
         </Link>
         <div className="flex">
           <IconLink
+            className="mr-3"
             href="https://github.com/Rigellute?tab=repositories"
             Icon={IconLink.Github}
           />
           <IconLink
+            className="mr-3"
             href="https://twitter.com/AlexKeliris"
             Icon={IconLink.Twitter}
           />

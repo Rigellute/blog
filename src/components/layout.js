@@ -28,13 +28,14 @@ const Layout = ({ children }) => (
       <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
         <main className={`flex-grow ${container}`}>{children}</main>
-        <footer className="py-6 mt-8 bg-background">
+        <footer className="py-6 mt-8 bg-rigelBackground">
           <div className={`${container} flex justify-between`}>
             <div className="text-sm text-gray-400">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
             <div className="flex">
               <IconLink
+                className="mr-3 xl:mr-4"
                 isInverted
                 href="https://github.com/Rigellute?tab=repositories"
                 Icon={IconLink.Github}

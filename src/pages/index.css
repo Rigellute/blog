@@ -56,6 +56,20 @@ pre {
   @apply mb-4;
 }
 
+.highlight {
+  @apply bg-blue-200 p-1 pr-0 rounded;
+}
+
+mark {
+  @apply highlight font-semibold;
+}
+
+/* Highlight rule for gerbode search */
+/* purgecss ignore */
+.gerbode-card em {
+  @apply highlight not-italic;
+}
+
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
