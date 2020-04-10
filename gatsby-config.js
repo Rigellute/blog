@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

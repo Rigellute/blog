@@ -13,7 +13,7 @@ import { IconLink } from './icon-link';
 import Nav from './nav';
 
 const container = 'container px-4 md:px-8 lg:px-32 xl:px-48';
-const Layout = ({ children }) => (
+const Layout = ({ children }: { children: React.ReactNode }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

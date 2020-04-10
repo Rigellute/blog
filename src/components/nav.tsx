@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import Iris from '../images/IrisLight.inline.svg';
+// @ts-ignore
 import MenuIcon from '../images/menu-icon.inline.svg';
+// @ts-ignore
 import CrossIcon from '../images/menu-cross.inline.svg';
+// @ts-ignore
+import Iris from '../images/IrisLight.inline.svg';
 import { IconLink } from '../components/icon-link';
 
-const Nav = ({ siteTitle }) => {
-  const [isMenuOpen, setMenuOpen] = React.useState(0);
+const Nav = ({ siteTitle }: { siteTitle: string }) => {
+  const [isMenuOpen, setMenuOpen] = React.useState(false);
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
