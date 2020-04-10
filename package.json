@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Alexander Keliris <rigellute@gmail.com>",
   "dependencies": {
+    "@types/react-helmet": "^5.0.15",
     "eslint-config-react-app": "^5.0.0",
     "eslint-plugin-react-hooks": "^2.1.2",
     "gatsby": "^2.8.6",
@@ -17,6 +18,7 @@
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-plugin-typography": "^2.2.13",
     "gatsby-remark-prismjs": "^3.3.5",
     "gatsby-source-filesystem": "^2.0.38",
@@ -32,10 +34,20 @@
     "typography-theme-sutro": "^0.16.19"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/node": "^13.11.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@typescript-eslint/parser": "^2.27.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "1.19.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"
@@ -49,7 +61,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "lint": "yarn eslint src"
+    "lint": "yarn eslint src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,25 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import './index.css';
 
-export default ({ data }) => {
+type Data = {
+  allMarkdownRemark: {
+    edges: [
+      {
+        node: {
+          id: string;
+          frontmatter: {
+            title: string;
+            date: string;
+          };
+          excerpt: string;
+          fields: { slug: string };
+        };
+      }
+    ];
+  };
+};
+
+export default ({ data }: { data: Data }) => {
   return (
     <Layout>
       <SEO title="Home" />
