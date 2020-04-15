@@ -24,7 +24,7 @@ type SearchResult = {
 type SearchResultWithFormatted = SearchResult & { _formatted: SearchResult };
 
 const meili = new MeiliSearch({
-  host: 'https://yt5qupjf83.execute-api.eu-west-1.amazonaws.com/prod',
+  host: 'https://xryq065nrc.execute-api.eu-west-1.amazonaws.com',
   apiKey: '06aea15cdfe8e997d057bf3a38f1663189b352026cebed8e0aae0767d89632be',
 });
 
