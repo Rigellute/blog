@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
         <Container as="main" className="flex-grow">
