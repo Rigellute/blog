@@ -95,13 +95,13 @@ export default function Gerbode() {
         </div>
       ) : null}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
         {searchResults?.hits?.map((res) => {
           const result = res as SearchResultWithFormatted;
           return (
             <div
               key={result.id}
-              className="gerbode-card flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
+              className="gerbode-card-highlight-em flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
             >
               <div className="px-4 py-4">
                 <h3

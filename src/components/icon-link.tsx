@@ -7,18 +7,15 @@ import TwitterIcon from '../images/twitter.inline.svg';
 export const IconLink = ({
   href,
   Icon,
-  isInverted,
   className,
 }: {
   href: string;
   Icon: React.ElementType;
-  isInverted?: boolean;
   className?: string;
 }) => {
-  const hoverColor = isInverted ? 'text-gray-300' : 'text-gray-700';
   return (
     <a
-      className={`${className} block flex items-center text-gray-500 hover:${hoverColor}`}
+      className={`${className} block flex items-center navigation-header-text-gray`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"

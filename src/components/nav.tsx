@@ -8,14 +8,28 @@ import CrossIcon from '../images/menu-cross.inline.svg';
 // @ts-ignore
 import Iris from '../images/IrisLight.inline.svg';
 import { IconLink } from '../components/icon-link';
-import { Container } from '../components/container';
+
+export const NavContainer = ({
+  className,
+  as = 'div',
+  children,
+}: {
+  children: React.ReactNode;
+  className: string;
+  as?: string;
+}) => {
+  return React.createElement(as, {
+    className: `px-4 md:px-8 lg:px-16 ${className}`,
+    children,
+  });
+};
 
 const Nav = ({ siteTitle }: { siteTitle: string }) => {
   const [isMenuOpen, setMenuOpen] = React.useState(false);
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
-    <Container as="nav" className="mb-4 px-4 pt-6 lg:pt-10">
+    <NavContainer as="nav" className="bg-rigelBackground mb-4 px-4 p-6 lg:p-6">
       <div className="flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0 text-foreground mr-6">
           <div className="w-16 md:w-32 lg:w-48 mr-3 md:mr-5">
@@ -23,7 +37,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           </div>
           <Link
             to="/"
-            className="text-gray-900 no-underline font-semibold text-xl lg:text-3xl tracking-tight"
+            className="navigation-header-text-gray no-underline font-semibold text-xl lg:text-3xl tracking-tight"
           >
             {siteTitle}
           </Link>
@@ -32,7 +46,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           <button
             aria-label="Menu"
             onClick={() => setMenuOpen(!isMenuOpen)}
-            className="flex items-center px-3 py-2 text-gray-500 focus:outline-none focus:text-gray-700"
+            className="flex items-center px-3 py-2 navigation-header-text-gray focus:outline-none"
           >
             {isMenuOpen ? (
               <CrossIcon className="fill-current w-4 h-4" />
@@ -44,7 +58,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
         <div className={`hidden lg:flex justify-end xl:w-1/4`}>
           <div className="flex justify-start items-center">
             <Link
-              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 text-gray-500 hover:text-gray-700 no-underline font-normal"
+              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray no-underline font-normal"
               to="/about"
             >
               About
@@ -63,7 +77,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
       </div>
       <div className={`lg:hidden ${navItemsClass}`}>
         <Link
-          className="block mt-4 lg:inline-block lg:mt-0 text-gray-600 hover:text-gray-900 mr-4 no-underline font-normal"
+          className="block mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray mr-4 no-underline font-normal"
           to="/about"
         >
           <p>About</p>
@@ -81,7 +95,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           />
         </div>
       </div>
-    </Container>
+    </NavContainer>
   );
 };
 

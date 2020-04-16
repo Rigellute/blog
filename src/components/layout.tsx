@@ -9,11 +9,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { IconLink } from './icon-link';
-import { Container } from '../components/container';
 
-import Nav from './nav';
+import Nav, { NavContainer } from './nav';
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
+const Layout = ({
+  children,
+  isArticle = false,
+}: {
+  isArticle?: boolean;
+  children: React.ReactNode;
+}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -27,28 +32,32 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
     render={(data) => (
       <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
-        <Container as="main" className="flex-grow">
+        <main
+          className={`${
+            isArticle
+              ? 'container mx-auto px-4 md:px-8 lg:px-32 xl:px-48'
+              : 'px-4 md:px-8 lg:px-16'
+          } flex-grow`}
+        >
           {children}
-        </Container>
+        </main>
         <footer className="py-6 mt-8 bg-rigelBackground">
-          <Container className="flex justify-between">
-            <div className="text-sm text-gray-400">
+          <NavContainer className="flex justify-between">
+            <div className="text-sm navigation-header-text-gray">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
             <div className="flex">
               <IconLink
                 className="mr-3 xl:mr-4"
-                isInverted
                 href="https://github.com/Rigellute?tab=repositories"
                 Icon={IconLink.Github}
               />
               <IconLink
-                isInverted
                 href="https://twitter.com/AlexKeliris"
                 Icon={IconLink.Twitter}
               />
             </div>
-          </Container>
+          </NavContainer>
         </footer>
       </div>
     )}

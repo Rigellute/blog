@@ -1,8 +1,5 @@
 module.exports = {
   theme: {
-    container: {
-      center: true,
-    },
     extend: {
       colors: {
         // https://rigel.netlify.com/

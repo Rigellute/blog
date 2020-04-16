@@ -66,10 +66,18 @@ mark {
 
 /* Highlight rule for gerbode search */
 /* purgecss ignore */
-.gerbode-card em {
+.gerbode-card-highlight-em em {
   @apply highlight not-italic;
 }
 
 @import 'tailwindcss/components';
+
+.navigation-header-text-gray {
+  @apply text-gray-300;
+}
+
+.navigation-header-text-gray:hover {
+  @apply text-gray-500;
+}
 
 @import 'tailwindcss/utilities';
