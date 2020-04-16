@@ -8,13 +8,14 @@ import CrossIcon from '../images/menu-cross.inline.svg';
 // @ts-ignore
 import Iris from '../images/IrisLight.inline.svg';
 import { IconLink } from '../components/icon-link';
+import { Container } from '../components/container';
 
 const Nav = ({ siteTitle }: { siteTitle: string }) => {
   const [isMenuOpen, setMenuOpen] = React.useState(false);
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
-    <nav className="container mb-4 px-4 md:px-8 lg:px-32 xl:px-48 pt-6 lg:pt-10 ">
+    <Container as="nav" className="mb-4 px-4 pt-6 lg:pt-10">
       <div className="flex items-center justify-between flex-wrap">
         <div className="flex items-center flex-shrink-0 text-foreground mr-6">
           <div className="w-16 md:w-32 lg:w-48 mr-3 md:mr-5">
@@ -80,7 +81,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           />
         </div>
       </div>
-    </nav>
+    </Container>
   );
 };
 

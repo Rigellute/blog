@@ -9,10 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { IconLink } from './icon-link';
+import { Container } from '../components/container';
 
 import Nav from './nav';
 
-const container = 'container px-4 md:px-8 lg:px-32 xl:px-48';
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <StaticQuery
     query={graphql`
@@ -24,12 +24,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <div className="flex flex-col min-h-screen">
         <Nav siteTitle={data.site.siteMetadata.title} />
-        <main className={`flex-grow ${container}`}>{children}</main>
+        <Container as="main" className="flex-grow">
+          {children}
+        </Container>
         <footer className="py-6 mt-8 bg-rigelBackground">
-          <div className={`${container} flex justify-between`}>
+          <Container className="flex justify-between">
             <div className="text-sm text-gray-400">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
@@ -46,7 +48,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
                 Icon={IconLink.Twitter}
               />
             </div>
-          </div>
+          </Container>
         </footer>
       </div>
     )}
