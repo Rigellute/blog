@@ -64,6 +64,10 @@ mark {
   @apply highlight font-semibold;
 }
 
+img {
+  @apply rounded-lg;
+}
+
 /* Highlight rule for gerbode search */
 /* purgecss ignore */
 .gerbode-card-highlight-em em {
@@ -73,7 +77,7 @@ mark {
 @import 'tailwindcss/components';
 
 .navigation-header-text-gray {
-  @apply text-gray-300;
+  @apply text-gray-200;
 }
 
 .navigation-header-text-gray:hover {
