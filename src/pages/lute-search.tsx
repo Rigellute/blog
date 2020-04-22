@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import MeiliSearch from 'meilisearch';
 import { SearchResponse } from 'meilisearch/types/types';
 import Layout from '../components/layout';
@@ -44,6 +45,18 @@ export default function Gerbode() {
     {} as SearchResponse | undefined
   );
 
+  const data = useStaticQuery(graphql`
+    query {
+      lute: file(relativePath: { eq: "lute-1.jpeg" }) {
+        childImageSharp {
+          sizes(maxWidth: 600) {
+            ...GatsbyImageSharpSizes
+          }
+        }
+      }
+    }
+  `);
+
   React.useEffect(() => {
     async function query() {
       try {
@@ -67,7 +80,11 @@ export default function Gerbode() {
 
   return (
     <Layout>
-      <SEO title="Gerbode Lute Music Search" />
+      <SEO
+        title="Search Lute Music"
+        imagePath={data.lute.childImageSharp.sizes.src}
+        description="Search over 16,000 lute pieces"
+      />
       <h1>Search Lute Music</h1>
       <p>
         This index contains more than {(16000).toLocaleString()} lute music
