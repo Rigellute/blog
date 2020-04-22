@@ -30,6 +30,7 @@ function SEO({
             title
             titleTemplate
             description
+            author
             twitterUsername
           }
         }
@@ -76,10 +77,6 @@ function SEO({
           content: imagePathWithOrigin,
         },
         {
-          name: 'twitter:image',
-          content: imagePathWithOrigin,
-        },
-        {
           name: `twitter:card`,
           content: `summary_large_image`,
         },
@@ -94,6 +91,10 @@ function SEO({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: 'twitter:image',
+          content: imagePathWithOrigin,
         },
       ].concat(meta)}
     />
