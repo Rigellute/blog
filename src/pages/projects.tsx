@@ -12,7 +12,7 @@ type CardProps = {
   tags: string[];
   image: FluidObject;
   readMoreLink?: string;
-  projectLink: string;
+  projectLink?: string;
 };
 
 const Card = (props: CardProps) => (
@@ -39,11 +39,13 @@ const Card = (props: CardProps) => (
             Read more
           </Link>
         ) : null}
-        <IconLink
-          className="text-gray-500 hover:text-gray-700 mr-3 xl:mr-4"
-          href={props.projectLink}
-          Icon={IconLink.Github}
-        />
+        {props.projectLink ? (
+          <IconLink
+            className="text-gray-500 hover:text-gray-700 mr-3 xl:mr-4"
+            href={props.projectLink}
+            Icon={IconLink.Github}
+          />
+        ) : null}
       </div>
       <div>
         {props.tags.map((tag) => (
@@ -68,7 +70,14 @@ export default () => {
       }
       rigelTheme: file(relativePath: { eq: "rigel-code-theme.png" }) {
         childImageSharp {
-          fluid(maxWidth: 700) {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      lute: file(relativePath: { eq: "lute-1.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid_noBase64
           }
         }
@@ -80,6 +89,13 @@ export default () => {
       <SEO title="Projects" />
       <h1>Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+        <Card
+          title="Lute Music Search"
+          description="Search over 16,000 lute pieces"
+          tags={['Lute', 'Music', 'MeiliSearch']}
+          readMoreLink="/gerbode"
+          image={data.lute.childImageSharp.fluid}
+        />
         <Card
           title="spotify-tui"
           description="Spotify for the terminal written in Rust 🚀"
