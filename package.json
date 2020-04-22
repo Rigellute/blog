@@ -59,12 +59,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.js",
-    "format-check": "prettier --check src/**/*.js",
+    "format": "prettier --write src/**/*.tsx",
+    "format-check": "prettier --check src/**/*.tsx",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "lint": "yarn eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint": "yarn eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
