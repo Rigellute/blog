@@ -10,15 +10,15 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({
+  isBlogPost = false,
   description = '',
   lang = 'en',
-  meta = [],
   title,
   imagePath = '',
 }: {
+  isBlogPost?: boolean;
   description?: string;
   lang?: string;
-  meta?: { name: string; content: string }[];
   title: string;
   imagePath?: string;
 }) {
@@ -55,49 +55,26 @@ function SEO({
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: 'og:image',
-          content: imagePathWithOrigin,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: 'twitter:image',
-          content: imagePathWithOrigin,
-        },
-      ].concat(meta)}
-    />
+    >
+      {/* General tags */}
+      <meta name="description" content={metaDescription} />
+      <meta name="image" content={imagePathWithOrigin} />
+      <link rel="canonical" href={origin} />
+
+      {/* OpenGraph tags */}
+      <meta property="og:url" content={origin} />
+      {isBlogPost ? <meta property="og:type" content="article" /> : null}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={imagePathWithOrigin} />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={imagePathWithOrigin} />
+    </Helmet>
   );
 }
 
