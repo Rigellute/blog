@@ -15,7 +15,7 @@ export const IconLink = ({
 }) => {
   return (
     <a
-      className={`${className} block flex items-center navigation-header-text-gray`}
+      className={`block flex items-center ${className}`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"

@@ -64,10 +64,6 @@ mark {
   @apply highlight font-semibold;
 }
 
-img {
-  @apply rounded-lg;
-}
-
 /* Highlight rule for gerbode search */
 /* purgecss ignore */
 .gerbode-card-highlight-em em {

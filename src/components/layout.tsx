@@ -48,11 +48,12 @@ const Layout = ({
             </div>
             <div className="flex">
               <IconLink
-                className="mr-3 xl:mr-4"
+                className="navigation-header-text-gray mr-3 xl:mr-4"
                 href="https://github.com/Rigellute?tab=repositories"
                 Icon={IconLink.Github}
               />
               <IconLink
+                className="navigation-header-text-gray"
                 href="https://twitter.com/AlexKeliris"
                 Icon={IconLink.Twitter}
               />

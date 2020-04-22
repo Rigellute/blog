@@ -59,16 +59,23 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           <div className="flex justify-start items-center">
             <Link
               className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray no-underline font-normal"
+              to="/projects"
+            >
+              Projects
+            </Link>
+            <Link
+              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray no-underline font-normal"
               to="/about"
             >
               About
             </Link>
             <IconLink
-              className="mr-3 xl:mr-4"
+              className="navigation-header-text-gray mr-3 xl:mr-4"
               href="https://github.com/Rigellute?tab=repositories"
               Icon={IconLink.Github}
             />
             <IconLink
+              className="navigation-header-text-gray"
               href="https://twitter.com/AlexKeliris"
               Icon={IconLink.Twitter}
             />
@@ -84,12 +91,12 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
         </Link>
         <div className="flex">
           <IconLink
-            className="mr-3"
+            className="navigation-header-text-gray mr-3"
             href="https://github.com/Rigellute?tab=repositories"
             Icon={IconLink.Github}
           />
           <IconLink
-            className="mr-3"
+            className="navigation-header-text-gray mr-3"
             href="https://twitter.com/AlexKeliris"
             Icon={IconLink.Twitter}
           />
