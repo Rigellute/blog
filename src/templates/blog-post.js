@@ -7,7 +7,7 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout isArticle>
-      <SEO title={post.frontmatter.title} />
+      <SEO isBlogPost title={post.frontmatter.title} />
       <div>
         <h1>{post.frontmatter.title}</h1>
         <p className="text-sm font-semibold">{post.frontmatter.date}</p>
