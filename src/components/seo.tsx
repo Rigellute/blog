@@ -6,20 +6,21 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({
-  description,
-  lang,
-  meta,
+  description = '',
+  lang = 'en',
+  meta = [],
   title,
+  imagePath = '',
 }: {
-  description: string;
-  lang: string;
-  meta: { name: string; content: string };
+  description?: string;
+  lang?: string;
+  meta?: { name: string; content: string }[];
   title: string;
+  imagePath?: string;
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -37,6 +38,10 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description;
+
+  const imagePathWithOrigin = imagePath
+    ? (window?.origin || '') + imagePath
+    : '';
 
   return (
     <Helmet
@@ -63,6 +68,14 @@ function SEO({
           content: `website`,
         },
         {
+          property: 'og:image',
+          content: imagePathWithOrigin,
+        },
+        {
+          property: 'twitter:image',
+          content: imagePathWithOrigin,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -82,18 +95,5 @@ function SEO({
     />
   );
 }
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-};
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-};
 
 export default SEO;
