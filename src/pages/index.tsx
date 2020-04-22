@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import { Frontmatter } from '../types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import './index.css';
@@ -10,10 +11,7 @@ type Data = {
       {
         node: {
           id: string;
-          frontmatter: {
-            title: string;
-            date: string;
-          };
+          frontmatter: Frontmatter;
           excerpt: string;
           fields: { slug: string };
         };

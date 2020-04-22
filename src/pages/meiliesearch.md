@@ -1,6 +1,7 @@
 ---
 title: 'Deploying MeiliSearch on AWS'
 date: '2020-04-17'
+thumbnail: '../images/aws-eb-meilisearch.png'
 ---
 
 The gold standard for search is currently provided by [Algolia](https://www.algolia.com/). They offer many feature rich products, but at their core is the search API which is easy to setup and very fast. Yet this can get pricey - once you need more than 10K records the price goes up to \$29/mo.
