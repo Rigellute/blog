@@ -76,7 +76,7 @@ function SEO({
           content: imagePathWithOrigin,
         },
         {
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: imagePathWithOrigin,
         },
         {
