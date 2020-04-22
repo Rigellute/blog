@@ -39,9 +39,13 @@ function SEO({
 
   const metaDescription = description || site.siteMetadata.description;
 
-  const imagePathWithOrigin = imagePath
-    ? (window?.origin || '') + imagePath
-    : '';
+  // Fix remote build error: "window" is not available during server side rendering.
+  let origin = '';
+  if (typeof window !== 'undefined') {
+    origin = window.location.origin;
+  }
+
+  const imagePathWithOrigin = imagePath ? origin + imagePath : '';
 
   return (
     <Helmet
