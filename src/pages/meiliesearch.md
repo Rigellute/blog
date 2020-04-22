@@ -12,7 +12,7 @@ MeiliSearch is written in Rust. Rust produces fast and resource efficient binari
 
 The best part is that it is open source! MeiliSearch is gaining in popularity and is proving to be a great tool for search. And since it is written in Rust, we can have confidence that it will run correctly.
 
-[Click here](/gerbode) to see a live example of MeiliSearch that contains more than 16,000 documents.
+[Click here](/lute-search) to see a live example of MeiliSearch that contains more than 16,000 documents.
 
 ## AWS Elastic Beanstalk
 
