@@ -93,7 +93,7 @@ export default () => {
           title="Lute Music Search"
           description="Search over 16,000 lute pieces"
           tags={['Lute', 'Music', 'MeiliSearch']}
-          readMoreLink="/gerbode"
+          readMoreLink="/lute-search"
           image={data.lute.childImageSharp.fluid}
         />
         <Card
