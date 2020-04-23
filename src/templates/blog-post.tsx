@@ -10,7 +10,6 @@ export default ({
   data: { markdownRemark: { frontmatter: Frontmatter; html: string } };
 }) => {
   const post = data.markdownRemark;
-  console.log(data);
   const thumbnail = post.frontmatter.thumbnail?.childImageSharp?.sizes?.src;
   return (
     <Layout isArticle>
