@@ -89,6 +89,12 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
         >
           <p>About</p>
         </Link>
+        <Link
+          className="block mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray mr-4 no-underline font-normal"
+          to="/projects"
+        >
+          <p>Projects</p>
+        </Link>
         <div className="flex">
           <IconLink
             className="navigation-header-text-gray mr-3"
