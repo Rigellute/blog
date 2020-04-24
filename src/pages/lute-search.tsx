@@ -319,4 +319,3 @@ function parseFilters(dateRange: string, difficultyRange: string) {
 
   return `${dateRangeFilter} AND ${difficultyRangeFilter}`;
 }
-
