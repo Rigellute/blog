@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 @import 'tailwindcss/base';
 
 /* Global */
@@ -106,4 +107,5 @@ mark {
   max-height: calc(100vh - 200px);
 }
 
+/*! purgecss end ignore */
 @import 'tailwindcss/utilities';

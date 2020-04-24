@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby';
 import { Frontmatter } from '../types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import './index.css';
 
 type Data = {
   allMarkdownRemark: {
