@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Alexander Keliris <rigellute@gmail.com>",
   "dependencies": {
+    "autoprefixer": "^9.7.6",
+    "cssnano": "^4.1.10",
     "eslint-config-react-app": "^5.0.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "gatsby": "^2.8.6",
@@ -61,12 +63,12 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.tsx",
     "format-check": "prettier --check src/**/*.tsx",
-    "start": "npm run develop",
+    "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lint": "yarn eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch"
+    "type-check:watch": "yarn type-check -- --watch"
   },
   "repository": {
     "type": "git",

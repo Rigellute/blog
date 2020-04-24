@@ -1,6 +1,12 @@
 require('dotenv').config({
   path: `.env`,
 });
+
+const resolveConfig = require('tailwindcss/resolveConfig');
+const tailwindConfig = require('./tailwind.config.js');
+
+const fullConfig = resolveConfig(tailwindConfig);
+
 module.exports = {
   siteMetadata: {
     title: `Alexander Keliris`,
@@ -10,7 +16,18 @@ module.exports = {
     twitterUsername: '@AlexKeliris',
   },
   plugins: [
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`)(tailwindConfig),
+          require(`autoprefixer`),
+          ...(process.env.NODE_ENV === `production`
+            ? [require(`cssnano`)]
+            : []),
+        ],
+      },
+    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -34,8 +51,8 @@ module.exports = {
         name: `Alexander Keliris blog`,
         short_name: `AK`,
         start_url: `/`,
-        background_color: `#002635`,
-        theme_color: `#1c8db2`,
+        background_color: fullConfig.theme.colors.white,
+        theme_color: fullConfig.theme.colors.rigelBackground,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
