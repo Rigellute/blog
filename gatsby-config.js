@@ -14,6 +14,7 @@ module.exports = {
     description: `Thoughts, notes and projects of Alexander Keliris (Rigellute)`,
     author: `@AlexKeliris`,
     twitterUsername: '@AlexKeliris',
+    siteURL: 'https://keliris.dev',
   },
   plugins: [
     {

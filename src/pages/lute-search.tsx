@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, PageProps } from 'gatsby';
 import MeiliSearch from 'meilisearch';
 import { SearchResponse } from 'meilisearch/types/types';
 import Layout from '../components/layout';
@@ -96,7 +96,7 @@ const exampleSearch = {
   difficultyRangeValue: '1-3',
 };
 
-export default function Gerbode() {
+export default function Gerbode({ location }: PageProps) {
   const [searchTermValue, updateSearchTermValue] = React.useState('');
   const [dateRangeValue, updateDateRangeValue] = React.useState('');
   const [difficultyRangeValue, updateDifficultyRangeValue] = React.useState('');
@@ -155,6 +155,7 @@ export default function Gerbode() {
         </ol>
       </Modal>
       <SEO
+        path={location.pathname}
         title="Search Lute Music"
         imagePath={data.lute.childImageSharp.sizes.src}
         description="Search over 16,000 lute pieces"

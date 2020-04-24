@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 function SEO({
   isBlogPost = false,
   description = '',
+  path,
   lang = 'en',
   title,
   imagePath = '',
@@ -20,6 +21,7 @@ function SEO({
   description?: string;
   lang?: string;
   title: string;
+  path: string;
   imagePath?: string;
 }) {
   const { site } = useStaticQuery(
@@ -46,6 +48,7 @@ function SEO({
     origin = window.location.origin;
   }
 
+  const url = path ? `${origin}${path}` : origin;
   const imagePathWithOrigin = imagePath ? origin + imagePath : '';
 
   return (
@@ -59,10 +62,10 @@ function SEO({
       {/* General tags */}
       <meta name="description" content={metaDescription} />
       <meta name="image" content={imagePathWithOrigin} />
-      <link rel="canonical" href={origin} />
+      <link rel="canonical" href={url} />
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={origin} />
+      <meta property="og:url" content={url} />
       {isBlogPost ? <meta property="og:type" content="article" /> : null}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
