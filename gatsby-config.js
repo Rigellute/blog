@@ -153,7 +153,7 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
-        whitelist: ['img', 'code'], // Don't remove this selector
+        whitelist: ['img', 'code', 'gerbode-card-highlight-em'], // Don't remove this selector
         ignore: ['prismjs/', 'rigel-prism.css'], // Ignore files/folders
       },
     },
