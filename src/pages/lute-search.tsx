@@ -177,7 +177,7 @@ export default function Gerbode({ location }: PageProps) {
         Start typing any of these{' '}
         <button
           onClick={() => updateModalOpen(true)}
-          className="link text-blue-600"
+          className="link text-gray-800"
         >
           attributes
         </button>{' '}
@@ -188,7 +188,7 @@ export default function Gerbode({ location }: PageProps) {
             updateDateRangeValue(exampleSearch.dateRangeValue);
             updateDifficultyRangeValue(exampleSearch.difficultyRangeValue);
           }}
-          className="link text-blue-600"
+          className="link text-gray-800"
         >
           click here
         </button>{' '}
@@ -196,45 +196,45 @@ export default function Gerbode({ location }: PageProps) {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-5">
         <div className="col-span-1 md:col-span-3">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block text-gray-700 text-sm font-bold">
             Search
-          </label>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search Gerbode..."
-              className="input pr-4 pl-10 w-full"
-              value={searchTermValue}
-              onChange={(e) => updateSearchTermValue(e.target.value)}
-            />
-            <div className="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
-              <SearchIcon className="fill-none pointer-events-none text-gray-600 w-4 h-4" />
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search Gerbode..."
+                className="input pr-4 pl-10 w-full text-gray-900 text-base mt-2"
+                value={searchTermValue}
+                onChange={(e) => updateSearchTermValue(e.target.value)}
+              />
+              <div className="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
+                <SearchIcon className="fill-none pointer-events-none text-gray-600 w-4 h-4" />
+              </div>
             </div>
-          </div>
+          </label>
         </div>
         <div className="col-span-1 md:col-span-1">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Date range
+            <input
+              type="text"
+              placeholder="1500-1650"
+              className="input w-full text-gray-900 text-base mt-2"
+              value={dateRangeValue}
+              onChange={(e) => updateDateRangeValue(e.target.value)}
+            />
           </label>
-          <input
-            type="text"
-            placeholder="1500-1650"
-            className="input w-full"
-            value={dateRangeValue}
-            onChange={(e) => updateDateRangeValue(e.target.value)}
-          />
         </div>
         <div className="col-span-1 md:col-span-1">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Difficulty range
+            <input
+              type="text"
+              placeholder="1-6"
+              className="input w-full text-gray-900 text-base mt-2"
+              value={difficultyRangeValue}
+              onChange={(e) => updateDifficultyRangeValue(e.target.value)}
+            />
           </label>
-          <input
-            type="text"
-            placeholder="1-6"
-            className="input w-full"
-            value={difficultyRangeValue}
-            onChange={(e) => updateDifficultyRangeValue(e.target.value)}
-          />
         </div>
       </div>
 
