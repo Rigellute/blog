@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 @import 'tailwindcss/base';
 
 /* Global */
@@ -24,9 +25,13 @@ h6 {
   @apply text-lg my-2;
 }
 
-a {
-  @apply text-red-700 underline font-semibold;
+.link {
+  @apply text-red-700 underline font-semibold cursor-pointer;
   text-decoration-thickness: 2px;
+}
+
+a {
+  @apply link;
 }
 
 p {
@@ -48,7 +53,7 @@ ol {
 }
 
 li {
-  @apply mb-4;
+  @apply mb-2;
 }
 
 /* Code */
@@ -80,4 +85,27 @@ mark {
   @apply text-gray-500;
 }
 
+.input {
+  @apply border border-transparent rounded-lg bg-gray-200 py-2 px-4 block appearance-none leading-normal;
+}
+
+.input:focus {
+  @apply bg-white border-gray-300;
+}
+
+.modal {
+  transition: opacity 0.25s ease;
+}
+
+.modal-active {
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}
+
+.modal-body {
+  @apply overflow-y-auto;
+  max-height: calc(100vh - 200px);
+}
+
+/*! purgecss end ignore */
 @import 'tailwindcss/utilities';

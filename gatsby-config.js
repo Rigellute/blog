@@ -1,6 +1,12 @@
 require('dotenv').config({
   path: `.env`,
 });
+
+const resolveConfig = require('tailwindcss/resolveConfig');
+const tailwindConfig = require('./tailwind.config.js');
+
+const fullConfig = resolveConfig(tailwindConfig);
+
 module.exports = {
   siteMetadata: {
     title: `Alexander Keliris`,
@@ -8,9 +14,21 @@ module.exports = {
     description: `Thoughts, notes and projects of Alexander Keliris (Rigellute)`,
     author: `@AlexKeliris`,
     twitterUsername: '@AlexKeliris',
+    siteURL: 'https://keliris.dev',
   },
   plugins: [
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`tailwindcss`)(tailwindConfig),
+          require(`autoprefixer`),
+          ...(process.env.NODE_ENV === `production`
+            ? [require(`cssnano`)]
+            : []),
+        ],
+      },
+    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -34,8 +52,8 @@ module.exports = {
         name: `Alexander Keliris blog`,
         short_name: `AK`,
         start_url: `/`,
-        background_color: `#002635`,
-        theme_color: `#1c8db2`,
+        background_color: fullConfig.theme.colors.white,
+        theme_color: fullConfig.theme.colors.rigelBackground,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
@@ -136,8 +154,7 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
-        whitelist: ['img', 'code'], // Don't remove this selector
-        ignore: ['prismjs/', 'rigel-prism.css'], // Ignore files/folders
+        purgeOnly: [`src/css/style.css`],
       },
     },
   ],

@@ -4,16 +4,21 @@ import { Frontmatter } from '../types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-export default ({
-  data,
-}: {
+export default (props: {
+  path: string;
   data: { markdownRemark: { frontmatter: Frontmatter; html: string } };
 }) => {
+  const { data } = props;
   const post = data.markdownRemark;
   const thumbnail = post.frontmatter.thumbnail?.childImageSharp?.sizes?.src;
   return (
     <Layout isArticle>
-      <SEO imagePath={thumbnail} isBlogPost title={post.frontmatter.title} />
+      <SEO
+        imagePath={thumbnail}
+        isBlogPost
+        title={post.frontmatter.title}
+        path={props.path}
+      />
       <div>
         <h1>{post.frontmatter.title}</h1>
         <p className="text-sm font-semibold">{post.frontmatter.date}</p>

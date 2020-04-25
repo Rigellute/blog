@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { PageProps, useStaticQuery, graphql, Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 import Layout from '../components/layout';
@@ -58,7 +58,7 @@ const Card = (props: CardProps) => (
   </div>
 );
 
-export default () => {
+export default ({ location }: PageProps) => {
   const data = useStaticQuery(graphql`
     query {
       spotifyTui: file(relativePath: { eq: "spotify-tui-1.png" }) {
@@ -87,6 +87,7 @@ export default () => {
   return (
     <Layout>
       <SEO
+        path={location.pathname}
         title="Projects"
         description="Projects of Alexander Keliris (Rigellute)"
       />

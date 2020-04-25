@@ -5,3 +5,4 @@
  */
 
 require('./rigel-prism.css');
+import './src/css/style.css';

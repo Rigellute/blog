@@ -1,9 +1,8 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import { Frontmatter } from '../types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import './index.css';
 
 type Data = {
   allMarkdownRemark: {
@@ -20,10 +19,10 @@ type Data = {
   };
 };
 
-export default ({ data }: { data: Data }) => {
+export default ({ location, data }: PageProps & { data: Data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO path={location.pathname} title="Home" />
       <div>
         <h1>Thoughts and notes</h1>
         {data.allMarkdownRemark.edges.map(({ node }) => (
