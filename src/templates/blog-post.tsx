@@ -36,7 +36,7 @@ export const query = graphql`
         title
         thumbnail {
           childImageSharp {
-            sizes(maxWidth: 600) {
+            sizes(maxWidth: 800) {
               ...GatsbyImageSharpSizes
             }
           }

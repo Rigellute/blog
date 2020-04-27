@@ -24,9 +24,16 @@ function SEO({
   path: string;
   imagePath?: string;
 }) {
-  const { site } = useStaticQuery(
+  const { site, twitterCard } = useStaticQuery(
     graphql`
       query {
+        twitterCard: file(relativePath: { eq: "twitter-card-1.png" }) {
+          childImageSharp {
+            sizes(maxWidth: 800) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
         site {
           siteMetadata {
             title
@@ -49,7 +56,10 @@ function SEO({
   }
 
   const url = path ? `${origin}${path}` : origin;
-  const imagePathWithOrigin = imagePath ? origin + imagePath : '';
+  const imagePathOrDefault = imagePath || twitterCard.childImageSharp.sizes.src;
+  const imagePathWithOrigin = imagePathOrDefault
+    ? origin + imagePathOrDefault
+    : '';
 
   return (
     <Helmet
