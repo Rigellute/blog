@@ -1,5 +1,5 @@
 ---
-title: 'Create an AWS API Gateway HTTP API Proxy'
+title: 'Create an HTTPS proxy with AWS API Gateway'
 date: '2020-04-27'
 ---
 
@@ -9,7 +9,7 @@ This is especially true when using the API from a browser. Most modern browsers 
 
 Setting up HTTPS termination for your servers is painful. It usually involves purchasing an SSL certificate from a third party and then modifying configuration files on your instance. You'll also need to manage renewing the certificate once it has expired.
 
-The simplest way to use HTTPS with an AWS Elastic Beanstalk environment is to assign a [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/) certificate to your environment's load balancer (more [here](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html)). With this setup, you get a free SSL certificate and ACM will manage renewing the certificate.
+The simplest way to use HTTPS with an AWS Elastic Beanstalk environment is to assign an [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/) certificate to your environment's load balancer (more [here](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html)). With this setup, you get a free SSL certificate and ACM will manage renewing the certificate.
 
 This is great if you actually need a load balancer to route requests between multiple instances. But introduces higher cost especially when you only need a single instance.
 
@@ -17,7 +17,7 @@ An even easier, and cost effective, solution is to create an [AWS API Gateway HT
 
 This is the solution I used for my [lute search](/lute-search) project. The proxy has added very little latency to my search API and will cost \$1 per million requests!
 
-## Steps to create HTTP API proxy
+## Steps to create HTTPS API proxy
 
 Assuming you already have a web server running somewhere with a routable HTTP endpoint, follow these steps to create a proxy with HTTPS.
 
