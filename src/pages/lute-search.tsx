@@ -174,14 +174,17 @@ export default function Gerbode({ location }: PageProps) {
         .
       </p>
       <p>
-        Start typing any of these{' '}
+        Start typing to see results e.g. "Dowland". Searches are matched against
+        these{' '}
         <button
           onClick={() => updateModalOpen(true)}
           className="link text-gray-800"
         >
           attributes
-        </button>{' '}
-        to get results e.g. "Dowland". Or{' '}
+        </button>
+        .
+      </p>
+      <p>
         <button
           onClick={() => {
             updateSearchTermValue(exampleSearch.searchTermValue);
@@ -190,7 +193,7 @@ export default function Gerbode({ location }: PageProps) {
           }}
           className="link text-gray-800"
         >
-          click here
+          Click here
         </button>{' '}
         to see a more advanced search example.
       </p>
