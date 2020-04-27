@@ -171,11 +171,8 @@ export default function Gerbode({ location }: PageProps) {
         >
           Sarge Gerbode
         </a>
-        .
-      </p>
-      <p>
-        Start typing to see results e.g. "Dowland". Searches are matched against
-        these{' '}
+        . Start typing to see results e.g. "Dowland". Searches are matched
+        against these{' '}
         <button
           onClick={() => updateModalOpen(true)}
           className="link text-gray-800"
