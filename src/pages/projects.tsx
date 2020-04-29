@@ -16,13 +16,13 @@ type CardProps = {
 };
 
 const Card = (props: CardProps) => (
-  <div className="max-w-sm rounded overflow-hidden shadow-lg">
+  <div className="overflow-hidden rounded shadow-lg max-w-screen">
     <div style={{ height: 200 }} className="overflow-hidden bg-rigelBackground">
       <Img className="w-full" alt="Project image" fluid={props.image} />
     </div>
     <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2">{props.title}</div>
-      <p className="text-gray-700 text-base">{props.description}</p>
+      <div className="mb-2 text-xl font-bold">{props.title}</div>
+      <p className="text-base text-gray-700">{props.description}</p>
       <div className="flex mb-4">
         {/* Links be external or local. But this nested ternary is not pretty */}
         {props.readMoreLink?.includes('http') ? (
@@ -41,7 +41,7 @@ const Card = (props: CardProps) => (
         ) : null}
         {props.projectLink ? (
           <IconLink
-            className="text-gray-500 hover:text-gray-700 mr-3 xl:mr-4"
+            className="mr-3 text-gray-500 hover:text-gray-700 xl:mr-4"
             href={props.projectLink}
             Icon={IconLink.Github}
           />
