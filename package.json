@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Alexander Keliris <rigellute@gmail.com>",
   "dependencies": {
+    "@tailwindcss/ui": "^0.2.2",
     "autoprefixer": "^9.7.6",
     "cssnano": "^4.1.10",
     "eslint-config-react-app": "^5.0.0",
