@@ -3,30 +3,30 @@
 
 /* Global */
 html {
-  @apply leading-relaxed text-lg antialiased text-gray-900 bg-white;
+  @apply text-lg antialiased leading-relaxed text-gray-900 bg-white;
 }
 
 /* Headers */
 h1 {
-  @apply text-3xl my-6 font-bold;
+  @apply my-6 text-3xl font-bold;
 }
 
 h2 {
-  @apply text-2xl my-6 font-bold;
+  @apply my-6 text-2xl font-bold;
 }
 
 h3,
 h4 {
-  @apply text-xl my-3 font-semibold;
+  @apply my-3 text-xl font-semibold;
 }
 
 h5,
 h6 {
-  @apply text-lg my-2;
+  @apply my-2 text-lg;
 }
 
 .link {
-  @apply text-red-700 underline font-semibold cursor-pointer;
+  @apply font-semibold text-red-700 underline cursor-pointer;
   text-decoration-thickness: 2px;
 }
 
@@ -62,17 +62,17 @@ pre {
 }
 
 .highlight {
-  @apply bg-blue-200 py-1 rounded;
+  @apply py-1 bg-blue-200 rounded;
 }
 
 mark {
-  @apply highlight font-semibold;
+  @apply font-semibold highlight;
 }
 
 /* Highlight rule for gerbode search */
 /* purgecss ignore */
 .gerbode-card-highlight-em em {
-  @apply highlight not-italic;
+  @apply not-italic highlight;
 }
 
 @import 'tailwindcss/components';
