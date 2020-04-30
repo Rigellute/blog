@@ -53,7 +53,7 @@ module.exports = {
         short_name: `AK`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
-        theme_color: fullConfig.theme.colors.rigelBackground,
+        theme_color: fullConfig.theme.colors.gray['900'],
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },

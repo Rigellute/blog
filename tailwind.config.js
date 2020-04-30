@@ -1,34 +1,17 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   theme: {
+    spinner: (theme) => ({
+      default: {
+        color: theme('colors.gray.200', 'gray'),
+      },
+    }),
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-      colors: {
-        // https://rigel.netlify.com/
-        rigelBackgroundDark: '#001a25',
-        rigelForeground: '#e6e6dc',
-        rigelBackground: '#002635',
-        rigelBlack: '#00384d',
-        rigelBlackBright: '#517f8d',
-        rigelRed: '#c43060',
-        rigelRedBright: '#ff5a67',
-        rigelGreen: '#7fc06e',
-        rigelGreenBright: '#9cf087',
-        rigelYellow: '#f08e48',
-        rigelYellowBright: '#ffcc1b',
-        rigelBlue: '#1c8db2',
-        rigelBlueBright: '#7eb2dd',
-        rigelMagenta: '#c694ff',
-        rigelMagentaBright: '#fb94ff',
-        rigelCyan: '#00cccc',
-        rigelCyanBright: '#00ffff',
-        rigelWhite: '#77929e',
-        rigelWhiteBright: '#b7cff9',
-      },
     },
   },
   variants: {},
-  plugins: [require('@tailwindcss/ui')],
+  plugins: [require('@tailwindcss/ui'), require('tailwindcss-spinner')()],
 };

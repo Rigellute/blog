@@ -17,7 +17,7 @@ type CardProps = {
 
 const Card = (props: CardProps) => (
   <div className="overflow-hidden rounded shadow-lg max-w-screen">
-    <div style={{ height: 200 }} className="overflow-hidden bg-rigelBackground">
+    <div style={{ height: 200 }} className="overflow-hidden bg-gray-900">
       <Img className="w-full" alt="Project image" fluid={props.image} />
     </div>
     <div className="px-6 py-4">

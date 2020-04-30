@@ -40,9 +40,9 @@ const Layout = ({
         >
           {children}
         </main>
-        <footer className="py-6 mt-8 bg-rigelBackground">
+        <footer className="py-6 mt-8 bg-gray-900">
           <NavContainer className="flex justify-between">
-            <div className="text-sm navigation-header-text-gray">
+            <div className="text-sm text-gray-300 hover:text-gray-300">
               © Alexander Keliris (Rigellute) {new Date().getFullYear()}{' '}
             </div>
             <div className="flex">

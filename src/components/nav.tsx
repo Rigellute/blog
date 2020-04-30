@@ -28,7 +28,7 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
-    <NavContainer as="nav" className="p-6 px-4 mb-4 bg-rigelBackground lg:p-6">
+    <NavContainer as="nav" className="p-6 px-4 mb-4 bg-gray-900 lg:p-6">
       <div className="flex flex-wrap items-center justify-between">
         <div className="flex items-center flex-shrink-0 mr-6 text-foreground">
           <div className="w-16 mr-3 md:w-32 lg:w-48 md:mr-5">
@@ -68,6 +68,12 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
             >
               About
             </Link>
+            <Link
+              className="block mt-4 mr-3 font-normal no-underline xl:mr-4 lg:inline-block lg:mt-0 navigation-header-text-gray"
+              to="/contact"
+            >
+              Contact
+            </Link>
             <IconLink
               className="mr-3 navigation-header-text-gray xl:mr-4"
               href="https://github.com/Rigellute?tab=repositories"
@@ -93,6 +99,12 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
           to="/projects"
         >
           <p>Projects</p>
+        </Link>
+        <Link
+          className="block mt-4 mr-4 font-normal no-underline lg:inline-block lg:mt-0 navigation-header-text-gray"
+          to="/contact"
+        >
+          <p>Contact</p>
         </Link>
         <div className="flex">
           <IconLink

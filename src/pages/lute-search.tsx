@@ -174,7 +174,7 @@ export default function Gerbode({ location }: PageProps) {
         against these{' '}
         <button
           onClick={() => updateModalOpen(true)}
-          className="text-gray-800 link"
+          className="text-gray-900 link"
         >
           attributes
         </button>
@@ -187,7 +187,7 @@ export default function Gerbode({ location }: PageProps) {
             updateDateRangeValue(exampleSearch.dateRangeValue);
             updateDifficultyRangeValue(exampleSearch.difficultyRangeValue);
           }}
-          className="text-gray-800 link"
+          className="text-gray-900 link"
         >
           Click here
         </button>{' '}
