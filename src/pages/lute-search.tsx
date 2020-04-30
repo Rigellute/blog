@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, PageProps } from 'gatsby';
 import MeiliSearch from 'meilisearch';
-import { SearchResponse } from 'meilisearch/types/types';
+import { SearchResponse } from 'meilisearch';
 import Layout from '../components/layout';
 import { Modal } from '../components/modal';
 import SEO from '../components/seo';
