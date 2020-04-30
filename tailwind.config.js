@@ -14,4 +14,5 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/ui'), require('tailwindcss-spinner')()],
+  purge: ['./src/**/*.tsx', './src/**/*.js'],
 };

@@ -4,5 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-require('./rigel-prism.css');
 import './src/css/style.css';
