@@ -195,7 +195,7 @@ export default function Gerbode({ location }: PageProps) {
       </p>
       <div className="mb-5 grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="col-span-1 md:col-span-3">
-          <label className="block text-sm font-bold text-gray-700">
+          <label className="label">
             Search
             <Input
               isSearch
@@ -208,7 +208,7 @@ export default function Gerbode({ location }: PageProps) {
           </label>
         </div>
         <div className="col-span-1 md:col-span-1">
-          <label className="block mb-2 text-sm font-bold text-gray-700">
+          <label className="label">
             Date range
             <Input
               type="text"
@@ -220,7 +220,7 @@ export default function Gerbode({ location }: PageProps) {
           </label>
         </div>
         <div className="col-span-1 md:col-span-1">
-          <label className="block mb-2 text-sm font-bold text-gray-700">
+          <label className="label">
             Difficulty range
             <Input
               type="text"

@@ -101,5 +101,9 @@ mark {
   max-height: calc(100vh - 200px);
 }
 
+.label {
+  @apply block text-sm font-bold text-gray-700;
+}
+
 /*! purgecss end ignore */
 @import 'tailwindcss/utilities';
