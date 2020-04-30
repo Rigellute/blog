@@ -1,6 +1,7 @@
-/*! purgecss start ignore */
-@import 'tailwindcss/base';
 @import url('https://rsms.me/inter/inter.css');
+@tailwind base;
+
+@import '../css/rigel-prism.css';
 
 /* Global */
 html {
@@ -71,13 +72,11 @@ mark {
   @apply py-1 font-semibold bg-blue-200 rounded;
 }
 
-/* Highlight rule for gerbode search */
-/* purgecss ignore */
 .gerbode-card-highlight-em em {
   @apply py-1 not-italic bg-blue-200 rounded;
 }
 
-@import 'tailwindcss/components';
+@tailwind components;
 
 .navigation-header-text-gray {
   @apply text-gray-200;
@@ -105,5 +104,4 @@ mark {
   @apply block text-sm font-bold text-gray-700;
 }
 
-/*! purgecss end ignore */
-@import 'tailwindcss/utilities';
+@tailwind utilities;
