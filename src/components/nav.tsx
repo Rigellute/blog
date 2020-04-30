@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 // @ts-ignore
 import MenuIcon from '../images/menu-icon.inline.svg';
 // @ts-ignore
@@ -29,15 +28,15 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
 
   const navItemsClass = isMenuOpen ? '' : 'hidden';
   return (
-    <NavContainer as="nav" className="bg-rigelBackground mb-4 px-4 p-6 lg:p-6">
-      <div className="flex items-center justify-between flex-wrap">
-        <div className="flex items-center flex-shrink-0 text-foreground mr-6">
-          <div className="w-16 md:w-32 lg:w-48 mr-3 md:mr-5">
+    <NavContainer as="nav" className="p-6 px-4 mb-4 bg-rigelBackground lg:p-6">
+      <div className="flex flex-wrap items-center justify-between">
+        <div className="flex items-center flex-shrink-0 mr-6 text-foreground">
+          <div className="w-16 mr-3 md:w-32 lg:w-48 md:mr-5">
             <Iris />
           </div>
           <Link
             to="/"
-            className="navigation-header-text-gray no-underline font-semibold text-xl lg:text-3xl tracking-tight"
+            className="text-xl font-semibold tracking-tight no-underline navigation-header-text-gray lg:text-3xl"
           >
             {siteTitle}
           </Link>
@@ -49,28 +48,28 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
             className="flex items-center px-3 py-2 navigation-header-text-gray focus:outline-none"
           >
             {isMenuOpen ? (
-              <CrossIcon className="fill-current w-4 h-4" />
+              <CrossIcon className="w-4 h-4 fill-current" />
             ) : (
-              <MenuIcon className="fill-current w-4 h-4" />
+              <MenuIcon className="w-4 h-4 fill-current" />
             )}
           </button>
         </div>
         <div className={`hidden lg:flex justify-end xl:w-1/4`}>
-          <div className="flex justify-start items-center">
+          <div className="flex items-center justify-start">
             <Link
-              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray no-underline font-normal"
+              className="block mt-4 mr-3 font-normal no-underline xl:mr-4 lg:inline-block lg:mt-0 navigation-header-text-gray"
               to="/projects"
             >
               Projects
             </Link>
             <Link
-              className="block mr-3 xl:mr-4 mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray no-underline font-normal"
+              className="block mt-4 mr-3 font-normal no-underline xl:mr-4 lg:inline-block lg:mt-0 navigation-header-text-gray"
               to="/about"
             >
               About
             </Link>
             <IconLink
-              className="navigation-header-text-gray mr-3 xl:mr-4"
+              className="mr-3 navigation-header-text-gray xl:mr-4"
               href="https://github.com/Rigellute?tab=repositories"
               Icon={IconLink.Github}
             />
@@ -84,20 +83,20 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
       </div>
       <div className={`lg:hidden ${navItemsClass}`}>
         <Link
-          className="block mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray mr-4 no-underline font-normal"
+          className="block mt-4 mr-4 font-normal no-underline lg:inline-block lg:mt-0 navigation-header-text-gray"
           to="/about"
         >
           <p>About</p>
         </Link>
         <Link
-          className="block mt-4 lg:inline-block lg:mt-0 navigation-header-text-gray mr-4 no-underline font-normal"
+          className="block mt-4 mr-4 font-normal no-underline lg:inline-block lg:mt-0 navigation-header-text-gray"
           to="/projects"
         >
           <p>Projects</p>
         </Link>
         <div className="flex">
           <IconLink
-            className="navigation-header-text-gray mr-3"
+            className="mr-3 navigation-header-text-gray"
             href="https://github.com/Rigellute?tab=repositories"
             Icon={IconLink.Github}
           />
@@ -110,14 +109,6 @@ const Nav = ({ siteTitle }: { siteTitle: string }) => {
       </div>
     </NavContainer>
   );
-};
-
-Nav.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Nav.defaultProps = {
-  siteTitle: ``,
 };
 
 export default Nav;
