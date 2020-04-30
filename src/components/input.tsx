@@ -23,7 +23,7 @@ export const Input = ({
       <input
         type={type}
         placeholder={placeholder}
-        className={`transition-colors duration-100 ease-in-out focus:outline-0 w-full text-base text-gray-900 block px-4 py-2 leading-normal bg-gray-200 border border-transparent rounded-lg appearance-none placeholder-gray-600 focus:bg-white focus:border-gray-300 ${searchStyle} ${className}`}
+        className={`transition-colors duration-100 ease-in-out focus:outline-0 w-full text-base text-gray-900 block px-4 py-2 leading-normal bg-cool-gray-100 border border-transparent rounded-lg appearance-none placeholder-cool-gray-500 focus:bg-white focus:border-cool-gray-200 ${searchStyle} ${className}`}
         value={value}
         onChange={onChange}
       />
