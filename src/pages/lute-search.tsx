@@ -5,8 +5,7 @@ import { SearchResponse } from 'meilisearch/types/types';
 import Layout from '../components/layout';
 import { Modal } from '../components/modal';
 import SEO from '../components/seo';
-// @ts-ignore
-import SearchIcon from '../images/search.inline.svg';
+import { Input } from '../components/input';
 
 type SearchResult = {
   pdf: string;
@@ -175,7 +174,7 @@ export default function Gerbode({ location }: PageProps) {
         against these{' '}
         <button
           onClick={() => updateModalOpen(true)}
-          className="link text-gray-800"
+          className="text-gray-800 link"
         >
           attributes
         </button>
@@ -188,49 +187,45 @@ export default function Gerbode({ location }: PageProps) {
             updateDateRangeValue(exampleSearch.dateRangeValue);
             updateDifficultyRangeValue(exampleSearch.difficultyRangeValue);
           }}
-          className="link text-gray-800"
+          className="text-gray-800 link"
         >
           Click here
         </button>{' '}
         to see a more advanced search example.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-5">
+      <div className="mb-5 grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="col-span-1 md:col-span-3">
-          <label className="block text-gray-700 text-sm font-bold">
+          <label className="block text-sm font-bold text-gray-700">
             Search
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search Gerbode..."
-                className="input pr-4 pl-10 w-full text-gray-900 text-base mt-2"
-                value={searchTermValue}
-                onChange={(e) => updateSearchTermValue(e.target.value)}
-              />
-              <div className="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
-                <SearchIcon className="fill-none pointer-events-none text-gray-600 w-4 h-4" />
-              </div>
-            </div>
+            <Input
+              isSearch
+              type="text"
+              placeholder="Search Gerbode..."
+              className="mt-2"
+              value={searchTermValue}
+              onChange={(e) => updateSearchTermValue(e.target.value)}
+            />
           </label>
         </div>
         <div className="col-span-1 md:col-span-1">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-700">
             Date range
-            <input
+            <Input
               type="text"
+              className="mt-2"
               placeholder="1500-1650"
-              className="input w-full text-gray-900 text-base mt-2"
               value={dateRangeValue}
               onChange={(e) => updateDateRangeValue(e.target.value)}
             />
           </label>
         </div>
         <div className="col-span-1 md:col-span-1">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-700">
             Difficulty range
-            <input
+            <Input
               type="text"
+              className="mt-2"
               placeholder="1-6"
-              className="input w-full text-gray-900 text-base mt-2"
               value={difficultyRangeValue}
               onChange={(e) => updateDifficultyRangeValue(e.target.value)}
             />
@@ -251,7 +246,7 @@ export default function Gerbode({ location }: PageProps) {
           return (
             <div
               key={result.id}
-              className="gerbode-card-highlight-em flex flex-col justify-between w-full bg-white rounded-lg border mb-4"
+              className="flex flex-col justify-between w-full mb-4 bg-white border rounded-lg gerbode-card-highlight-em"
             >
               <div className="px-4 py-4">
                 <h3
