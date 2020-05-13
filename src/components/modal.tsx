@@ -1,5 +1,4 @@
 import React from 'react';
-// @ts-ignore
 import CrossIcon from '../images/menu-cross.inline.svg';
 
 export const Modal = ({
@@ -23,11 +22,11 @@ export const Modal = ({
         className="absolute w-full h-full bg-gray-900 opacity-50"
       ></div>
 
-      <div className="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50">
-        <div className="py-4 text-left px-6">
-          <div className="flex justify-between items-center pb-3">
+      <div className="z-50 w-11/12 mx-auto bg-white rounded shadow-lg md:max-w-md">
+        <div className="px-6 py-4 text-left">
+          <div className="flex items-center justify-between pb-3">
             <span className="text-2xl font-bold">{title}</span>
-            <div className="cursor-pointer z-50">
+            <div className="z-50 cursor-pointer">
               <CrossIcon
                 className="fill-current text-black w-4 h-4"
                 onClick={onClose}

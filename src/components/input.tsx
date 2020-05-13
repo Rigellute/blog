@@ -1,5 +1,4 @@
 import React from 'react';
-// @ts-ignore
 import SearchIcon from '../images/search.inline.svg';
 
 export const Input = ({

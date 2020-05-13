@@ -1,7 +1,5 @@
 import React from 'react';
-// @ts-ignore
 import GithubIcon from '../images/github.inline.svg';
-// @ts-ignore
 import TwitterIcon from '../images/twitter.inline.svg';
 
 export const IconLink = ({

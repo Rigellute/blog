@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-// @ts-ignore
 import MenuIcon from '../images/menu-icon.inline.svg';
-// @ts-ignore
 import CrossIcon from '../images/menu-cross.inline.svg';
-// @ts-ignore
 import Iris from '../images/IrisLight.inline.svg';
 import { IconLink } from '../components/icon-link';
 
