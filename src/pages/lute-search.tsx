@@ -166,7 +166,7 @@ export default function Gerbode({ location }: PageProps) {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="http://www.gerbode.net/"
+          href="http://www.lutemusic.org/"
         >
           Sarge Gerbode
         </a>
