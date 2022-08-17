@@ -18,7 +18,7 @@ const Contact = ({ location }: PageProps) => {
     $company: '',
     honeypot: '', // if any value received in this field, form submission will be ignored.
     replyTo: '@', // this will set replyTo of email to email address entered in the form
-    accessKey: '9632cf3b-3266-4409-9cf9-fb54911f2ed5', // get your access key from https://www.staticforms.xyz
+    accessKey: 'cda0e2cc-e716-436b-b0b2-9433ecd8d2df', // get your access key from https://www.staticforms.xyz
   });
 
   const [response, setResponse] = useState({
