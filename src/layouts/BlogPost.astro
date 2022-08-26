@@ -34,7 +34,16 @@ const {
       <Container>
         {
           pubDate && (
-            <time class="text-slate-600 dark:text-slate-400">{pubDate}</time>
+            <time
+              class="text-slate-600 dark:text-slate-400"
+              datetime={new Date(pubDate).toISOString()}
+            >
+              {new Date(pubDate).toLocaleDateString(undefined, {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })}
+            </time>
           )
         }
         {

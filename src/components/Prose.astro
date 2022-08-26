@@ -1,6 +1,13 @@
 ---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
 ---
 
-<div class="prose prose-slate dark:prose-invert md:prose-lg lg:prose-xl">
+<div
+  class={`prose prose-slate dark:prose-invert md:prose-lg lg:prose-xl prose-a:underline prose-a:underline-offset-4 prose-a:decoration-sky-400 prose-a:decoration-1 ${className}`}
+>
   <slot />
 </div>
