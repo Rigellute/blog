@@ -1,0 +1,67 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Scripts from "../components/Scripts.astro";
+import Container from "../components/Container.astro";
+import Body from "../components/Body.astro";
+import Prose from "../components/Prose.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    updatedDate?: string;
+    heroImage?: string;
+  };
+}
+
+const {
+  content: { title, description, pubDate, updatedDate },
+} = Astro.props as Props;
+---
+
+<html>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <Body>
+    <Scripts />
+    <div class="bg-sky-100 dark:bg-slate-800 pb-16">
+      <Header />
+      <Container>
+        {
+          pubDate && (
+            <time class="text-slate-600 dark:text-slate-400">{pubDate}</time>
+          )
+        }
+        {
+          updatedDate && (
+            <div>
+              Last updated on <time>{updatedDate}</time>
+            </div>
+          )
+        }
+        <Prose>
+          <h1>{title}</h1>
+        </Prose>
+      </Container>
+    </div>
+    <div class="">
+      <main>
+        <article>
+          <!-- {heroImage && <img src={heroImage} alt="" />} -->
+          <Container>
+            <div class="pt-10"></div>
+            <Prose>
+              <slot />
+            </Prose>
+          </Container>
+        </article>
+      </main>
+    </div>
+    <Footer />
+  </Body>
+</html>

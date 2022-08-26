@@ -1,0 +1,110 @@
+---
+const {} = Astro.props;
+---
+
+<script>
+  // Converts from radians to degrees.
+  function toDegrees(radians: number) {
+    return (radians * 180) / Math.PI;
+  }
+
+  function getRandomInt(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function addStars() {
+    // Don't show on mobile
+    if (window.innerWidth < 620) {
+      return;
+    }
+
+    const hero = document.getElementById("hero");
+    const starContainer = document.getElementById("stars");
+    const wave = document.getElementById("wave");
+    if (!starContainer || !hero || !wave) {
+      return;
+    }
+
+    // Find the dimensions of the hero section
+    const { width: heroW, height: heroH } = hero.getBoundingClientRect();
+
+    // `safeY` is the area above the waves (hills)
+    const safeY = heroH - wave.getBoundingClientRect().height + 30;
+
+    const buildStar = (isBright = false) => {
+      const x = getRandomInt(0, heroW);
+      const y = getRandomInt(0, safeY);
+
+      const dimensions = Math.random() > 0.5 ? "h-1 w-1" : "h-0.5 w-0.5";
+      const pulse = Math.random() > 0.5 ? "animate-pulse" : "";
+
+      const star = document.createElement("div");
+      const bg = isBright ? "bg-white" : "bg-slate-400";
+      star.className = `${bg} ${dimensions} rounded-full absolute ${pulse}`;
+      star.style.transform = `translate(${x}px, ${y}px)`;
+
+      return star;
+    };
+
+    const numStars = 30;
+    for (let i = 0; i < numStars; i++) {
+      const star = buildStar();
+      starContainer.appendChild(star);
+    }
+
+    // Shooting star animation duration
+    const duration = 700;
+    function startShootingStars(container: HTMLElement) {
+      const star = buildStar(true);
+
+      // css animation config
+      star.style.animation = `shooting-star ${duration}ms ease-out`;
+      star.id = "shooting-star";
+
+      const endX = getRandomInt(100, heroW);
+      const endY = getRandomInt(100, safeY);
+      const deg = Math.round(toDegrees(Math.atan(endY / endX)));
+      const keyFrames = document.createElement("style");
+
+      // Animate the position of the element and start from an elongated form `width: 10%` to model the shooting star tail
+      // Shrink the tail and reduce opacity
+      keyFrames.innerHTML = `
+      @keyframes shooting-star {
+        0% {
+          transform: translate(${0}, ${0}) rotate(${deg}deg);
+          width: 10%;
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate(${endX}px, ${endY}px) rotate(${deg}deg);
+          width: 1px;
+          opacity: 0;
+        }
+      }
+      `;
+
+      // The animation start immediately in append to DOM
+      const kf = container.appendChild(keyFrames);
+      const s = container.appendChild(star);
+
+      // Clean up the DOM once the animation is done. Add a 10ms offset before removal to ensure the animation has finished
+      setTimeout(() => {
+        // Remove the keyframes
+        kf.remove();
+
+        // Remove the star
+        s.remove();
+      }, duration + 10);
+    }
+
+    // Trigger a shooting star immediately
+    startShootingStars(starContainer);
+
+    const delay = duration * 10;
+    // Start shooting stars
+    setInterval(() => startShootingStars(starContainer), delay);
+  }
+
+  addStars();
+</script>
