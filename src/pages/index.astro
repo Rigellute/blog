@@ -14,6 +14,7 @@ import Body from "../components/Body.astro";
 import Prose from "../components/Prose.astro";
 import { Button } from "../components/Button.jsx";
 import StarScript from "../components/StarScript.astro";
+import ChevronRight from "../components/ChevronRight.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -58,15 +59,15 @@ const projects = [
           <Header />
         </div>
         <div
-          class="bg-gradient-to-b from-sky-200 to-sky-50 dark:from-slate-900 dark:to-slate-800"
+          class="bg-gradient-to-b from-sky-200 via-sky-100 to-orange-100 dark:from-slate-900 dark:to-slate-800"
         >
           <Container>
             <div
-              class="py-16 lg:pt-20 mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 lg:grid-cols-2 xl:gap-x-16"
+              class="py-16 lg:pt-20 mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 lg:grid-cols-3 xl:gap-x-16"
             >
-              <div>
+              <div class="lg:col-span-2">
                 <h1
-                  class="inline bg-gradient-to-r from-slate-500 via-slate-900 to-slate-500 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent"
+                  class="inline bg-gradient-to-r from-sky-500 via-indigo-700 to-sky-500 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
                 >
                   Hi there, I'm Alexander
                 </h1>
@@ -129,11 +130,17 @@ const projects = [
             <div class="space-y-5">
               {
                 posts.map((post) => (
-                  <Prose>
-                    <h3>{post.frontmatter.title}</h3>
-                    <p>{post.frontmatter.description}</p>
-                    <a href={post.url}>Read More</a>
-                  </Prose>
+                  <div>
+                    <Prose>
+                      <h3>{post.frontmatter.title}</h3>
+                      <p>{post.frontmatter.description}</p>
+                    </Prose>
+                    <a class="text-sky-500 text-sm font-medium" href={post.url}>
+                      <div class="flex items-center mt-4">
+                        Read More <ChevronRight />
+                      </div>
+                    </a>
+                  </div>
                 ))
               }
             </div>
