@@ -29,8 +29,11 @@ const {
 
   <Body>
     <Scripts />
-    <div class="bg-sky-100 dark:bg-slate-800 pb-16">
+    <div class="sticky top-0 z-50 bg-sky-100 dark:bg-slate-800">
       <Header />
+    </div>
+    <!-- Hero -->
+    <div class="bg-sky-100 dark:bg-slate-800 pb-16">
       <Container>
         {
           pubDate && (
@@ -58,19 +61,17 @@ const {
         </Prose>
       </Container>
     </div>
-    <div class="">
-      <main>
-        <article>
-          <!-- {heroImage && <img src={heroImage} alt="" />} -->
-          <Container>
-            <div class="pt-10"></div>
-            <Prose>
-              <slot />
-            </Prose>
-          </Container>
-        </article>
-      </main>
-    </div>
+    <main class="relative">
+      <article>
+        <!-- {heroImage && <img src={heroImage} alt="" />} -->
+        <Container>
+          <div class="pt-10"></div>
+          <Prose>
+            <slot />
+          </Prose>
+        </Container>
+      </article>
+    </main>
     <Footer />
   </Body>
 </html>
