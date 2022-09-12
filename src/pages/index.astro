@@ -14,7 +14,9 @@ import Body from "../components/Body.astro";
 import Prose from "../components/Prose.astro";
 import { Button } from "../components/Button.jsx";
 import StarScript from "../components/StarScript.astro";
-import ChevronRight from "../components/ChevronRight.astro";
+import { Card } from "../components/Card";
+import { formatDate } from "../utils";
+import LinkIcon from "../components/icons/LinkIcon.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -30,6 +32,7 @@ const projects = [
       "A search engine over 16,000 pieces of lute music. Download high quality PDFs in French Tablature, midi, and facsimiles.",
     img: LuteImg,
     link: "/lute-search",
+    label: "keliris.dev/lute-search",
   },
   {
     title: "spotify-tui",
@@ -37,6 +40,7 @@ const projects = [
       "An open source Spotify client for the terminal written in Rust 🚀. Over 10k ⭐ on Github and 100+ contributors.",
     img: SpotifyTuiImg,
     link: "https://github.com/Rigellute/spotify-tui",
+    label: "github.com",
   },
 ];
 ---
@@ -66,7 +70,7 @@ const projects = [
           >
             <div class="lg:col-span-2">
               <h1
-                class="inline bg-gradient-to-r from-sky-600 via-sky-400 to-sky-600 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
+                class="inline bg-gradient-to-r from-rose-600 via-yellow-400 to-rose-600 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
               >
                 Hi there, I'm Alexander
               </h1>
@@ -97,52 +101,65 @@ const projects = [
             <Prose>
               <h2 class="dark:text-sky-400">Recent Projects</h2>
             </Prose>
-            <div class="space-y-5">
+            <ul
+              role="list"
+              class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+            >
               {
                 projects.map((proj) => (
-                  <div class="flex flex-col items-center gap-x-8 rounded-md bg-gray-100 dark:bg-slate-800 p-4 md:flex-row hover:outline outline-sky-200 dark:outline-sky-500">
+                  <Card as="li">
                     <div>
                       <Image
-                        class="h-28 w-28 rounded-lg"
+                        class="h-12 w-12 rounded-full"
                         src={proj.img}
                         format={"webp"}
                       />
                     </div>
-                    <div>
-                      <h3 class="text-xl font-semibold text-slate-900 dark:text-slate-200">
-                        {proj.title}
-                      </h3>
-                      <p class="my-3 text-lg text-slate-900 dark:text-slate-200">
-                        {proj.description}
-                      </p>
-                      <Button variant={"primary"} href={proj.link}>
-                        Read More
-                      </Button>
-                    </div>
-                  </div>
+                    <h2 class="mt-6 text-base lg:text-xl xl:text-2xl font-semibold text-slate-800 dark:text-slate-100">
+                      <Card.Link href={proj.link}>{proj.title}</Card.Link>
+                    </h2>
+                    <Card.Description>{proj.description}</Card.Description>
+                    <p class="relative z-10 mt-6 flex text-sm font-medium text-slate-400 transition group-hover:text-sky-500 dark:text-slate-200">
+                      <LinkIcon className="h-6 w-6 flex-none" />
+                      <span class="ml-2">{proj.label}</span>
+                    </p>
+                  </Card>
                 ))
               }
-            </div>
+            </ul>
 
             <Prose>
               <h2 class="dark:text-sky-400">Recent Posts</h2>
             </Prose>
-            <div class="space-y-5">
-              {
-                posts.map((post) => (
-                  <div>
-                    <Prose>
-                      <h3>{post.frontmatter.title}</h3>
-                      <p>{post.frontmatter.description}</p>
-                    </Prose>
-                    <a class="text-sky-500 text-sm font-medium" href={post.url}>
-                      <div class="flex items-center mt-4">
-                        Read More <ChevronRight />
-                      </div>
-                    </a>
-                  </div>
-                ))
-              }
+            <div class="grid grid-cols-1 gap-y-20 lg:grid-cols-2">
+              <div>
+                <div class="flex flex-col gap-16">
+                  {
+                    posts.map((post) => (
+                      <Card as="article">
+                        <Card.Title href={post.url}>
+                          {post.frontmatter.title}
+                        </Card.Title>
+                        <Card.Eyebrow
+                          as="time"
+                          dateTime={post.frontmatter.pubDate}
+                          decorate
+                        >
+                          {formatDate(post.frontmatter.pubDate)}
+                        </Card.Eyebrow>
+                        <Card.Description>
+                          {post.frontmatter.description}
+                        </Card.Description>
+                        <Card.Cta>Read article</Card.Cta>
+                      </Card>
+                    ))
+                  }
+                </div>
+              </div>
+              <div class="space-y-10 lg:pl-16 xl:pl-24">
+                <!-- <div class="rounded-2xl border border-slate-200 p-6 dark:border-slate-700/40">
+                </div> -->
+              </div>
             </div>
           </div>
         </div>

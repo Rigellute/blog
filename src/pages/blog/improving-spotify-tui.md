@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "Improving spotify-tui: going async"
-description: "Async rust"
+description: "When http requests are synchronous, they block the rendering loop. The solution is to go async."
 pubDate: "2020-03-12"
 heroImage: "/placeholder-hero.jpg"
 ---

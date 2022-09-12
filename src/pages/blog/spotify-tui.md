@@ -5,7 +5,7 @@ description: "A text user interface to Spotify."
 pubDate: "2019-10-15"
 ---
 
-![](https://user-images.githubusercontent.com/12150276/64545371-84af3580-d320-11e9-867d-c368fd888b3b.gif)
+![](/blog-assets/spotify-tui.gif)
 
 Over the past couple of months I've been working on [spotify-tui](https://github.com/Rigellute/spotify-tui) - a Spotify terminal user interface.
 

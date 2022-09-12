@@ -49,7 +49,7 @@ On your local system, create a file called `Dockerrun.aws.json` and paste this i
 
 At this point, the console should look something like this:
 
-![](../images/aws-eb-meilisearch.png)
+![](/blog-assets/aws-eb-meilisearch.png)
 
 - Now press the "Configure more options" button at the bottom
 - Select the "Single instance (Free Tier eligible)" radio button (the EC2 instance will be `t2.micro` which is more than powerful enough for testing)

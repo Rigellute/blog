@@ -30,16 +30,16 @@ Assuming you already have a web server running somewhere with a routable HTTP en
 - Click "Add integration" and choose "HTTP" from the drop down
 - To forward all requests to your server, make sure you have "ANY" for the "Integration Type"
 - Enter your server URL and add `/{proxy}` at the end of the URL. Should look like this:
-  ![Create API](../images/apigw-https-proxy-post/part-1.png)
+  ![Create API](/blog-assets/apigw-https-proxy-post/part-1.png)
 - Enter a name and click next
 - On this next page the "Resource Path" field will be automatically populated, but this might be wrong if it looks like this `/%7Bproxy%7D`
 - Replace the value in that field to `/{proxy+}`
-  ![Configure Routes](../images/apigw-https-proxy-post/part-2.png)
+  ![Configure Routes](/blog-assets/apigw-https-proxy-post/part-2.png)
 - Click next
 - You can accept the defaults on this page if you're happy with the default stage
-  ![Stage](../images/apigw-https-proxy-post/part-3.png)
+  ![Stage](/blog-assets/apigw-https-proxy-post/part-3.png)
 - Click next and review your API
-  ![Review and Create](../images/apigw-https-proxy-post/part-4.png)
+  ![Review and Create](/blog-assets/apigw-https-proxy-post/part-4.png)
 - Finally, click create and wait for your HTTP API proxy to be deployed. This should only take a minute or so
 
 Now you can use your new HTTPS endpoint just as you would the endpoint from your server!
