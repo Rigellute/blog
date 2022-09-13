@@ -28,23 +28,38 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       <Header />
     </div>
     <main>
-    <Container>
-      <content>
-        <div class="mt-16 sm:mt-20">
-          <Prose>
-            <h1>Writing on software design, programming languages, and other tech.</h1>
-            <p>I share my thoughts on topics and projects I find interesting, collected here in chronoglogical order.</p>
-          </Prose>
-          <div class="my-16 md:border-l md:border-slate-100 md:pl-6 md:dark:border-slate-700/40">
-            <div class="flex max-w-3xl flex-col space-y-16">
-              {posts.map((post) => (
-                <ArticleCard date={post.frontmatter.pubDate} description={post.frontmatter.description} slug={post.url} title={post.frontmatter.title} />
-              ))}
+      <Container>
+        <content>
+          <div class="mt-16 sm:mt-20">
+            <Prose>
+              <h1>
+                Writing on software design, programming languages, and other
+                tech.
+              </h1>
+              <p>
+                I share my thoughts on topics and projects I find interesting,
+                collected here in chronoglogical order.
+              </p>
+            </Prose>
+            <div
+              class="my-16 md:border-l md:border-slate-100 md:pl-6 md:dark:border-slate-700/40"
+            >
+              <div class="flex max-w-3xl flex-col space-y-16">
+                {
+                  posts.map((post) => (
+                    <ArticleCard
+                      date={post.frontmatter.pubDate}
+                      description={post.frontmatter.description}
+                      slug={post.url}
+                      title={post.frontmatter.title}
+                    />
+                  ))
+                }
+              </div>
             </div>
           </div>
-        </div>
-      </content>
-    </Container>
+        </content>
+      </Container>
       <Footer />
     </main>
   </Body>

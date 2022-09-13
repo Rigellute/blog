@@ -19,11 +19,13 @@ import { formatDate } from "../utils";
 import LinkIcon from "../components/icons/LinkIcon.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
-).slice(0, 3);
+const posts = (await Astro.glob("./blog/*.{md,mdx}"))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .slice(0, 3);
 
 const projects = [
   {
@@ -49,8 +51,7 @@ const projects = [
     img: RigelImg,
     link: "https://rigel.netlify.app/",
     label: "rigel.netlify.app",
-
-  }
+  },
 ];
 ---
 
@@ -74,17 +75,15 @@ const projects = [
         class="bg-gradient-to-b from-sky-100 to-sky-50 dark:from-slate-900 dark:to-slate-800"
       >
         <Container>
-          <div
-            class="py-16 lg:pt-20 mx-auto items-center"
-          >
+          <div class="py-16 lg:pt-20 mx-auto items-center">
             <div class="">
-            <div class="">
-              <Image
-                class="h-16 w-16 mb-4 rounded-full"
-                src={ProfileImg}
-                format={"webp"}
-              />
-            </div>
+              <div class="">
+                <Image
+                  class="h-16 w-16 mb-4 rounded-full"
+                  src={ProfileImg}
+                  format={"webp"}
+                />
+              </div>
               <h1
                 class="inline bg-gradient-to-r from-rose-600 via-yellow-400 to-rose-600 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
               >
