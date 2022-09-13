@@ -13,17 +13,17 @@ const { title, slug, date, description } = Astro.props;
 ---
 
 <article class="md:grid md:grid-cols-4 md:items-baseline">
-  <Card class="md:col-span-3">
-    <Card.Title href={`/articles/${slug}`}>
+  <Card className="md:col-span-3">
+    <Card.Title href={slug}>
       {title}
     </Card.Title>
-    <Card.Eyebrow as="time" dateTime={date} class="md:hidden" decorate>
+    <Card.Eyebrow as="time" dateTime={date} className="md:hidden" decorate>
       {formatDate(date)}
     </Card.Eyebrow>
     <Card.Description>{description}</Card.Description>
     <Card.Cta>Read article</Card.Cta>
   </Card>
-  <Card.Eyebrow as="time" dateTime={date} class="mt-1 hidden md:block">
+  <Card.Eyebrow as="time" dateTime={date} className="mt-1 hidden md:block">
     {formatDate(date)}
   </Card.Eyebrow>
 </article>

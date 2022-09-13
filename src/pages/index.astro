@@ -2,7 +2,8 @@
 import { Image } from "@astrojs/image/components";
 import ProfileImg from "../assets/Profile.jpg";
 import LuteImg from "../assets/ai-renaissance-lute.png";
-import SpotifyTuiImg from "../assets/spotify-tui.png";
+import RigelImg from "../assets/ai-octane1.png";
+import SpotifyTuiImg from "../assets/ai-octane2.png";
 import Wave from "../components/Wave.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -12,7 +13,6 @@ import Container from "../components/Container.astro";
 import Scripts from "../components/Scripts.astro";
 import Body from "../components/Body.astro";
 import Prose from "../components/Prose.astro";
-import { Button } from "../components/Button.jsx";
 import StarScript from "../components/StarScript.astro";
 import { Card } from "../components/Card";
 import { formatDate } from "../utils";
@@ -23,13 +23,13 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
-);
+).slice(0, 3);
 
 const projects = [
   {
     title: "Lute music search",
     description:
-      "A search engine over 16,000 pieces of lute music. Download high quality PDFs in French Tablature, midi, and facsimiles.",
+      "🧾 A search engine over 18,000 pieces of lute music. Download high quality PDFs in French Tablature, midi, and facsimiles.",
     img: LuteImg,
     link: "/lute-search",
     label: "keliris.dev/lute-search",
@@ -42,6 +42,15 @@ const projects = [
     link: "https://github.com/Rigellute/spotify-tui",
     label: "github.com",
   },
+  {
+    title: "Rigel theme",
+    description:
+      "🌌 Colorscheme based on the star Rigel ✨. Use in your vim, terminal and Slack.",
+    img: RigelImg,
+    link: "https://rigel.netlify.app/",
+    label: "rigel.netlify.app",
+
+  }
 ];
 ---
 
@@ -66,9 +75,16 @@ const projects = [
       >
         <Container>
           <div
-            class="py-16 lg:pt-20 mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 lg:grid-cols-3 xl:gap-x-16"
+            class="py-16 lg:pt-20 mx-auto items-center"
           >
-            <div class="lg:col-span-2">
+            <div class="">
+            <div class="">
+              <Image
+                class="h-16 w-16 mb-4 rounded-full"
+                src={ProfileImg}
+                format={"webp"}
+              />
+            </div>
               <h1
                 class="inline bg-gradient-to-r from-rose-600 via-yellow-400 to-rose-600 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
               >
@@ -82,13 +98,6 @@ const projects = [
                 and articles.
               </p>
             </div>
-            <div class="flex justify-center aspect-square">
-              <Image
-                class="object-cover rounded-lg"
-                src={ProfileImg}
-                format={"webp"}
-              />
-            </div>
           </div>
         </Container>
         <Wave />
@@ -99,7 +108,7 @@ const projects = [
         <div class="pt-10">
           <div class="space-y-10">
             <Prose>
-              <h2 class="dark:text-sky-400">Recent Projects</h2>
+              <h2 id="projects" class="dark:text-sky-400">Recent Projects</h2>
             </Prose>
             <ul
               role="list"
@@ -129,7 +138,7 @@ const projects = [
             </ul>
 
             <Prose>
-              <h2 class="dark:text-sky-400">Recent Posts</h2>
+              <h2 id="blog" class="dark:text-sky-400">Recent Posts</h2>
             </Prose>
             <div class="grid grid-cols-1 gap-y-20 lg:grid-cols-2">
               <div>
