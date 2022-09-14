@@ -64,10 +64,10 @@ const projects = [
   <Body>
     <Scripts />
     <StarScript />
-    <div class="bg-sky-100 dark:bg-slate-900">
-      <Header />
-    </div>
-    <div id="hero">
+    <div id="hero" class="relative">
+      <div class="absolute w-full">
+        <Header />
+      </div>
       <div class="motion-reduce:hidden">
         <div id="stars" class="stars hidden dark:block"></div>
       </div>
@@ -75,28 +75,24 @@ const projects = [
         class="bg-gradient-to-b from-sky-100 to-sky-50 dark:from-slate-900 dark:to-slate-800"
       >
         <Container>
-          <div class="py-16 lg:pt-20 mx-auto items-center">
-            <div class="">
-              <div class="">
-                <Image
-                  class="h-16 w-16 mb-4 rounded-full"
-                  src={ProfileImg}
-                  format={"webp"}
-                />
-              </div>
-              <h1
-                class="inline bg-gradient-to-r from-rose-500 via-sky-500 to-rose-500 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
-              >
-                Hi there, I'm Alexander
-              </h1>
-              <p
-                class="mt-3 text-2xl tracking-tight text-slate-500 dark:text-slate-400"
-              >
-                I am a software engineer, musician and lover of learning. This
-                is my little corner of the internet where I share my projects
-                and articles.
-              </p>
-            </div>
+          <div class="pb-16 pt-32 lg:pt-56 mx-auto items-center">
+            <Image
+              class="h-16 w-16 mb-4 rounded-full"
+              src={ProfileImg}
+              format={"webp"}
+            />
+            <h1
+              class="inline bg-gradient-to-r from-rose-500 via-sky-600 to-rose-500 dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 bg-clip-text font-display text-5xl xl:text-7xl tracking-tight text-transparent"
+            >
+              Hi there, I'm Alexander
+            </h1>
+            <p
+              class="mt-3 text-2xl tracking-tight text-slate-500 dark:text-slate-400"
+            >
+              I am a software engineer, musician and lover of learning. This is
+              my little corner of the internet where I share my projects and
+              articles.
+            </p>
           </div>
         </Container>
         <Wave />
@@ -116,7 +112,7 @@ const projects = [
               {
                 projects.map((proj) => (
                   <Card as="li">
-                    <div>
+                    <div class="z-10">
                       <Image
                         class="h-12 w-12 rounded-full"
                         src={proj.img}
