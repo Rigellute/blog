@@ -27,6 +27,6 @@
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "clsx": "^1.2.1",
-    "daisyui": "^2.24.0"
+    "meilisearch": "^0.29.1"
   }
 }

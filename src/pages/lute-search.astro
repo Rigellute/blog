@@ -5,9 +5,9 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Scripts from "../components/Scripts.astro";
 import Body from "../components/Body.astro";
-import ArticleCard from "../components/ArticleCard.astro";
 import Container from "../components/Container.astro";
 import Prose from "../components/Prose.astro";
+import { LuteSearch } from "../components/LuteSearch";
 ---
 
 <!DOCTYPE html>
@@ -38,10 +38,8 @@ import Prose from "../components/Prose.astro";
                 </a>
               </p>
             </Prose>
-            <div
-              class="my-16 md:border-l md:border-slate-200 md:pl-6 md:dark:border-slate-700/40"
-            >
-              <div class="flex max-w-3xl flex-col space-y-16"></div>
+            <div>
+              <LuteSearch client:load />
             </div>
           </div>
         </content>
