@@ -94,7 +94,7 @@ export function Header({ title }) {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <a href="/" aria-label="Home">
-              <p className="text-xl font-semibold text-violet-500 dark:text-violet-400">
+              <p className="text-xl font-semibold text-violet-500 dark:text-sky-300">
                 {title}
               </p>
             </a>

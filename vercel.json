@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/aws-apigw-https-proxy",
+      "destination": "/blog/aws-apigw-https-proxy",
+      "permanent": true
+    },
+    {
+      "source": "/meiliesearch",
+      "destination": "/blog/meiliesearch",
+      "permanent": true
+    },
+    {
+      "source": "/spotify-tui",
+      "destination": "/blog/spotify-tui",
+      "permanent": true
+    },
+    {
+      "source": "/rigel-theme",
+      "destination": "/blog/rigel-theme",
+      "permanent": true
+    },
+    {
+      "source": "/shades-of-purple-vim",
+      "destination": "/blog/shades-of-purple-vim",
+      "permanent": true
+    }
+  ]
+}
