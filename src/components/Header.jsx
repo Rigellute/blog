@@ -19,7 +19,7 @@ function MobileNavIcon({ open }) {
   return (
     <svg
       aria-hidden="true"
-      className="h-3.5 w-3.5 overflow-visible stroke-slate-700 dark:stroke-slate-400"
+      className="h-3.5 w-3.5 overflow-visible stroke-slate-400"
       fill="none"
       strokeWidth={2}
       strokeLinecap="round"
@@ -94,7 +94,7 @@ export function Header({ title }) {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <a href="/" aria-label="Home">
-              <p className="text-xl font-semibold text-violet-500 dark:text-sky-300">
+              <p className="text-xl font-semibold text-sky-300">
                 {title}
               </p>
             </a>
@@ -112,7 +112,7 @@ export function Header({ title }) {
               data-aw-toggle-color-scheme
             >
               <Moon className="hidden dark:block fill-slate-400" />
-              <Sun className="block dark:hidden fill-slate-600" />
+              <Sun className="block dark:hidden fill-slate-400" />
             </button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />

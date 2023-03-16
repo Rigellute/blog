@@ -14,7 +14,6 @@ const {} = Astro.props;
 
   const hero = document.getElementById("hero");
   const starContainer = document.getElementById("stars");
-  const wave = document.getElementById("wave");
   const mobileWidth = 620;
 
   function addStars(): () => void {
@@ -23,7 +22,7 @@ const {} = Astro.props;
       return () => {};
     }
 
-    if (!starContainer || !hero || !wave) {
+    if (!starContainer || !hero) {
       return () => {};
     }
 
@@ -31,7 +30,7 @@ const {} = Astro.props;
     const { width: heroW, height: heroH } = hero.getBoundingClientRect();
 
     // `safeY` is the area above the waves (hills)
-    const safeY = heroH - wave.getBoundingClientRect().height;
+    const safeY = heroH;
 
     const buildStar = (isBright = false) => {
       const x = getRandomInt(0, heroW);
