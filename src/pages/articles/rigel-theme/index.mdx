@@ -1,7 +1,16 @@
----
-title: 'A colorscheme called Rigel'
-date: '2019-08-11'
----
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import vim from './vim.png'
+import terminal from './terminal.png'
+
+export const meta = {
+  author: 'Alexander Keliris',
+  date: '2019-08-11',
+  title: 'A colorscheme called Rigel',
+  description: `Inspired by the bright blue star in the constellation of Orion.`,
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 This colorscheme is based on the star [Rigel](https://en.wikipedia.org/wiki/Rigel) - the bright blue star in the constellation of Orion.
 
@@ -17,8 +26,8 @@ If you spot something that doesn't look right, please create an issue on [Github
 
 ### Vim
 
-<img alt="vim" src="https://user-images.githubusercontent.com/12150276/62640613-e0f5f280-b939-11e9-8d34-f9b61cbdc842.png">
+<Image src={vim} alt="vim" />
 
 ### Terminal
 
-<img alt="terminal" src="https://user-images.githubusercontent.com/12150276/60734655-8cc9ae00-9f48-11e9-994e-70f055945cfb.png">
+<Image src={terminal} alt="terminal" />

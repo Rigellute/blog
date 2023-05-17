@@ -1,10 +1,17 @@
----
-title: 'Spotify for the terminal written in Rust'
-date: '2019-10-15'
-isHiddenFromPosts: false
----
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import demo from './demo.gif'
 
-![](https://user-images.githubusercontent.com/12150276/64545371-84af3580-d320-11e9-867d-c368fd888b3b.gif)
+export const meta = {
+  author: 'Alexander Keliris',
+  date: '2019-10-15',
+  title: 'Spotify for the terminal written in Rust 🚀',
+  description: `When coding, I want to stay in the terminal as much as I can. So I built Spotify for the terminal.`,
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={demo} alt="Demo of spotify-tui in the terminal" />
 
 Over the past couple of months I've been working on [spotify-tui](https://github.com/Rigellute/spotify-tui) - a Spotify terminal user interface.
 

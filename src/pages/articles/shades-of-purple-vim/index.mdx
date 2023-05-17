@@ -1,9 +1,18 @@
----
-title: 'Shades of Purple: VSCode theme ported to vim'
-date: '2019-07-11'
----
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import vim from './vim.png'
 
-![](https://user-images.githubusercontent.com/12150276/57929517-763d9980-78ab-11e9-9735-8a3700b52cf0.png)
+export const meta = {
+  author: 'Alexander Keliris',
+  date: '2019-07-11',
+  title: 'Shades of Purple: VSCode theme ported to vim',
+  description: `Despite not using VSCode, I saw one of my colleagues using the shades-of-purple, and I loved it!`,
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={vim} alt="vim theme" />
+
 Despite not using VSCode, I saw one of my colleagues using [this purple theme](https://github.com/ahmadawais/shades-of-purple-vscode) and I loved it.
 
 I wanted to start using it in vim, but discovered that there was not yet an implementation for it.

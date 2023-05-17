@@ -1,7 +1,13 @@
----
-title: 'Improving spotify-tui: going async'
-date: '2020-03-12'
----
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Alexander Keliris',
+  date: '2020-03-12',
+  title: 'Improving spotify-tui: going async',
+  description: `In previous versions of spotify-tui, there was a major issue that caused the UI to freeze and not respond to user key events. The solution? Don't block the main event loop 😅.`,
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
 
 In [spotify-tui](https://github.com/Rigellute/spotify-tui) versions 0.15.0 and prior there was a major issue that caused the UI to freeze and not respond to user key events.
 
