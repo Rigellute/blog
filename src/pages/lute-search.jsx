@@ -8,6 +8,7 @@ import {
   Hits,
   Highlight,
   Configure,
+  Pagination,
 } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 
@@ -91,10 +92,21 @@ export default function LuteSearch() {
         title="Search Lute Music"
         intro="This index contains more than 16,000 lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'."
       >
+        <p className="mb-2 text-right">
+          <Link
+            href="https://www.lutemusic.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-sm font-semibold text-teal-500"
+          >
+            Source
+          </Link>
+        </p>
         <InstantSearch indexName="lute" searchClient={searchClient}>
           <SearchBox placeholder="Search by composer, title or subtitle" />
           <Hits hitComponent={Hit} />
           <Configure hitsPerPage={6} />
+          <Pagination showLast={true} />
         </InstantSearch>
       </SimpleLayout>
     </>

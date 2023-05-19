@@ -8,7 +8,7 @@
 }
 
 .ais-Highlight-highlighted {
-  @apply rounded bg-teal-300 dark:bg-teal-800 not-italic;
+  @apply rounded bg-teal-300 not-italic dark:bg-teal-900;
 }
 
 .ais-SearchBox-input {
@@ -21,4 +21,28 @@
 
 .ais-SearchBox-reset {
   @apply hidden;
+}
+
+.ais-Pagination-list {
+  @apply mt-12 flex justify-center;
+}
+
+.ais-Pagination-item {
+  @apply relative inline-flex items-center text-sm font-semibold text-zinc-600 ring-1 ring-inset ring-zinc-300 hover:bg-zinc-50 focus:z-20 focus:outline-offset-0 dark:text-zinc-400;
+}
+
+.ais-Pagination-item:first-child {
+  @apply rounded-l;
+}
+
+.ais-Pagination-item:last-child {
+  @apply rounded-r;
+}
+
+.ais-Pagination-link {
+  @apply px-4 py-2;
+}
+
+.ais-Pagination-link--selected {
+  @apply bg-teal-600;
 }
