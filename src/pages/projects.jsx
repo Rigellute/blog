@@ -3,47 +3,40 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
+import logoSpotify from '@/images/logos/spotify-logo.png'
 import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoStar from '@/images/logos/stargazer.svg'
+import logoRledger from '@/images/logos/rledger.svg'
+import logoMusic from '@/images/logos/music.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Lute Music Search',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'Extremely fast and relevant search that makes it easier to find new lute music.',
+    link: { href: '/lute-search', label: 'keliris.dev/lute-search' },
+    logo: logoMusic,
   },
   {
-    name: 'Animaginary',
+    name: 'spotify-tui',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Spotify for the terminal written in Rust 🚀.',
+    link: { href: 'https://github.com/Rigellute/spotify-tui', label: 'github.com' },
+    logo: logoSpotify,
   },
   {
-    name: 'HelioStream',
+    name: 'Rigel Theme',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      '🌌 Colorscheme based on the star Rigel ✨.',
+    link: { href: 'https://rigel.netlify.app/', label: 'rigel.netlify.app' },
+    logo: logoStar,
   },
   {
-    name: 'cosmOS',
+    name: 'Changelog: rledger',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'Open source plain text accounting, written in Rust. This site serves as the changelog for the project.',
+    link: { href: 'https://log.rledger.org/', label: 'log.rledger.org' },
+    logo: logoRledger,
   },
 ]
 
@@ -65,11 +58,11 @@ export default function Projects() {
         <title>Projects - Alexander Keliris</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Things I’ve made and working on."
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
+        title="Things I’ve made and working on."
         intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
       >
         <ul
