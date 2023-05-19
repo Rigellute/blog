@@ -18,15 +18,16 @@ const projects = [
   },
   {
     name: 'spotify-tui',
-    description:
-      'Spotify for the terminal written in Rust 🚀.',
-    link: { href: 'https://github.com/Rigellute/spotify-tui', label: 'github.com' },
+    description: 'Spotify for the terminal written in Rust 🚀.',
+    link: {
+      href: 'https://github.com/Rigellute/spotify-tui',
+      label: 'github.com',
+    },
     logo: logoSpotify,
   },
   {
     name: 'Rigel Theme',
-    description:
-      '🌌 Colorscheme based on the star Rigel ✨.',
+    description: '🌌 Colorscheme based on the star Rigel ✨.',
     link: { href: 'https://rigel.netlify.app/', label: 'rigel.netlify.app' },
     logo: logoStar,
   },
@@ -55,10 +56,7 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects - Alexander Keliris</title>
-        <meta
-          name="description"
-          content="Things I’ve made and working on."
-        />
+        <meta name="description" content="Things I’ve made and working on." />
       </Head>
       <SimpleLayout
         title="Things I’ve made and working on."

@@ -32,84 +32,92 @@ export default function Uses() {
         <title>Uses - Alexander Keliris</title>
         <meta
           name="description"
-          content="Software I use, gadgets I love, and other things I recommend."
+          content="Software I use, programming languages I love, and other things I recommend."
         />
       </Head>
       <SimpleLayout
-        title="Software I use, gadgets I love, and other things I recommend."
-        intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
+        title="Software I use, programming languages I love, and other things I recommend."
+        intro="I get asked a lot about the things I use to build software and stay productive. Here’s a big list of all of my favorite stuff."
       >
         <div className="space-y-20">
+          <ToolsSection title="Programming Languages">
+            <Tool title="Rust">
+              Rust is my favourite programming language thanks to it’s powerful
+              type system and modern tooling. It feels amazing when you get your
+              code to successfully compile and know that it will run with a high
+              degree of safety. And the you get unparalled runtime performance
+              🚀.
+            </Tool>
+            <Tool title="Typescript">
+              I’ve spent most of my career in the Typescript/Javascript/Node.js
+              ecosystem. Despite having my frustrations with Typescript, it is
+              an excellent upgrade to vanilla Javascript and I’ve used it
+              extensively.
+            </Tool>
+            <Tool title="Go">
+              Go is a great choice for backend web servers. Can be very
+              productive and you get a nice fast binary at the end. It can get a
+              little frustrating when you think like a Rust developer (no
+              enums!) but I would take a Go project over a Node.js project.
+            </Tool>
+          </ToolsSection>
           <ToolsSection title="Workstation">
-            <Tool title="16” MacBook Pro, M1 Max, 64GB RAM (2021)">
-              I was using an Intel-based 16” MacBook Pro prior to this and the
-              difference is night and day. I’ve never heard the fans turn on a
-              single time, even under the incredibly heavy loads I put it
-              through with our various launch simulations.
+            <Tool title="15” MacBook Pro (2019)">
+              This is an Intel-based MacBook Pro, and has served me well over
+              the years. Ready to upgrade to the new Apple Silicon though!
             </Tool>
-            <Tool title="Apple Pro Display XDR (Standard Glass)">
-              The only display on the market if you want something HiDPI and
-              bigger than 27”. When you’re working at planetary scale, every
-              pixel you can get counts.
+            <Tool title="Custom-built PC (Windows & WSL)">
+              This PC is my workhorse. Although the host OS is Windows, I mostly
+              stay in WSL, which is fantastic. WSL lets me keep my hard-won unix
+              knowledge from my years on macOS. I should probably just install a
+              linux distro directly, but Windows has it’s conveniences for
+              non-dev tasks.
             </Tool>
-            <Tool title="IBM Model M SSK Industrial Keyboard">
-              They don’t make keyboards the way they used to. I buy these any
-              time I see them go up for sale and keep them in storage in case I
-              need parts or need to retire my main.
-            </Tool>
-            <Tool title="Apple Magic Trackpad">
-              Something about all the gestures makes me feel like a wizard with
-              special powers. I really like feeling like a wizard with special
-              powers.
-            </Tool>
-            <Tool title="Herman Miller Aeron Chair">
-              If I’m going to slouch in the worst ergonomic position imaginable
-              all day, I might as well do it in an expensive chair.
+            <Tool title="Custom-built Keyboards">
+              I regularly use two custom-built keyboards. One is an ortholinear
+              split keyboard and the other is a plank-style 40% board. Both have
+              small form factors, which means I am always a one key distance
+              away from whatever I need to type, but has the tradeoff of needing
+              to remember many custom combinations and layers. Both keyboards
+              are configured using QMK.
             </Tool>
           </ToolsSection>
           <ToolsSection title="Development tools">
-            <Tool title="Sublime Text 4">
-              I don’t care if it’s missing all of the fancy IDE features
-              everyone else relies on, Sublime Text is still the best text
-              editor ever made.
+            <Tool title="Neovim">
+              When I just want to focus and code, nothing beats Neovim. I have
+              been using Neovim has my primary editor for around 5 years and
+              love it. Vim is well known for efficiency and speed, and my flow
+              state is best achived when coding in nvim.
             </Tool>
-            <Tool title="iTerm2">
-              I’m honestly not even sure what features I get with this that
-              aren’t just part of the macOS Terminal but it’s what I use.
+            <Tool title="JetBrains">
+              Along side Neovim, I use IntelliJ IDEA Ultimate (with vim bindings
+              enabled). Despite configuring nvim to have an IDE grade feature
+              set, the JetBrains IDEs are best-in-class for intellisense,
+              refactoring and debugging. When I need to do big refactors, like
+              moving files/folders or use the debugger, I always reach for
+              Intellij.
             </Tool>
-            <Tool title="TablePlus">
-              Great software for working with databases. Has saved me from
-              building about a thousand admin interfaces for my various projects
-              over the years.
+            <Tool title="kitty">
+              On my Macbook, I use Kitty. It’s is a very fast terminal emulator
+              that supports ligatures, so my nvim setup is still aesthetic.
             </Tool>
-          </ToolsSection>
-          <ToolsSection title="Design">
-            <Tool title="Figma">
-              We started using Figma as just a design tool but now it’s become
-              our virtual whiteboard for the entire company. Never would have
-              expected the collaboration features to be the real hook.
+            <Tool title="Windows Terminal">
+              On my Windows PC, I use the Windows Terminal. Pleasantly suprised
+              how good this terminal emulator is. Easily customisable, very
+              fast, and is my gatewaty to WSL.
             </Tool>
-          </ToolsSection>
-          <ToolsSection title="Productivity">
-            <Tool title="Alfred">
-              It’s not the newest kid on the block but it’s still the fastest.
-              The Sublime Text of the application launcher world.
+            <Tool title="Zellij">
+              I use Zellij for my terminal workspace. I used tmux for years, but
+              Zellij comes configured how I like out-of-the-box.
             </Tool>
-            <Tool title="Reflect">
-              Using a daily notes system instead of trying to keep things
-              organized by topics has been super powerful for me. And with
-              Reflect, it’s still easy for me to keep all of that stuff
-              discoverable by topic even though all of my writing happens in the
-              daily note.
-            </Tool>
-            <Tool title="SavvyCal">
-              Great tool for scheduling meetings while protecting my calendar
-              and making sure I still have lots of time for deep work during the
-              week.
-            </Tool>
-            <Tool title="Focus">
-              Simple tool for blocking distracting websites when I need to just
-              do the work and get some momentum going.
+            <Tool title="LazyVim">
+              I built up a large vim config over the years, but got fatigued
+              maintaining it. Intellij was a dream to use as it hardly needs any
+              configuration, so I started to get jaded with my vim config. But
+              then I discovered LazyVim, which transforms Neovim into a
+              full-fledged IDE with hardly any effort from me. I’ve tried other
+              vim config systems before, but this hits the sweet spot as it’s
+              super fast and easy to customize and extend.
             </Tool>
           </ToolsSection>
         </div>
