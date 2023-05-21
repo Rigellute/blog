@@ -50,7 +50,7 @@ const linkPropertyList = [
 
 const Hit = ({ hit }) => (
   <div key={hit.id}>
-    <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+    <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
       <Highlight attribute="title" hit={hit} /> -{' '}
       <Highlight attribute="composer" hit={hit} />
     </h2>
