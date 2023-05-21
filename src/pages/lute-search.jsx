@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { Prose } from '@/components/Prose'
 import {
   InstantSearch,
   SearchBox,
@@ -109,6 +110,10 @@ export default function LuteSearch() {
           <Configure hitsPerPage={6} />
           <Pagination showLast={true} />
         </InstantSearch>
+        <Prose className="mt-8">
+          Having problems with search? Reach out to me:{' '}
+          <Link href="mailto:alex@keliris.dev">alex@keliris.dev</Link>
+        </Prose>
       </SimpleLayout>
     </>
   )
