@@ -61,44 +61,67 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Alexander Keliris. I live in the UK, where I consult for clients all over the world.
+              I’m Alexander Keliris. I live in the UK, where I consult for
+              clients all over the world.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Before I discovered my passion for programming, I intended to become an academic philosopher. 
-                I studied for a BA in Philosophy at University and then an MA.
-                But before continuing on to a PhD, I decided to take a break from education.
+                Before I discovered my passion for programming, I intended to
+                become an academic philosopher. I studied for a BA in Philosophy
+                at University and then an MA. But before continuing on to a PhD,
+                I decided to take a break from education.
               </p>
               <p>
-                I got an internship at a classical music publishing house. Music was my first passion,
-                so this seemed like a good start. It was here that I got involved in an internal startup building
-                an app to read sheet music. This was the spark that kindled my love of programming.
+                I got an internship at a classical music publishing house. Music
+                was my first passion, so this seemed like a good start. It was
+                here that I got involved in an internal startup building an app
+                to read sheet music. This was the spark that kindled my love of
+                programming.
               </p>
               <p>
-                I then left the internship and taught myself to code while trying to build a startup, whilst doing some
-                freelance web development on the side to support myself. 6 months later, I couldn’t keep the startup going,
-                and so I got my first full-time job as a full stack developer at an investor-backed early-stage startup called Rota.
-                I was the third technical hire, so got to have a large impact early on.
+                I then left the internship and taught myself to code while
+                trying to build a startup, whilst doing some freelance web
+                development on the side to support myself. 6 months later, I
+                couldn’t keep the startup going, and so I got my first full-time
+                job as a full stack developer at an investor-backed early-stage
+                startup called Rota. I was the third technical hire, so got to
+                have a large impact early on.
               </p>
               <p>
-                From there, I founded my consulting company, Keliris Consulting, where I have been contracting ever since.
-                I’ve consulted for startups and large enterprises across the full stack, where I strive to have an
-                immediate and significant impact on infrastructure decisions, architecture, implementation, CI/CD and design.
+                From there, I founded my consulting company, Keliris Consulting,
+                where I have been contracting ever since. I’ve consulted for
+                startups and large enterprises across the full stack, where I
+                strive to have an immediate and significant impact on
+                infrastructure decisions, architecture, implementation, CI/CD
+                and design.
               </p>
               <p>
-                Talk to me about Rust 🦀, Golang, Typescript, Javascript, Node.js, React, React Native, Kubernetes, AWS, Docker, and much more!
+                Talk to me about Rust 🦀, Golang, Typescript, Javascript,
+                Node.js, React, React Native, Kubernetes, AWS, Docker, and much
+                more!
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="https://twitter.com/alexkeliris" icon={TwitterIcon}>
+              <SocialLink
+                href="https://twitter.com/alexkeliris"
+                icon={TwitterIcon}
+              >
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href="https://github.com/Rigellute/" icon={GitHubIcon} className="mt-4">
+              <SocialLink
+                href="https://github.com/Rigellute/"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="https://linkedin.com/in/alexander-keliris-808270b2" icon={LinkedInIcon} className="mt-4">
+              <SocialLink
+                href="https://linkedin.com/in/alexander-keliris-808270b2"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink

@@ -5,11 +5,7 @@ import clsx from 'clsx'
 
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoFormidable from '@/images/logos/formidable.svg'
 import logoRota from '@/images/logos/rota.svg'
@@ -139,7 +135,13 @@ function Resume() {
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image style={{ backgroundColor: role.backgroundColor }} src={role.logo} alt="" className={clsx(['h-7', 'w-7', 'rounded-full', role.className])} unoptimized />
+              <Image
+                style={{ backgroundColor: role.backgroundColor }}
+                src={role.logo}
+                alt=""
+                className={clsx(['h-7', 'w-7', 'rounded-full', role.className])}
+                unoptimized
+              />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
@@ -183,22 +185,24 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[spotifyTui, lute, keyboard, penCode, rledger].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
+        {[spotifyTui, lute, keyboard, penCode, rledger].map(
+          (image, imageIndex) => (
+            <div
+              key={image.src}
+              className={clsx(
+                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+                rotations[imageIndex % rotations.length]
+              )}
+            >
+              <Image
+                src={image}
+                alt=""
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          )
+        )}
       </div>
     </div>
   )
@@ -209,7 +213,8 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Alexander Keliris - Software engineer, consultant, and lover of learning.
+          Alexander Keliris - Software engineer, consultant, and lover of
+          learning.
         </title>
         <meta
           name="description"
@@ -223,9 +228,10 @@ export default function Home({ articles }) {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Alexander, a software engineer and consultant based in The UK.
-            I’m the founder of Keliris Consulting, where we help enterprises build modern, fast and reliable software.
-            I mostly focus on Rust 🦀, Golang, Node.js, Typescript, React and AWS.
-            I’m also a keen musician, playing the piano, guitar and renaissance lute.
+            I’m the founder of Keliris Consulting, where we help enterprises
+            build modern, fast and reliable software. I mostly focus on Rust 🦀,
+            Golang, Node.js, Typescript, React and AWS. I’m also a keen
+            musician, playing the piano, guitar and renaissance lute.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
