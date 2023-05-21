@@ -17,6 +17,7 @@ const searchClient = instantMeiliSearch(
   process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY,
   {
     finitePagination: true,
+    primaryKey: 'id',
   }
 )
 
