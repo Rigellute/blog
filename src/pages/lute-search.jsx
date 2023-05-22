@@ -12,6 +12,7 @@ import {
   Pagination,
 } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
+import { NextSeo } from 'next-seo'
 
 const searchClient = instantMeiliSearch(
   process.env.NEXT_PUBLIC_MEILISEARCH_HOST,
@@ -86,10 +87,10 @@ const Hit = ({ hit }) => (
 export default function LuteSearch() {
   return (
     <>
-      <Head>
-        <title>Search Lute Music - Alexander Keliris</title>
-        <meta name="description" content="Search over 16,000 lute pieces." />
-      </Head>
+      <NextSeo
+        title="Search Lute Music - Alexander Keliris"
+        description="Search over 16,000 lute pieces."
+      />
       <SimpleLayout
         title="Search Lute Music"
         intro="This index contains more than 16,000 lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'."

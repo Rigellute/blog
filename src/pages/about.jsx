@@ -1,15 +1,11 @@
+import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -40,13 +36,10 @@ function MailIcon(props) {
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About - Alexander Keliris</title>
-        <meta
-          name="description"
-          content="I’m Alexander Keliris. I live in the UK, where I build software for companies all over the world.."
-        />
-      </Head>
+      <NextSeo
+        title="About - Alexander Keliris"
+        description="I’m Alexander Keliris. I live in the UK, where I build software for companies all over the world."
+      />
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">

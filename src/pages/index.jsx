@@ -19,6 +19,7 @@ import penCode from '@/images/photos/pen-code.jpeg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
+import { NextSeo } from 'next-seo'
 
 function BriefcaseIcon(props) {
   return (
@@ -211,16 +212,10 @@ function Photos() {
 export default function Home({ articles }) {
   return (
     <>
-      <Head>
-        <title>
-          Alexander Keliris - Software engineer, consultant, and lover of
-          learning.
-        </title>
-        <meta
-          name="description"
-          content="I’m Alexander, a software engineer and consultant based in The UK. I’m the founder of Keliris Consulting, where we help enterprises build modern, fast and reliable software."
-        />
-      </Head>
+      <NextSeo
+        title="Alexander Keliris - Software engineer, consultant, and lover of learning."
+        description="I’m Alexander, a software engineer and consultant based in The UK. I’m the founder of Keliris Consulting, where we help enterprises build modern, fast and reliable software."
+      />
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

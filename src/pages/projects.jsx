@@ -7,6 +7,7 @@ import logoSpotify from '@/images/logos/spotify-logo.png'
 import logoStar from '@/images/logos/stargazer.svg'
 import logoRledger from '@/images/logos/rledger.svg'
 import logoMusic from '@/images/logos/music.svg'
+import { NextSeo } from 'next-seo'
 
 const projects = [
   {
@@ -54,10 +55,10 @@ function LinkIcon(props) {
 export default function Projects() {
   return (
     <>
-      <Head>
-        <title>Projects - Alexander Keliris</title>
-        <meta name="description" content="Things I’ve made and working on." />
-      </Head>
+      <NextSeo
+        title="Projects - Alexander Keliris"
+        description="Things I’ve made and working on."
+      />
       <SimpleLayout
         title="Things I’ve made and working on."
         intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
+import { NextSeo } from 'next-seo'
 
 function ArrowLeftIcon(props) {
   return (
@@ -32,10 +33,10 @@ export function ArticleLayout({
 
   return (
     <>
-      <Head>
-        <title>{`${meta.title} - Alexander Keliris`}</title>
-        <meta name="description" content={meta.description} />
-      </Head>
+      <NextSeo
+        title={`${meta.title} - Alexander Keliris`}
+        description={meta.description}
+      />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">

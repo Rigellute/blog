@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { NextSeo } from 'next-seo'
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -28,13 +29,10 @@ function Tool({ title, href, children }) {
 export default function Uses() {
   return (
     <>
-      <Head>
-        <title>Uses - Alexander Keliris</title>
-        <meta
-          name="description"
-          content="Software I use, programming languages I love, and other things I recommend."
-        />
-      </Head>
+      <NextSeo
+        title="Uses - Alexander Keliris"
+        description="Software I use, programming languages I love, and other things I recommend."
+      />
       <SimpleLayout
         title="Software I use, programming languages I love, and other things I recommend."
         intro="I get asked a lot about the things I use to build software and stay productive. Here’s a big list of all of my favorite stuff."
