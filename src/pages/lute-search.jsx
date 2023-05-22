@@ -112,7 +112,9 @@ export default function LuteSearch() {
         </InstantSearch>
         <Prose className="mt-8">
           Having problems with search? Reach out to me:{' '}
-          <Link href="mailto:alex@keliris.dev">alex@keliris.dev</Link>
+          <Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}>
+            {process.env.NEXT_PUBLIC_EMAIL}
+          </Link>
         </Prose>
       </SimpleLayout>
     </>

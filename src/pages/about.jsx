@@ -125,11 +125,11 @@ export default function About() {
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:alex@keliris.dev"
+                href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                alex@keliris.dev
+                {process.env.NEXT_PUBLIC_EMAIL}
               </SocialLink>
             </ul>
           </div>
