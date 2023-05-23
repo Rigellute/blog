@@ -20,6 +20,7 @@ import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { NextSeo } from 'next-seo'
+import { generateSitemap } from '@/lib/generateSitemap'
 
 function BriefcaseIcon(props) {
   return (
@@ -271,6 +272,7 @@ export default function Home({ articles }) {
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
     await generateRssFeed()
+    await generateSitemap()
   }
 
   return {
