@@ -59,26 +59,25 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Before I discovered my passion for programming, I intended to
-                become an academic philosopher. I studied for a BA in Philosophy
+                Before discovering my passion for programming, I intended to
+                become an academic philosopher: studying for a BA in Philosophy
                 at University and then an MA. But before continuing on to a PhD,
                 I decided to take a break from education.
               </p>
               <p>
-                I got an internship at a classical music publishing house. Music
-                was my first passion, so this seemed like a good start. It was
-                here that I got involved in an internal startup building an app
-                to read sheet music. This was the spark that kindled my love of
-                programming.
+                I took an internship at a classical music publishing house.
+                Music was my first passion, so this seemed like a good start. It
+                was here that I got involved in an internal startup building an
+                app to read sheet music. This was the spark that kindled my love
+                of programming.
               </p>
               <p>
-                I then left the internship and taught myself to code while
-                trying to build a startup, whilst doing some freelance web
-                development on the side to support myself. 6 months later, I
-                couldn’t keep the startup going, and so I got my first full-time
-                job as a full stack developer at an investor-backed early-stage
-                startup called Rota. I was the third technical hire, so got to
-                have a large impact early on.
+                I then left the internship to try building my own startup. I
+                taught myself to code, whilst doing freelance web development on
+                the side. Six months later, the startup wasn’t sustainable, so I
+                started my first full-time job as a full stack developer at an
+                investor-backed early-stage startup called Rota. I was the third
+                technical hire, so got to have a large impact early on.
               </p>
               <p>
                 From there, I founded my consulting company, Keliris Consulting,

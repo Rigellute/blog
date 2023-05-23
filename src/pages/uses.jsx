@@ -35,16 +35,15 @@ export default function Uses() {
       />
       <SimpleLayout
         title="Software I use, programming languages I love, and other things I recommend."
-        intro="I get asked a lot about the things I use to build software and stay productive. Here’s a big list of all of my favorite stuff."
+        intro="I get asked a lot about the things I use to build software and stay productive. Here’s a big list of all of my favourite stuff."
       >
         <div className="space-y-20">
           <ToolsSection title="Programming Languages">
             <Tool title="Rust">
-              Rust is my favourite programming language thanks to it’s powerful
-              type system and modern tooling. It feels amazing when you get your
-              code to successfully compile and know that it will run with a high
-              degree of safety. And the you get unparalled runtime performance
-              🚀.
+              Rust is my favourite programming language, thanks to its powerful
+              type system and modern tooling. When it successfully compiles, you
+              know that it will run with a high degree of safety and you get
+              unparalled runtime performance 🚀.
             </Tool>
             <Tool title="Typescript">
               I’ve spent most of my career in the Typescript/Javascript/Node.js
@@ -53,10 +52,10 @@ export default function Uses() {
               extensively.
             </Tool>
             <Tool title="Go">
-              Go is a great choice for backend web servers. Can be very
-              productive and you get a nice fast binary at the end. It can get a
-              little frustrating when you think like a Rust developer (no
-              enums!) but I would take a Go project over a Node.js project.
+              Go is a great choice for backend web servers. It’s a very
+              productive language, and you get a nice fast binary at the end. It
+              can get a little frustrating when you think like a Rust developer
+              (no enums!) but I would take a Go project over a Node.js project.
             </Tool>
           </ToolsSection>
           <ToolsSection title="Workstation">
@@ -68,24 +67,24 @@ export default function Uses() {
               This PC is my workhorse. Although the host OS is Windows, I mostly
               stay in WSL, which is fantastic. WSL lets me keep my hard-won unix
               knowledge from my years on macOS. I should probably just install a
-              linux distro directly, but Windows has it’s conveniences for
+              linux distro directly, but Windows has its conveniences for
               non-dev tasks.
             </Tool>
             <Tool title="Custom-built Keyboards">
               I regularly use two custom-built keyboards. One is an ortholinear
               split keyboard and the other is a plank-style 40% board. Both have
-              small form factors, which means I am always a one key distance
-              away from whatever I need to type, but has the tradeoff of needing
-              to remember many custom combinations and layers. Both keyboards
-              are configured using QMK.
+              small form factors, which means I’m always a one key distance away
+              from whatever I need to type, but has the tradeoff of needing to
+              remember many custom combinations and layers. Both keyboards are
+              configured using QMK.
             </Tool>
           </ToolsSection>
           <ToolsSection title="Development tools">
             <Tool title="Neovim">
-              When I just want to focus and code, nothing beats Neovim. I have
+              When I just want to focus and code, nothing beats Neovim. I’ve
               been using Neovim has my primary editor for around 5 years and
-              love it. Vim is well known for efficiency and speed, and my flow
-              state is best achived when coding in nvim.
+              love it. Vim is well known for efficiency and speed, and my
+              flow-state is best achived when coding in nvim.
             </Tool>
             <Tool title="JetBrains">
               Along side Neovim, I use IntelliJ IDEA Ultimate (with vim bindings
@@ -102,7 +101,7 @@ export default function Uses() {
             <Tool title="Windows Terminal">
               On my Windows PC, I use the Windows Terminal. Pleasantly suprised
               how good this terminal emulator is. Easily customisable, very
-              fast, and is my gatewaty to WSL.
+              fast, and is my gateway to WSL.
             </Tool>
             <Tool title="Zellij">
               I use Zellij for my terminal workspace. I used tmux for years, but

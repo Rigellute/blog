@@ -230,7 +230,7 @@ export default function Home({ articles }) {
             I’m the founder of Keliris Consulting, where we help enterprises
             build modern, fast and reliable software. I mostly focus on Rust 🦀,
             Golang, Node.js, Typescript, React and AWS. I’m also a keen
-            musician, playing the piano, guitar and renaissance lute.
+            musician; playing the piano, guitar and renaissance lute.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
