@@ -27,6 +27,7 @@ export default function App({ Component, pageProps, router }) {
         description="UK based software engineer and consultant."
         canonical={process.env.NEXT_PUBLIC_SITE_URL}
         openGraph={{
+          url: process.env.NEXT_PUBLIC_SITE_URL,
           title: 'Alexander Keliris',
           description: 'UK based software engineer and consultant.',
           images: [{ url: `${process.env.NEXT_PUBLIC_SITE_URL}/helmet.png` }],

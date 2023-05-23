@@ -90,6 +90,9 @@ export default function LuteSearch() {
       <NextSeo
         title="Search Lute Music - Alexander Keliris"
         description="Search over 16,000 lute pieces."
+        openGraph={{
+          images: [{ url: `${process.env.NEXT_PUBLIC_SITE_URL}/lute-1.jpg` }],
+        }}
       />
       <SimpleLayout
         title="Search Lute Music"
