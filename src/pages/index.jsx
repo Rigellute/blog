@@ -11,11 +11,11 @@ import logoFormidable from '@/images/logos/formidable.svg'
 import logoRota from '@/images/logos/rota.svg'
 import logoHive from '@/images/logos/hive.svg'
 import kcLogo from '@/images/logos/keliris-consulting-logo.svg'
-import lute from '@/images/photos/lute-1.jpeg'
-import keyboard from '@/images/photos/keyboard.jpeg'
-import rledger from '@/images/photos/rledger.png'
-import spotifyTui from '@/images/photos/spotify-tui-1.png'
-import penCode from '@/images/photos/pen-code.jpeg'
+import image2 from '@/images/photos/fashion-sd.png'
+import image3 from '@/images/photos/portrait-female-sd.png'
+import image4 from '@/images/photos/portrait-fashion-sd.png'
+import image5 from '@/images/avatar.jpg'
+import image1 from '@/images/photos/portrait-sd.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -186,24 +186,22 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[spotifyTui, lute, keyboard, penCode, rledger].map(
-          (image, imageIndex) => (
-            <div
-              key={image.src}
-              className={clsx(
-                'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-                rotations[imageIndex % rotations.length]
-              )}
-            >
-              <Image
-                src={image}
-                alt=""
-                sizes="(min-width: 640px) 18rem, 11rem"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          )
-        )}
+        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+          <div
+            key={image.src}
+            className={clsx(
+              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              rotations[imageIndex % rotations.length]
+            )}
+          >
+            <Image
+              src={image}
+              alt=""
+              sizes="(min-width: 640px) 18rem, 11rem"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
