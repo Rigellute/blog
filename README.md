@@ -1,31 +1,48 @@
-# Alexander Keliris blog
+# Alexander Keliris' Blog
 
-The purpose of this blog is to share thoughts, ideas and projects.
+## Dev
 
-### Tech
+Install deps:
 
-The blog is built with [Gatsby](https://www.gatsbyjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [TypeScript](https://github.com/Microsoft/TypeScript)
-
-### Running
-
-```sh
-yarn start
-
-# or
-
-gatsby develop
+```bash
+npm install
 ```
 
-### Lint
+Next, create a `.env.local` file in the root of your project:
 
 ```sh
-yarn lint
+cp .env.example .env.local
 ```
 
-### Deployment
+Next, run the development server:
 
-Pushing to master will auto deploy via the Github integration with zeit now.
+```bash
+npm run dev
+```
 
-### SVGs
+Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-In order to resolve SVGs, you must be include `.inline` in the name.
+## Tech
+
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Next.js](https://nextjs.org/docs)
+- [Headless UI](https://headlessui.dev)
+- [MDX](https://mdxjs.com)
+
+## Lute Search
+
+For local dev, spin up the MeiliSearch server:
+
+```sh
+docker compose up -d
+```
+
+To load search engine, use the [lute-spreadsheet-to-meilisearch](https://github.com/Rigellute/lute-spreadsheet-to-meilisearch) repo to output the `gerbode.json`, and ingest with:
+
+```sh
+curl \
+  -X POST 'http://localhost:7700/indexes/lute/documents?primaryKey=id' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer test' \
+  --data-binary @gerbode.json
+```

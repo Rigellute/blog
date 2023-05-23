@@ -1,0 +1,33 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import vim from './vim.png'
+import terminal from './terminal.png'
+
+export const meta = {
+  author: 'Alexander Keliris',
+  date: '2019-08-11',
+  title: 'A colorscheme called Rigel',
+  description: `Inspired by the bright blue star in the constellation of Orion.`,
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+This colorscheme is based on the star [Rigel](https://en.wikipedia.org/wiki/Rigel) - the bright blue star in the constellation of Orion.
+
+This very blog is using the colors from the `Rigel` palette.
+
+The `Rigel` colorscheme has been implemented for a number of different applications, including [vim](https://rigel.netlify.com/#vim) and the [terminal](https://rigel.netlify.com/#terminal).
+
+For guides on how to install and use `Rigel`, check [the Rigel homepage](https://rigel.netlify.com/).
+
+If you spot something that doesn't look right, please create an issue on [Github](https://github.com/Rigellute/rigel).
+
+## Screenshots
+
+### Vim
+
+<Image src={vim} alt="vim" />
+
+### Terminal
+
+<Image src={terminal} alt="terminal" />
