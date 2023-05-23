@@ -25,9 +25,9 @@ export default function App({ Component, pageProps, router }) {
       <DefaultSeo
         title="Alexander Keliris"
         description="UK based software engineer and consultant."
-        canonical={process.env.NEXT_PUBLIC_SITE_URL}
+        canonical={`${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`}
         openGraph={{
-          url: process.env.NEXT_PUBLIC_SITE_URL,
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`,
           title: 'Alexander Keliris',
           description: 'UK based software engineer and consultant.',
           images: [{ url: `${process.env.NEXT_PUBLIC_SITE_URL}/helmet.png` }],
@@ -47,7 +47,11 @@ export default function App({ Component, pageProps, router }) {
       <div className="relative">
         <Header />
         <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
+          <Component
+            slug={router.pathname}
+            previousPathname={previousPathname}
+            {...pageProps}
+          />
         </main>
         <Footer />
       </div>
