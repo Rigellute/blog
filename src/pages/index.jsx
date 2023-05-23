@@ -11,11 +11,11 @@ import logoFormidable from '@/images/logos/formidable.svg'
 import logoRota from '@/images/logos/rota.svg'
 import logoHive from '@/images/logos/hive.svg'
 import kcLogo from '@/images/logos/keliris-consulting-logo.svg'
-import image2 from '@/images/photos/fashion-sd.png'
-import image3 from '@/images/photos/portrait-female-sd.png'
-import image4 from '@/images/photos/portrait-fashion-sd.png'
-import image5 from '@/images/avatar.jpg'
-import image1 from '@/images/photos/portrait-sd.png'
+import fashionSD from '@/images/photos/fashion-sd.png'
+import portraitFemaleSD from '@/images/photos/portrait-female-sd.png'
+import portraitFashionSD from '@/images/photos/portrait-fashion-sd.png'
+import portraitBeard from '@/images/photos/portrait-beard.png'
+import portraitSD from '@/images/photos/portrait-sd.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -186,7 +186,13 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {[
+          fashionSD,
+          portraitBeard,
+          portraitSD,
+          portraitFemaleSD,
+          portraitFashionSD,
+        ].map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
