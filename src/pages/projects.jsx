@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoSpotify from '@/images/logos/spotify-logo.png'
 import logoStar from '@/images/logos/stargazer.svg'
 import logoRledger from '@/images/logos/rledger.svg'
+import logoRedis from '@/images/logos/redis.svg'
 import logoMusic from '@/images/logos/music.svg'
 import { NextSeo } from 'next-seo'
 
@@ -38,6 +39,16 @@ const projects = [
       'Open source plain text accounting, written in Rust. This site serves as the changelog for the project.',
     link: { href: 'https://log.rledger.org/', label: 'log.rledger.org' },
     logo: logoRledger,
+  },
+  {
+    name: '🪀 Toy Redis Clone in Rust 🚀',
+    description:
+      'Purely for fun and learning, this is a toy Redis implementation in Rust. Kicked off by following the excellent CodeCrafters Redis course.',
+    link: {
+      href: 'https://github.com/Rigellute/redis-rust',
+      label: 'github.com',
+    },
+    logo: logoRedis,
   },
 ]
 
