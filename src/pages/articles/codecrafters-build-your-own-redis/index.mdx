@@ -25,7 +25,7 @@ I followed the "Build your own Redis" track and chose to use Rust, since it's my
 
 Each step builds on the previous step, and is designed to not be overwhelming. This lets you bite off satisfying chunks in your extremely limited free time 😅.
 
-For example, the first step asks you to set up a TCP server. You then learn how to encode & decode messages using the [Redis serialization protocol (RESP) specification](https://redis.io/topics/protocol#resp-simple-strings), and you keep building up features from there.
+For example, the first step asks you to set up a TCP server. You then learn how to encode and decode messages using the [Redis serialization protocol (RESP) specification](https://redis.io/topics/protocol#resp-simple-strings), and you keep building up features from there.
 
 You complete each step by committing your changes to the CodeCrafters repo, which runs tests before accepting the push.
 
@@ -51,7 +51,7 @@ I already had a lot of experience using `tokio` for web servers. But I learnt ho
 
 I learned how to wait for the client to send a message, read the stream of bytes into a buffer, and then write bytes back to the stream.
 
-The part I enjoyed the most was writing a parser for the RESP messages. Decided to use [nom](https://docs.rs/nom-supreme/latest/nom_supreme/) and [nom_supreme](https://docs.rs/nom-supreme/latest/nom_supreme/), just to get more practice using parsing combinators as I'd like to use these libraries in my other projects.
+The part I enjoyed the most was writing a parser for the RESP messages. I decided to use [nom](https://docs.rs/nom-supreme/latest/nom_supreme/) and [nom_supreme](https://docs.rs/nom-supreme/latest/nom_supreme/), just to get more practice using parsing combinators as I'd like to use these libraries in my other projects.
 
 I needed to implement the in-memory database itself. Rust makes this fairly straightforward thanks to its amazing `std` lib. The core data structure I chose is a `std::collections::HashMap` since Redis is a... key value store 😅. All that's needed to make the store thread safe is to wrap it in an `Arc<Mutex<...>`.
 
