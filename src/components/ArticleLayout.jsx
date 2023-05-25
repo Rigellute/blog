@@ -36,6 +36,15 @@ export function ArticleLayout({
       <NextSeo
         title={`${meta.title} - Alexander Keliris`}
         description={meta.description}
+        openGraph={
+          meta.image
+            ? {
+                images: [
+                  { url: `${process.env.NEXT_PUBLIC_SITE_URL}${meta.image}` },
+                ],
+              }
+            : {}
+        }
       />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
