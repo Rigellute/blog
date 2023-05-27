@@ -9,6 +9,40 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/aws-apigw-https-proxy',
+        destination: '/articles/aws-apigw-https-proxy',
+        permanent: true,
+      },
+      {
+        source: '/meiliesearch',
+        destination: '/articles/meiliesearch',
+        permanent: true,
+      },
+      {
+        source: '/improving-spotify-tui',
+        destination: '/articles/improving-spotify-tui',
+        permanent: true,
+      },
+      {
+        source: '/spotify-tui',
+        destination: '/articles/spotify-tui',
+        permanent: true,
+      },
+      {
+        source: '/rigel-theme',
+        destination: '/articles/rigel-theme',
+        permanent: true,
+      },
+      {
+        source: '/shades-of-purple-vim',
+        destination: '/articles/shades-of-purple-vim',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 const withMDX = nextMDX({
