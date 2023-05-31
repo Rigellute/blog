@@ -37,12 +37,18 @@ For local dev, spin up the MeiliSearch server:
 docker compose up -d
 ```
 
-To load search engine, use the [lute-spreadsheet-to-meilisearch](https://github.com/Rigellute/lute-spreadsheet-to-meilisearch) repo to output the `gerbode.json`, and ingest with:
+To load search engine, use the [lute-spreadsheet-to-meilisearch](https://github.com/Rigellute/lute-spreadsheet-to-meilisearch) repo.
+
+Add the following to your `.env`:
+
+```
+MEILISEARCH_API_KEY=test
+MEILISEARCH_HOST=http://localhost:7700
+LUTE_MUSIC_URL=https://www.lutemusic.org/spreadsheet.xlsx
+```
+
+Run:
 
 ```sh
-curl \
-  -X POST 'http://localhost:7700/indexes/lute/documents?primaryKey=id' \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer test' \
-  --data-binary @gerbode.json
+cargo run --release
 ```

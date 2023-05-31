@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
@@ -10,6 +9,9 @@ import {
   Highlight,
   Configure,
   Pagination,
+  RangeInput,
+  ClearRefinements,
+  MenuSelect,
 } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { NextSeo } from 'next-seo'
@@ -110,6 +112,17 @@ export default function LuteSearch() {
         </p>
         <InstantSearch indexName="lute" searchClient={searchClient}>
           <SearchBox placeholder="Search by composer, title or subtitle" />
+          <div className="mt-4 grid grid-cols-1 items-center gap-x-6 gap-y-2 sm:grid-cols-3">
+            <div>
+              <label className="text-color text-base">Difficulty</label>
+              <RangeInput attribute="difficulty" />
+            </div>
+            <div>
+              <label className="text-color text-base">Date</label>
+              <RangeInput attribute="date" />
+            </div>
+            <ClearRefinements className="mt-6" />
+          </div>
           <Hits hitComponent={Hit} />
           <Configure hitsPerPage={6} />
           <Pagination showLast={true} />
