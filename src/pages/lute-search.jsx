@@ -11,7 +11,7 @@ import {
   Pagination,
   RangeInput,
   ClearRefinements,
-  MenuSelect,
+  Stats,
 } from 'react-instantsearch-dom'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { NextSeo } from 'next-seo'
@@ -50,6 +50,8 @@ const linkPropertyList = [
   { value: 'facsimile', title: 'Facsimile' },
   { value: 'recording', title: 'Recording' },
 ]
+
+const hitsPerPage = 24
 
 const Hit = ({ hit }) => (
   <div key={hit.id}>
@@ -112,6 +114,7 @@ export default function LuteSearch() {
         </p>
         <InstantSearch indexName="lute" searchClient={searchClient}>
           <SearchBox placeholder="Search by composer, title or subtitle" />
+          <Stats />
           <div className="mt-4 grid grid-cols-1 items-center gap-x-6 gap-y-2 sm:grid-cols-3">
             <div>
               <label className="text-color text-base">Difficulty</label>
@@ -124,7 +127,7 @@ export default function LuteSearch() {
             <ClearRefinements className="mt-6" />
           </div>
           <Hits hitComponent={Hit} />
-          <Configure hitsPerPage={6} />
+          <Configure hitsPerPage={hitsPerPage} />
           <Pagination showLast={true} />
         </InstantSearch>
         <Prose className="mt-8">
