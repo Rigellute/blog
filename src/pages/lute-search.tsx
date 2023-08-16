@@ -129,6 +129,11 @@ export default function LuteSearch() {
             <div id="filters" className="col-span-1 space-y-2">
               <h2 className="text-color text-lg font-semibold">Filters</h2>
               <Collapsible title="Composers">
+                <p className="text-color text-xs">
+                  Limitation: searching for &quot;John&quot; will return
+                  &quot;John Dowland&quot;, but searching for
+                  &quot;Dowland&quot; will not return &quot;John Dowland&quot;.
+                </p>
                 <Refinement
                   placeholder="Filter composers"
                   attribute="composer"
@@ -157,7 +162,7 @@ export default function LuteSearch() {
                 <h3 className="text-color font-semibold">Active Filters</h3>
                 <CurrentRefinements
                   classNames={{
-                    item: 'w-max space-x-1 bg-teal-500 rounded px-2 py-1',
+                    item: 'w-max space-x-1 bg-teal-400 dark:bg-teal-600 rounded px-2 py-1',
                     category: 'space-x-1',
                     list: 'space-y-1',
                   }}

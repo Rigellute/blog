@@ -16,7 +16,7 @@
 }
 
 .ais-Highlight-highlighted {
-  @apply rounded bg-teal-300 not-italic dark:bg-teal-900;
+  @apply rounded bg-teal-300 not-italic dark:bg-teal-500;
 }
 
 .search-input {
