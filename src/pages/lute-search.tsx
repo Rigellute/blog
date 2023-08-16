@@ -13,6 +13,7 @@ import {
   ClearRefinements,
   Stats,
   RefinementList,
+  CurrentRefinements,
 } from 'react-instantsearch'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { NextSeo } from 'next-seo'
@@ -125,8 +126,8 @@ export default function LuteSearch() {
           />
           <Stats className="mt-1" />
           <div className="grid grid-cols-1 gap-3 pt-4 md:grid-cols-3">
-            <div id="filters" className="sticky col-span-1 space-y-2">
-              <h3 className="text-color font-semibold">Filters</h3>
+            <div id="filters" className="col-span-1 space-y-2">
+              <h2 className="text-color text-lg font-semibold">Filters</h2>
               <Collapsible title="Composers">
                 <Refinement
                   placeholder="Filter composers"
@@ -142,16 +143,30 @@ export default function LuteSearch() {
               <Collapsible title="Key">
                 <Refinement placeholder="Filter Key" attribute="key" />
               </Collapsible>
-              <div className="">
+              <div>
                 <div>
-                  <label className="text-color text-base">Difficulty</label>
+                  <label className="text-color text-sm">Difficulty</label>
                   <RangeInput attribute="difficulty" />
                 </div>
                 <div>
-                  <label className="text-color text-base">Date</label>
+                  <label className="text-color text-sm">Date</label>
                   <RangeInput attribute="date" />
                 </div>
-                <ClearRefinements className="mt-6" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-color font-semibold">Active Filters</h3>
+                <CurrentRefinements
+                  classNames={{
+                    item: 'w-max space-x-1 bg-teal-500 rounded px-2 py-1',
+                    category: 'space-x-1',
+                    list: 'space-y-1',
+                  }}
+                />
+                <ClearRefinements
+                  translations={{
+                    resetButtonText: 'Clear All',
+                  }}
+                />
               </div>
               <Configure hitsPerPage={hitsPerPage} />
             </div>
