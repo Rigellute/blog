@@ -163,7 +163,7 @@ export default function LuteSearch() {
                 <CurrentRefinements
                   classNames={{
                     item: 'w-max space-x-1 bg-teal-400 dark:bg-teal-600 rounded px-2 py-1',
-                    category: 'space-x-1',
+                    category: 'space-x-1 block',
                     list: 'space-y-1',
                   }}
                 />
