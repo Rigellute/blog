@@ -93,19 +93,21 @@ const Hit = ({ hit }) => (
   </div>
 )
 
+const TOTAL_PIECES = (20000).toLocaleString()
+
 export default function LuteSearch() {
   return (
     <>
       <NextSeo
         title="Search Lute Music - Alexander Keliris"
-        description="Search over 16,000 lute pieces."
+        description={`Search over ${TOTAL_PIECES} lute pieces.`}
         openGraph={{
           images: [{ url: `${process.env.NEXT_PUBLIC_SITE_URL}/lute-1.jpg` }],
         }}
       />
       <SimpleLayout
         title="Search Lute Music"
-        intro="This index contains more than 20,000 lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'."
+        intro={`This index contains more than ${TOTAL_PIECES} lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'.`}
       >
         <p className="mb-2 text-right">
           <a
