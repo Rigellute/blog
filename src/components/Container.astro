@@ -1,0 +1,14 @@
+---
+import ContainerInner from './ContainerInner.astro';
+import ContainerOuter from './ContainerOuter.astro';
+
+type Props ={
+  class?: string
+};
+const { class: className, ...props } = Astro.props;
+---
+
+    <ContainerOuter {...props}>
+      <ContainerInner><slot /></ContainerInner>
+    </ContainerOuter>
+
