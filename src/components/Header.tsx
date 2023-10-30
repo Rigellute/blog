@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { Image } from "astro:assets";
+import avatarImg from "../images/avatar.jpg";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-import Container from "./Container.astro";
+import { Container } from "./Container";
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -184,9 +184,9 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
 }
 
 function ThemeToggle() {
-  let { resolvedTheme, setTheme } = useTheme();
-  let otherTheme = resolvedTheme === "dark" ? "light" : "dark";
-  let [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const otherTheme: Theme = resolvedTheme === "dark" ? "light" : "dark";
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -240,15 +240,14 @@ function Avatar({
       className={clsx(className, "pointer-events-auto")}
       {...props}
     >
-      <Image
-        src={"../images/avatar.jpg"}
+      <img
+        src={avatarImg.src}
         alt="Avatar"
         sizes={large ? "4rem" : "2.25rem"}
         className={clsx(
           "rounded-full bg-zinc-100 object-cover dark:bg-zinc-800",
           large ? "h-16 w-16" : "h-9 w-9",
         )}
-        priority
       />
     </a>
   );
@@ -453,3 +452,37 @@ export default function Header() {
     </>
   );
 }
+
+type Theme = "light" | "dark";
+const getTheme = (): Theme => {
+  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+    return (localStorage.getItem("theme") as Theme) || "dark";
+  }
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
+};
+
+const useTheme = () => {
+  const [resolvedTheme, setTheme] = useState<Theme>("dark");
+  useEffect(() => {
+    const theme = getTheme();
+
+    setTheme(theme);
+  }, []);
+
+  useEffect(() => {
+    if (resolvedTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+    window.localStorage.setItem("theme", resolvedTheme);
+  }, [resolvedTheme]);
+
+  return {
+    resolvedTheme,
+    setTheme,
+  };
+};
