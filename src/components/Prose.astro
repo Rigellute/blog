@@ -1,0 +1,8 @@
+---
+import { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'div'>;
+
+const { class: className} = Astro.props;
+---
+
+<div class:list={["prose dark:prose-invert", className]}><slot /></div>

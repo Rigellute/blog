@@ -8,7 +8,7 @@ import { Article } from "../components/Article";
 import { getCollection } from "astro:content";
 
 const articles = (await getCollection("article"))
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 ---
 
