@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import ArrowLeftIcon from '../components/icons/ArrowLeft.astro';
+import BaseHead from '../components/BaseHead.astro';
 import RootLayout from './RootLayout.astro';
 import Container from '../components/Container.astro';
 import { formatDate } from '../utils';
@@ -8,11 +9,12 @@ import Prose from '../components/Prose.astro';
 
 type Props = CollectionEntry<'article'>['data'];
 
-const { title, pubDate } = Astro.props;
+const { title, pubDate, heroImage, description } = Astro.props;
 
 ---
 
 <RootLayout>
+      <BaseHead slot='head' title={title} description={description} image={heroImage} />
 <Container class="mt-16 lg:mt-32">
       <div class="xl:relative">
         <div class="mx-auto max-w-2xl">

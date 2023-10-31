@@ -59,6 +59,7 @@ const articles = (await getCollection("article"))
                 date: article.data.pubDate,
                 slug: article.slug,
                 title: article.data.title,
+                description: article.data.description
               }}
             />
           ))
