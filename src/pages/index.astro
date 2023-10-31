@@ -3,6 +3,7 @@ import Container from "../components/Container.astro";
 import SocialLink from "../components/SocialLink.astro";
 import RootLayout from "../layouts/RootLayout.astro";
 import Photos from "../components/Photos.astro";
+import Resume from "../components/Resume.astro";
 import { Article } from "../components/Article";
 import { getCollection } from "astro:content";
 
@@ -64,7 +65,7 @@ const articles = (await getCollection("article"))
         }
       </div>
       <div class="space-y-10 lg:pl-16 xl:pl-24">
-        <!-- <Resume /> -->
+        <Resume />
       </div>
     </div>
   </Container>

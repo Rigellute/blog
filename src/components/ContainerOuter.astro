@@ -6,4 +6,6 @@ type Props = {
 const { class: className, ...props } = Astro.props;
 ---
 
-<ContainerOuterReact className={className} {...props} />
+<ContainerOuterReact className={className} {...props}>
+  <slot />
+</ContainerOuterReact>

@@ -1,3 +1,4 @@
+// TODO: eventually get rid of the react component here (requires making the Header an astro component)
 import { forwardRef } from "react";
 import clsx from "clsx";
 
