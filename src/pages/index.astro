@@ -1,10 +1,10 @@
 ---
 import Container from "../components/Container.astro";
-import SocialLink from "../components/SocialLink.astro";
+import SocialLink from "../components/home/SocialLink.astro";
 import RootLayout from "../layouts/RootLayout.astro";
-import Photos from "../components/Photos.astro";
-import Resume from "../components/Resume.astro";
-import { Article } from "../components/Article";
+import Photos from "../components/home/Photos.astro";
+import Resume from "../components/home/Resume.astro";
+import { Article } from "../components/home/Article";
 import { getCollection } from "astro:content";
 
 const articles = (await getCollection("article"))
