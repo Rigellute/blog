@@ -1,28 +1,28 @@
 ---
-import { type ImageMetadata } from "astro";
-import type { HTMLAttributes } from "astro/types";
-import { Image } from "astro:assets";
+import { type ImageMetadata } from 'astro'
+import type { HTMLAttributes } from 'astro/types'
+import { Image } from 'astro:assets'
 
 export type Role = {
-  company: string;
-  title: string;
-  logo: ImageMetadata;
-  start: string | { label: string; dateTime: string };
-  end: string | { label: string; dateTime: string };
-  iconStyle?: HTMLAttributes<"img">["style"];
-};
+  company: string
+  title: string
+  logo: ImageMetadata
+  start: string | { label: string; dateTime: string }
+  end: string | { label: string; dateTime: string }
+  iconStyle?: HTMLAttributes<'img'>['style']
+}
 
-type Props = { role: Role };
+type Props = { role: Role }
 
-const { role } = Astro.props;
+const { role } = Astro.props
 
 const startLabel =
-  typeof role.start === "string" ? role.start : role.start.label;
+  typeof role.start === 'string' ? role.start : role.start.label
 const startDate =
-  typeof role.start === "string" ? role.start : role.start.dateTime;
+  typeof role.start === 'string' ? role.start : role.start.dateTime
 
-const endLabel = typeof role.end === "string" ? role.end : role.end.label;
-const endDate = typeof role.end === "string" ? role.end : role.end.dateTime;
+const endLabel = typeof role.end === 'string' ? role.end : role.end.label
+const endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
 ---
 
 <li class="flex gap-4">
@@ -52,8 +52,8 @@ const endDate = typeof role.end === "string" ? role.end : role.end.dateTime;
       class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
       aria-label={`${startLabel} until ${endLabel}`}
     >
-      <time datetime={startDate}>{startLabel}</time>{" "}
-      <span aria-hidden="true">—</span>{" "}
+      <time datetime={startDate}>{startLabel}</time>{' '}
+      <span aria-hidden="true">—</span>{' '}
       <time datetime={endDate}>{endLabel}</time>
     </dd>
   </dl>

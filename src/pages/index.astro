@@ -1,15 +1,15 @@
 ---
-import Container from "../components/Container.astro";
-import SocialLink from "../components/home/SocialLink.astro";
-import RootLayout from "../layouts/RootLayout.astro";
-import Photos from "../components/home/Photos.astro";
-import Resume from "../components/home/Resume.astro";
-import { Article } from "../components/home/Article";
-import { getCollection } from "astro:content";
+import Container from '../components/Container.astro'
+import SocialLink from '../components/home/SocialLink.astro'
+import RootLayout from '../layouts/RootLayout.astro'
+import Photos from '../components/home/Photos.astro'
+import Resume from '../components/home/Resume.astro'
+import { Article } from '../components/home/Article'
+import { getCollection } from 'astro:content'
 
-const articles = (await getCollection("article"))
+const articles = (await getCollection('article'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
+  .slice(0, 4)
 ---
 
 <RootLayout>
@@ -31,17 +31,17 @@ const articles = (await getCollection("article"))
         <SocialLink
           href="https://twitter.com/alexkeliris"
           aria-label="Follow on Twitter"
-          icon={"twitter"}
+          icon={'twitter'}
         />
         <SocialLink
           href="https://github.com/Rigellute/"
           aria-label="Follow on GitHub"
-          icon={"github"}
+          icon={'github'}
         />
         <SocialLink
           href="https://linkedin.com/in/alexander-keliris-808270b2"
           aria-label="Follow on LinkedIn"
-          icon={"linkedin"}
+          icon={'linkedin'}
         />
       </div>
     </div>
@@ -59,7 +59,7 @@ const articles = (await getCollection("article"))
                 date: article.data.pubDate,
                 slug: article.slug,
                 title: article.data.title,
-                description: article.data.description
+                description: article.data.description,
               }}
             />
           ))

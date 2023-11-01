@@ -1,0 +1,14 @@
+---
+import { Popover } from '@headlessui/react'
+
+type Props = {
+  href: string
+}
+const props = Astro.props
+---
+
+<li>
+  <Popover.Button as={'a'} className="block py-2" href={props.href}>
+    <slot />
+  </Popover.Button>
+</li>

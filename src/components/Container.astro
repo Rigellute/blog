@@ -1,10 +1,12 @@
 ---
-import { ContainerOuter, ContainerInner } from "./Container.tsx";
+import { ContainerOuter, ContainerInner } from './Container.tsx'
 
 type Props = {
-  class?: string;
-};
-const { class: className, ...props } = Astro.props;
+  class?: string
+  style?: any
+}
+
+const { class: className, ...props } = Astro.props
 ---
 
 <ContainerOuter className={className} {...props}>

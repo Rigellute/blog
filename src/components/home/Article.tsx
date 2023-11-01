@@ -1,14 +1,14 @@
-import { formatDate } from "../../utils";
-import { Card } from "../Card";
+import { formatDate } from '../../utils'
+import { Card } from '../Card'
 
 interface Article {
-  title: string;
-  description: string;
-  date: Date;
+  title: string
+  description: string
+  date: Date
 }
 
 export interface ArticleWithSlug extends Article {
-  slug: string;
+  slug: string
 }
 
 export function Article({ article }: { article: ArticleWithSlug }) {
@@ -23,5 +23,5 @@ export function Article({ article }: { article: ArticleWithSlug }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  );
+  )
 }

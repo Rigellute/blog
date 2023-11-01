@@ -1,17 +1,11 @@
 ---
-import { Image } from "astro:assets";
-import fashionSD from "../../images/photos/fashion-sd.png";
-import portraitFemaleSD from "../../images/photos/portrait-female-sd.png";
-import portraitFashionSD from "../../images/photos/portrait-fashion-sd.png";
-import portraitBeard from "../../images/photos/portrait-beard.png";
-import portraitSD from "../../images/photos/portrait-sd.png";
-const rotations = [
-  "rotate-2",
-  "-rotate-2",
-  "rotate-2",
-  "rotate-2",
-  "-rotate-2",
-];
+import { Image } from 'astro:assets'
+import fashionSD from '../../images/photos/fashion-sd.png'
+import portraitFemaleSD from '../../images/photos/portrait-female-sd.png'
+import portraitFashionSD from '../../images/photos/portrait-fashion-sd.png'
+import portraitBeard from '../../images/photos/portrait-beard.png'
+import portraitSD from '../../images/photos/portrait-sd.png'
+const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 ---
 
 <div class="mt-16 sm:mt-20">
@@ -26,7 +20,7 @@ const rotations = [
       ].map((image, imageIndex) => (
         <div
           class:list={[
-            "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
             rotations[imageIndex % rotations.length],
           ]}
         >

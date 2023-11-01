@@ -1,9 +1,9 @@
 ---
-import { ContainerInner as ContainerInnerReact } from "./Container.tsx";
+import { ContainerInner as ContainerInnerReact } from './Container.tsx'
 type Props = {
-  class?: string;
-};
-const { class: className, ...props } = Astro.props;
+  class?: string
+}
+const { class: className, ...props } = Astro.props
 ---
 
 <ContainerInnerReact className={className} {...props}>

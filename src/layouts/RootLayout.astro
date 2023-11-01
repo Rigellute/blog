@@ -1,11 +1,11 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import BaseHead from "../components/BaseHead.astro";
-import Layout from "./Layout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import BaseHead from '../components/BaseHead.astro'
+import Layout from './Layout.astro'
 ---
 
 <!doctype html>
-<html lang="en" class="h-full antialiased">
+<html lang="en" class="h-full antialiased" transition:animate="fade">
   <head>
     <slot name="head">
       <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -15,25 +15,27 @@ import Layout from "./Layout.astro";
     <div class="flex w-full">
       <Layout><slot /></Layout>
     </div>
+    <!-- Taken from: https://www.kevinzunigacuellar.com/blog/dark-mode-in-astro/ -->
+    <script>
+      const theme = (() => {
+        if (
+          typeof localStorage !== 'undefined' &&
+          localStorage.getItem('theme')
+        ) {
+          return localStorage.getItem('theme')
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark'
+        }
+        return 'light'
+      })()
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark')
+      } else {
+        document.documentElement.classList.add('dark')
+      }
+      window.localStorage.setItem('theme', theme)
+    </script>
   </body>
 </html>
-
-<!-- Taken from: https://www.kevinzunigacuellar.com/blog/dark-mode-in-astro/ -->
-<script is:inline>
-const theme = (() => {
-  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-    return localStorage.getItem("theme");
-  }
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    return "dark";
-  }
-  return "light";
-})();
-
-if (theme === "light") {
-  document.documentElement.classList.remove("dark");
-} else {
-  document.documentElement.classList.add("dark");
-}
-window.localStorage.setItem("theme", theme);
-</script>

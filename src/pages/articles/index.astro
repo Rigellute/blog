@@ -1,35 +1,42 @@
 ---
-import Article from '../../components/articles/Article.astro';
+import Article from '../../components/articles/Article.astro'
 import SimpleLayout from '../../layouts/SimpleLayout.astro'
-import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import RootLayout from '../../layouts/RootLayout.astro';
+import { getCollection } from 'astro:content'
+import BaseHead from '../../components/BaseHead.astro'
+import RootLayout from '../../layouts/RootLayout.astro'
 
 const articles = (await getCollection('article')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+)
 ---
 
-
-
 <RootLayout>
-
-      <BaseHead slot="head" title='Articles - Alexander Keliris' description='All of my thoughts on programming, projects, architecture, and more, collected in chronological order.'/>
-      <SimpleLayout
-        title="Writing on software engineering, developer tools, and other curiosities."
-        intro="All of my thoughts on programming, projects, architecture, and more, collected in chronological order."
-      >
-        <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          <div class="flex max-w-3xl flex-col space-y-16">
-            {articles.map((article) => (
-              <Article article={{
+  <BaseHead
+    slot="head"
+    title="Articles - Alexander Keliris"
+    description="All of my thoughts on programming, projects, architecture, and more, collected in chronological order."
+  />
+  <SimpleLayout
+    title="Writing on software engineering, developer tools, and other curiosities."
+    intro="All of my thoughts on programming, projects, architecture, and more, collected in chronological order."
+  >
+    <div
+      class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
+    >
+      <div class="flex max-w-3xl flex-col space-y-16">
+        {
+          articles.map((article) => (
+            <Article
+              article={{
                 description: article.data.description,
                 title: article.data.title,
                 date: article.data.pubDate,
                 slug: article.slug,
-              }} />
-            ))}
-          </div>
-        </div>
-      </SimpleLayout>
+              }}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </SimpleLayout>
 </RootLayout>
