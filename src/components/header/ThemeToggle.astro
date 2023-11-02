@@ -17,38 +17,38 @@ import SunIcon from '../icons/SunIcon.astro'
   />
 </button>
 
-<script>
-  type Theme = 'light' | 'dark'
-  const getTheme = (): Theme => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return (localStorage.getItem('theme') as Theme) || 'dark'
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
-    }
-    return 'light'
+<script is:inline>
+const theme = (() => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme')
   }
-
-  const setTheme = (theme: Theme) => {
-    console.log('setting the theme', theme)
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark')
-    } else {
-      document.documentElement.classList.add('dark')
-    }
-    window.localStorage.setItem('theme', theme)
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark'
   }
+  return 'light'
+})()
 
-  const themeToggle = document.getElementById('themeToggle')
-  const theme = getTheme()
-  const otherTheme: Theme = theme === 'dark' ? 'light' : 'dark'
+if (theme === 'light') {
+  document.documentElement.classList.remove('dark')
+} else {
+  document.documentElement.classList.add('dark')
+}
 
-  if (themeToggle) {
-    themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
-    themeToggle.addEventListener('click', () => {
-      const theme = getTheme()
-      const otherTheme: Theme = theme === 'dark' ? 'light' : 'dark'
-      setTheme(otherTheme)
-    })
-  }
+window.localStorage.setItem('theme', theme)
+
+const handleToggleClick = () => {
+  const element = document.documentElement
+  element.classList.toggle('dark')
+
+  const isDark = element.classList.contains('dark')
+  const otherTheme = isDark ? 'dark' : 'light'
+  localStorage.setItem('theme', otherTheme)
+
+  themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
+}
+
+const themeToggle = document.getElementById('themeToggle')
+const otherTheme = theme === 'dark' ? 'light' : 'dark'
+themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
+themeToggle.addEventListener('click', handleToggleClick)
 </script>
