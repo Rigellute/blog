@@ -22,10 +22,10 @@ const { article } = Astro.props
 ---
 
 <Card as="article">
-  <CardTitle href={`/articles/${article.slug}`}>
+  <CardTitle as="h2" href={`/articles/${article.slug}`}>
     {article.title}
   </CardTitle>
-  <CardEyebrow as="time" dateTime={article.date.toISOString()} decorate>
+  <CardEyebrow as="time" datetime={article.date.toISOString()} decorate>
     {formatDate(article.date)}
   </CardEyebrow>
   <CardDescription>{article.description}</CardDescription>

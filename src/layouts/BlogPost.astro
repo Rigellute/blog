@@ -9,7 +9,7 @@ import Prose from '../components/Prose.astro'
 
 type Props = CollectionEntry<'article'>['data'] & { id: string }
 
-const { title, pubDate, heroImage, description, id } = Astro.props
+const { title, pubDate, heroImage, description } = Astro.props
 ---
 
 <RootLayout>

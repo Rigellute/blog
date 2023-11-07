@@ -2,7 +2,7 @@
 import RootLayout from '../layouts/RootLayout.astro'
 import SimpleLayout from '../layouts/SimpleLayout.astro'
 import BaseHead from '../components/BaseHead.astro'
-import { LuteSearch } from '../components/LuteSearch'
+import { LuteSearch as LuteSearchReact } from '../components/LuteSearch'
 
 const TOTAL_PIECES = (20000).toLocaleString()
 ---
@@ -17,7 +17,7 @@ const TOTAL_PIECES = (20000).toLocaleString()
     title="Search Lute Music"
     intro={`This index contains more than ${TOTAL_PIECES} lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'.`}
   >
-    <LuteSearch client:only />
+    <LuteSearchReact client:only />
   </SimpleLayout>
 </RootLayout>
 

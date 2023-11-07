@@ -1,17 +1,13 @@
 ---
+import type { HTMLTag, Polymorphic } from 'astro/types'
 import Link from './Link.astro'
 
-type Props = {
-  href?: string
-  as: string
-  id: string
-}
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag; href?: string }>
 
-const { href, as, id } = Astro.props
-const Component = as ?? 'h2'
+const { href, as: Tag } = Astro.props
 ---
 
-<Component
+<Tag
   class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
 >
   {
@@ -23,4 +19,4 @@ const Component = as ?? 'h2'
       <slot />
     )
   }
-</Component>
+</Tag>

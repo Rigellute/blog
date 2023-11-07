@@ -1,12 +1,10 @@
 ---
-type Props = {
-  decorate?: boolean
-  as?: string
-};
-const { as, class: className } = Astro.props
-const Component = as ?? 'div'
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>
+const { as: Tag, class: className } = Astro.props
 ---
 
-<Component class:list={[className, 'group relative flex flex-col items-start']}>
+<Tag class:list={[className, 'group relative flex flex-col items-start']}>
   <slot />
-</Component>
+</Tag>

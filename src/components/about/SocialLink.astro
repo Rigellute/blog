@@ -3,6 +3,7 @@ import GitHub from '../icons/GitHub.astro'
 import LinkedIn from '../icons/LinkedIn.astro'
 import Twitter from '../icons/Twitter.astro'
 import Mail from '../icons/MailIcon.astro'
+import type { HTMLAttributes } from 'astro/types'
 
 const icons = {
   twitter: Twitter,
@@ -11,10 +12,7 @@ const icons = {
   mail: Mail,
 }
 
-type Props = {
-  class: string
-  href: string
-} & { icon: keyof typeof icons }
+type Props = HTMLAttributes<'li'> & { icon: keyof typeof icons; href: string }
 
 const { class: className, href, icon } = Astro.props
 

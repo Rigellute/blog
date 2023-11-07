@@ -1,13 +1,12 @@
 ---
-type Props = {
-  decorate?: boolean
-  as?: string
-}
-const { as, decorate = false, class: className, ...props } = Astro.props
-const Component = as ?? 'p'
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag; decorate?: boolean }>
+
+const { as: Tag, decorate = false, class: className, ...props } = Astro.props
 ---
 
-<Component
+<Tag
   class:list={[
     className,
     'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
@@ -26,4 +25,4 @@ const Component = as ?? 'p'
     )
   }
   <slot />
-</Component>
+</Tag>
