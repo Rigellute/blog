@@ -14,7 +14,7 @@ const { article } = Astro.props
 ---
 
 <article class="md:grid md:grid-cols-4 md:items-baseline">
-  <Card class="md:col-span-3">
+  <Card as="div" class="md:col-span-3">
     <CardTitle as="h2" href={`/articles/${article.slug}`}>
       {article.title}
     </CardTitle>
