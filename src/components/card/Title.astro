@@ -1,0 +1,26 @@
+---
+import Link from './Link.astro'
+
+type Props = {
+  href?: string
+  as: string
+  id: string
+}
+
+const { href, as, id } = Astro.props
+const Component = as ?? 'h2'
+---
+
+<Component
+  class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+>
+  {
+    href ? (
+      <Link href={href}>
+        <slot />
+      </Link>
+    ) : (
+      <slot />
+    )
+  }
+</Component>

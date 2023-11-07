@@ -55,6 +55,8 @@ This approach requires you to configure Auth0 to cache using local storage and t
   cacheLocation={'localstorage'}
   useRefreshTokens
 >
+  {}
+</Auth0Provider>
 ```
 
 ## Debugging

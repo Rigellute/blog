@@ -28,6 +28,7 @@ const articles = (await getCollection('article')).sort(
           articles.map((article) => (
             <Article
               article={{
+                id: article.id,
                 description: article.data.description,
                 title: article.data.title,
                 date: article.data.pubDate,

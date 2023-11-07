@@ -7,9 +7,9 @@ import Container from '../components/Container.astro'
 import { formatDate } from '../utils'
 import Prose from '../components/Prose.astro'
 
-type Props = CollectionEntry<'article'>['data']
+type Props = CollectionEntry<'article'>['data'] & { id: string }
 
-const { title, pubDate, heroImage, description } = Astro.props
+const { title, pubDate, heroImage, description, id } = Astro.props
 ---
 
 <RootLayout>

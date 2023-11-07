@@ -4,7 +4,7 @@ import SocialLink from '../components/home/SocialLink.astro'
 import RootLayout from '../layouts/RootLayout.astro'
 import Photos from '../components/home/Photos.astro'
 import Resume from '../components/home/Resume.astro'
-import { Article } from '../components/home/Article'
+import Article from '../components/home/Article.astro'
 import { getCollection } from 'astro:content'
 
 const articles = (await getCollection('article'))
@@ -56,6 +56,7 @@ const articles = (await getCollection('article'))
           articles.map((article) => (
             <Article
               article={{
+                id: article.id,
                 date: article.data.pubDate,
                 slug: article.slug,
                 title: article.data.title,

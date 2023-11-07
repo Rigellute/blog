@@ -1,11 +1,10 @@
 ---
-import { ContainerOuter as ContainerOuterReact } from './Container.tsx'
 type Props = {
   class?: string
 }
 const { class: className, ...props } = Astro.props
 ---
 
-<ContainerOuterReact className={className} {...props}>
-  <slot />
-</ContainerOuterReact>
+<div class:list={['sm:px-8', className]} {...props}>
+  <div class="mx-auto w-full max-w-7xl lg:px-8"><slot /></div>
+</div>

@@ -263,7 +263,6 @@ export default function Header() {
     let upDelay = 64
 
     function setProperty(property: string, value: string) {
-      console.log({ property, value })
       document.documentElement.style.setProperty(property, value)
     }
 
@@ -326,11 +325,9 @@ export default function Header() {
 
       let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale
       scale = clamp(scale, fromScale, toScale)
-      console.log({ scale })
 
       let x = (scrollY * (fromX - toX)) / downDelay + toX
       x = clamp(x, fromX, toX)
-      console.log({ x })
 
       setProperty(
         '--avatar-image-transform',

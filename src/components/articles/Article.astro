@@ -1,7 +1,11 @@
 ---
 import { formatDate } from '../../utils'
-import { Card } from '../Card'
-import { type ArticleWithSlug } from '../home/Article'
+import Card from '../card/Card.astro'
+import CardTitle from '../card/Title.astro'
+import CardEyebrow from '../card/Eyebrow.astro'
+import CardDescription from '../card/Desc.astro'
+import CardCta from '../card/Cta.astro'
+import { type ArticleWithSlug } from '../home/Article.astro'
 
 type Props = {
   article: ArticleWithSlug
@@ -10,26 +14,26 @@ const { article } = Astro.props
 ---
 
 <article class="md:grid md:grid-cols-4 md:items-baseline">
-  <Card className="md:col-span-3">
-    <Card.Title href={`/articles/${article.slug}`}>
+  <Card class="md:col-span-3">
+    <CardTitle id={article.id} href={`/articles/${article.slug}`}>
       {article.title}
-    </Card.Title>
-    <Card.Eyebrow
+    </CardTitle>
+    <CardEyebrow
       as="time"
       dateTime={article.date.toString()}
-      className="md:hidden"
+      class="md:hidden"
       decorate
     >
       {formatDate(article.date)}
-    </Card.Eyebrow>
-    <Card.Description>{article.description}</Card.Description>
-    <Card.Cta>Read article</Card.Cta>
+    </CardEyebrow>
+    <CardDescription>{article.description}</CardDescription>
+    <CardCta>Read article</CardCta>
   </Card>
-  <Card.Eyebrow
+  <CardEyebrow
     as="time"
     dateTime={article.date.toString()}
-    className="mt-1 hidden md:block"
+    class="mt-1 hidden md:block"
   >
     {formatDate(article.date)}
-  </Card.Eyebrow>
+  </CardEyebrow>
 </article>

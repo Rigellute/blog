@@ -6,28 +6,40 @@ type Props = {
 const { href } = Astro.props
 ---
 
-<li>
-  <a href={href} id="link" class:list={['relative block px-3 py-2 transition']}>
-    <slot />
-    <span
-      id="highlight"
-      class="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"
-    ></span>
-  </a>
-</li>
+<desktop-navitem>
+  <li>
+    <a href={href} class:list={['relative block px-3 py-2 transition']}>
+      <slot />
+      <span
+        class="hidden absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"
+      ></span>
+    </a>
+  </li>
+</desktop-navitem>
 
 <script>
-  const link = document.getElementById('link') as HTMLAnchorElement
-  const highlight = document.getElementById('highlight') as HTMLSpanElement
-  const isActive = window.location.pathname === link.href
+  class DesktopNavItem extends HTMLElement {
+    constructor() {
+      super()
 
-  if (isActive) {
-    link.classList.toggle('text-teal-500')
-    link.classList.toggle('dark:text-teal-400')
-    highlight.classList.toggle('hidden')
-  } else {
-    link.classList.toggle('hover:text-teal-500')
-    link.classList.toggle('dark:hover:text-teal-400')
-    highlight.classList.toggle('hidden')
+      const link = this.querySelector('a')
+      const highlight = this.querySelector('span')
+      if (!link || !highlight) {
+        return
+      }
+
+      const href = new URL(link.href).pathname
+      const isActive = window.location.pathname === href
+
+      if (isActive) {
+        link.classList.toggle('text-teal-500')
+        link.classList.toggle('dark:text-teal-400')
+        highlight.classList.toggle('hidden')
+      } else {
+        link.classList.toggle('hover:text-teal-500')
+        link.classList.toggle('dark:hover:text-teal-400')
+      }
+    }
   }
+  customElements.define('desktop-navitem', DesktopNavItem)
 </script>
