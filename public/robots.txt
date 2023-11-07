@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keliris.dev/sitemap-index.xml
