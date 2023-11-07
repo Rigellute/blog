@@ -1,0 +1,10 @@
+---
+import Section from '../Section.astro'
+const props = Astro.props
+---
+
+<Section {...props}>
+  <ul role="list" class="space-y-16">
+    <slot />
+  </ul>
+</Section>
