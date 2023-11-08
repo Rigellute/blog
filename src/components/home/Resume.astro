@@ -3,24 +3,32 @@ import logoPlanetaria from '../../images/logos/planetaria.svg'
 import logoFormidable from '../../images/logos/formidable.svg'
 import logoRota from '../../images/logos/rota.svg'
 import logoHive from '../../images/logos/hive.svg'
+import logoWebb from '../../images/logos/webb-logo.png'
 import kcLogo from '../../images/logos/keliris-consulting-logo.svg'
 import BriefcaseIcon from '../icons/Briefcase.astro'
 import Role, { type Role as RoleType } from './Role.astro'
 
 const resume: RoleType[] = [
   {
-    company: 'Formidable',
-    title: 'Senior Software Engineer & Consultant',
-    logo: logoFormidable,
-    start: '2020',
+    company: 'Webb Technology',
+    title: 'Senior Full-Stack Engineer',
+    logo: logoWebb,
+    start: '2022',
     end: {
       label: 'Present',
       dateTime: new Date().getFullYear().toString(),
     },
   },
   {
+    company: 'Formidable',
+    title: 'Senior Full-Stack Engineer',
+    logo: logoFormidable,
+    start: '2020',
+    end: '2023',
+  },
+  {
     company: 'Hive',
-    title: 'Senior React Native Software Engineer',
+    title: 'Senior React Native Engineer',
     logo: logoHive,
     start: '2018',
     end: '2020',
