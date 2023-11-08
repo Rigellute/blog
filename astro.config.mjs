@@ -4,8 +4,9 @@ import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import rehypePrism from '@mapbox/rehype-prism'
-
 import alpinejs from '@astrojs/alpinejs'
+
+import prefetch from '@astrojs/prefetch'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,6 @@ export default defineConfig({
     rehypePlugins: [rehypePrism],
   },
   site: 'https://keliris.dev',
-  integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs()],
+  integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs(), prefetch()],
 })
 
