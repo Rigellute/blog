@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets'
+import Card from '../components/card/Card.astro'
+import CardLink from '../components/card/Link.astro'
+import CardDescription from '../components/card/Desc.astro'
+import SimpleLayout from '../layouts/SimpleLayout.astro'
+import RootLayout from '../layouts/RootLayout.astro'
+import logoSpotify from '../images/logos/spotify-logo.png'
+import logoStar from '../images/logos/stargazer.svg'
+import logoRledger from '../images/logos/rledger.svg'
+import logoRedis from '../images/logos/redis.svg'
+import logoMusic from '../images/logos/music.svg'
+import BaseHead from '../components/BaseHead.astro'
+import LinkIcon from '../components/icons/Link.astro'
+
+const projects = [
+  {
+    name: 'Lute Music Search',
+    description:
+      'Extremely fast and relevant search that makes it easier to find new lute music.',
+    link: { href: '/lute-search', label: 'keliris.dev/lute-search' },
+    logo: logoMusic,
+  },
+  {
+    name: 'spotify-tui',
+    description: 'Spotify for the terminal written in Rust 🚀.',
+    link: {
+      href: 'https://github.com/Rigellute/spotify-tui',
+      label: 'github.com',
+    },
+    logo: logoSpotify,
+  },
+  {
+    name: 'Rigel Theme',
+    description: '🌌 Colorscheme based on the star Rigel ✨.',
+    link: { href: 'https://rigel.netlify.app/', label: 'rigel.netlify.app' },
+    logo: logoStar,
+  },
+  {
+    name: 'Changelog: rledger',
+    description:
+      'Open source plain text accounting, written in Rust. This site serves as the changelog for the project.',
+    link: { href: 'https://log.rledger.org/', label: 'log.rledger.org' },
+    logo: logoRledger,
+  },
+  {
+    name: '🪀 Toy Redis Clone in Rust 🚀',
+    description:
+      'Purely for fun and learning, this is a toy Redis implementation in Rust. Kicked off by following the excellent CodeCrafters Redis course.',
+    link: {
+      href: 'https://github.com/Rigellute/redis-rust',
+      label: 'github.com',
+    },
+    logo: logoRedis,
+  },
+]
+---
+
+<RootLayout>
+  <BaseHead
+    slot="head"
+    title="Projects - Alexander Keliris"
+    description="Things I’ve made and working on."
+  />
+  <SimpleLayout
+    title="Things I’ve made and working on."
+    intro="I’ve worked on tons of little projects over the years, but these are the ones I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+  >
+    <ul
+      role="list"
+      class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        projects.map((project) => (
+          <Card as="li">
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <Image src={project.logo} alt={project.name} class="h-8 w-8" />
+            </div>
+            <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+              <CardLink href={project.link.href}>{project.name}</CardLink>
+            </h2>
+            <CardDescription>{project.description}</CardDescription>
+            <p class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <LinkIcon class="h-6 w-6 flex-none" />
+              <span class="ml-2">{project.link.label}</span>
+            </p>
+          </Card>
+        ))
+      }
+    </ul>
+  </SimpleLayout>
+</RootLayout>

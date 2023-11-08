@@ -10,4 +10,4 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm ci
-      - run: npm run lint
+      - run: npm run astro check

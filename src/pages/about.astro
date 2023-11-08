@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets'
+import RootLayout from '../layouts/RootLayout.astro'
+import Container from '../components/Container.astro'
+import portraitImage from '../images/portrait.jpg'
+import SocialLink from '../components/about/SocialLink.astro'
+import BaseHead from '../components/BaseHead.astro'
+
+const email = import.meta.env.PUBLIC_EMAIL
+---
+
+<RootLayout>
+  <BaseHead
+    slot="head"
+    title="About - Alexander Keliris"
+    description="I’m Alexander Keliris. I live in the UK, where I build software for companies all over the world."
+  />
+  <Container class="mt-16 sm:mt-32">
+    <div
+      class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+    >
+      <div class="lg:pl-20">
+        <div class="max-w-xs px-2.5 lg:max-w-none">
+          <Image
+            src={portraitImage}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
+        </div>
+      </div>
+      <div class="lg:order-first lg:row-span-2">
+        <h1
+          class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+        >
+          I’m Alexander Keliris. I live in the UK, where I consult for clients
+          all over the world.
+        </h1>
+        <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <p>
+            Before discovering my passion for programming, I intended to become
+            an academic philosopher: studying for a BA in Philosophy at
+            University and then an MA. But before continuing on to a PhD, I
+            decided to take a break from education.
+          </p>
+          <p>
+            I took an internship at a classical music publishing house. Music
+            was my first passion, so this seemed like a good start. It was here
+            that I got involved in an internal startup building an app to read
+            sheet music. This was the spark that kindled my love of programming.
+          </p>
+          <p>
+            I then left the internship to try building my own startup. I taught
+            myself to code, whilst doing freelance web development on the side.
+            Six months later, the startup wasn’t sustainable, so I started my
+            first full-time job as a full stack developer at an investor-backed
+            early-stage startup called Rota. I was the third technical hire, so
+            got to have a large impact early on.
+          </p>
+          <p>
+            From there, I founded my consulting company, Keliris Consulting,
+            where I have been contracting ever since. I’ve consulted for
+            startups and large enterprises across the full stack, where I strive
+            to have an immediate and significant impact on infrastructure
+            decisions, architecture, implementation, CI/CD and design.
+          </p>
+          <p>
+            Talk to me about Rust 🦀, Golang, Typescript, Javascript, Node.js,
+            React, React Native, Kubernetes, AWS, Docker, and much more!
+          </p>
+        </div>
+      </div>
+      <div class="lg:pl-20">
+        <ul role="list">
+          <SocialLink href="https://twitter.com/alexkeliris" icon={'twitter'}>
+            Follow on Twitter
+          </SocialLink>
+          <SocialLink
+            href="https://github.com/Rigellute/"
+            icon={'github'}
+            class="mt-4"
+          >
+            Follow on GitHub
+          </SocialLink>
+          <SocialLink
+            href="https://linkedin.com/in/alexander-keliris-808270b2"
+            icon={'linkedin'}
+            class="mt-4"
+          >
+            Follow on LinkedIn
+          </SocialLink>
+          <SocialLink
+            href={`mailto:${email}`}
+            icon={'mail'}
+            class="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+          >
+            {email}
+          </SocialLink>
+        </ul>
+      </div>
+    </div>
+  </Container>
+</RootLayout>

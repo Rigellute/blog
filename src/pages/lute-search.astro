@@ -1,0 +1,96 @@
+---
+import RootLayout from '../layouts/RootLayout.astro'
+import SimpleLayout from '../layouts/SimpleLayout.astro'
+import BaseHead from '../components/BaseHead.astro'
+import { LuteSearch as LuteSearchReact } from '../components/LuteSearch'
+
+const TOTAL_PIECES = (20000).toLocaleString()
+---
+
+<RootLayout>
+  <BaseHead
+    title="Search Lute Music - Alexander Keliris"
+    description={`Search over ${TOTAL_PIECES} lute pieces.`}
+    image="/lute-1.jpg"
+  />
+  <SimpleLayout
+    title="Search Lute Music"
+    intro={`This index contains more than ${TOTAL_PIECES} lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'.`}
+  >
+    <LuteSearchReact client:only />
+  </SimpleLayout>
+</RootLayout>
+
+<style is:global>
+  .text-color {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+
+  .ais-RangeInput-separator {
+    @apply px-1 text-zinc-600 dark:text-zinc-400;
+  }
+
+  .ais-RangeInput-submit {
+    @apply ml-1 inline-flex items-center justify-center gap-2 rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70;
+  }
+
+  .ais-Highlight-highlighted {
+    @apply rounded bg-teal-300 not-italic dark:bg-teal-500;
+  }
+
+  .search-input {
+    @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm;
+  }
+
+  #refinement-list input.ais-SearchBox-input {
+    @apply search-input w-full;
+  }
+
+  .ais-RangeInput-input {
+    @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm;
+  }
+
+  .ais-SearchBox-submit {
+    @apply hidden;
+  }
+
+  .ais-SearchBox-reset {
+    @apply hidden;
+  }
+
+  .ais-Pagination-list {
+    @apply mt-12 flex justify-center;
+  }
+
+  .ais-Pagination-item {
+    @apply relative inline-flex items-center text-sm font-semibold text-zinc-600 ring-1 ring-inset ring-zinc-300 hover:bg-zinc-50 focus:z-20 focus:outline-offset-0 dark:text-zinc-400;
+  }
+
+  .ais-Pagination-item:first-child {
+    @apply rounded-l;
+  }
+
+  .ais-Pagination-item:last-child {
+    @apply rounded-r;
+  }
+
+  .ais-Pagination-link {
+    @apply px-3 py-1;
+  }
+
+  .ais-Pagination-link--selected {
+    @apply bg-teal-600;
+  }
+
+  .btn-primary {
+    @apply rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition transition-none hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70;
+  }
+
+  .ais-ClearRefinements-button {
+    @apply btn-primary inline-flex items-center justify-center;
+  }
+
+  .ais-Stats {
+    @apply text-right text-sm text-zinc-600 dark:text-zinc-400;
+  }
+</style>

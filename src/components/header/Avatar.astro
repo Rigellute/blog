@@ -1,0 +1,25 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+import { Image } from 'astro:assets'
+import avatarImg from '../../images/avatar.jpg'
+
+type Props = HTMLAttributes<'a'> & { large?: boolean }
+const { class: className, large = false, ...props } = Astro.props
+---
+
+<a
+  href="/"
+  aria-label="Home"
+  class:list={[className, 'pointer-events-auto']}
+  {...props}
+>
+  <Image
+    src={avatarImg}
+    alt="Avatar"
+    sizes={large ? '4rem' : '2.25rem'}
+    class:list={[
+      'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
+      large ? 'h-16 w-16' : 'h-9 w-9',
+    ]}
+  />
+</a>

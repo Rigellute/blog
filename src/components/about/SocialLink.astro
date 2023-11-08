@@ -1,0 +1,32 @@
+---
+import GitHub from '../icons/GitHub.astro'
+import LinkedIn from '../icons/LinkedIn.astro'
+import Twitter from '../icons/Twitter.astro'
+import Mail from '../icons/MailIcon.astro'
+import type { HTMLAttributes } from 'astro/types'
+
+const icons = {
+  twitter: Twitter,
+  github: GitHub,
+  linkedin: LinkedIn,
+  mail: Mail,
+}
+
+type Props = HTMLAttributes<'li'> & { icon: keyof typeof icons; href: string }
+
+const { class: className, href, icon } = Astro.props
+
+const Icon = icons[icon]
+---
+
+<li class:list={[className, 'flex']}>
+  <a
+    href={href}
+    class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+  >
+    <Icon
+      class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
+    />
+    <span class="ml-4"><slot /></span>
+  </a>
+</li>

@@ -1,0 +1,62 @@
+---
+import MoonIcon from '../icons/MoonIcon.astro'
+import SunIcon from '../icons/SunIcon.astro'
+---
+
+<button
+  id="themeToggle"
+  type="button"
+  aria-label={'Toggle theme'}
+  class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+>
+  <SunIcon
+    class="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600"
+  />
+  <MoonIcon
+    class="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500"
+  />
+</button>
+
+<script is:inline>
+const theme = (() => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme')
+  }
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark'
+  }
+  return 'light'
+})()
+
+if (theme === 'light') {
+  document.documentElement.classList.remove('dark')
+} else {
+  document.documentElement.classList.add('dark')
+}
+
+window.localStorage.setItem('theme', theme)
+
+const handleToggleClick = () => {
+  disableTransitionsTemporarily()
+  const element = document.documentElement
+  element.classList.toggle('dark')
+
+  const isDark = element.classList.contains('dark')
+  const otherTheme = isDark ? 'dark' : 'light'
+  localStorage.setItem('theme', otherTheme)
+
+  themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
+}
+
+const themeToggle = document.getElementById('themeToggle')
+const otherTheme = theme === 'dark' ? 'light' : 'dark'
+themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
+themeToggle.addEventListener('click', handleToggleClick)
+
+function disableTransitionsTemporarily() {
+  document.documentElement.classList.add('[&_*]:!transition-none')
+  window.setTimeout(() => {
+    document.documentElement.classList.remove('[&_*]:!transition-none')
+  }, 0)
+}
+</script>

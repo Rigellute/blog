@@ -1,0 +1,12 @@
+---
+type Props = {
+  href: string
+}
+const props = Astro.props
+---
+
+<li>
+  <a rel="prefetch" class="block py-2" href={props.href}>
+    <slot />
+  </a>
+</li>

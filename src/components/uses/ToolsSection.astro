@@ -1,0 +1,12 @@
+---
+import Section, { type Props as SectionProps } from '../Section.astro'
+
+type Props = SectionProps
+const props = Astro.props
+---
+
+<Section {...props}>
+  <ul role="list" class="space-y-16">
+    <slot />
+  </ul>
+</Section>

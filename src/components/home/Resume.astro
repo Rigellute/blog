@@ -1,0 +1,67 @@
+---
+import logoPlanetaria from '../../images/logos/planetaria.svg'
+import logoFormidable from '../../images/logos/formidable.svg'
+import logoRota from '../../images/logos/rota.svg'
+import logoHive from '../../images/logos/hive.svg'
+import kcLogo from '../../images/logos/keliris-consulting-logo.svg'
+import BriefcaseIcon from '../icons/Briefcase.astro'
+import Role, { type Role as RoleType } from './Role.astro'
+
+const resume: RoleType[] = [
+  {
+    company: 'Formidable',
+    title: 'Senior Software Engineer & Consultant',
+    logo: logoFormidable,
+    start: '2020',
+    end: {
+      label: 'Present',
+      dateTime: new Date().getFullYear().toString(),
+    },
+  },
+  {
+    company: 'Hive',
+    title: 'Senior React Native Software Engineer',
+    logo: logoHive,
+    start: '2018',
+    end: '2020',
+    iconStyle: {
+      backgroundColor: '#ff7a00',
+      padding: '3px',
+    },
+  },
+  {
+    company: 'Keliris Consulting',
+    title: 'Founder',
+    logo: kcLogo,
+    start: '2018',
+    end: {
+      label: 'Present',
+      dateTime: new Date().getFullYear().toString(),
+    },
+  },
+  {
+    company: 'Rota',
+    title: 'Full Stack Software Engineer',
+    logo: logoRota,
+    start: '2016',
+    end: '2018',
+  },
+  {
+    company: 'Freelance',
+    title: 'Frontend developer',
+    logo: logoPlanetaria,
+    start: '2015',
+    end: '2016',
+  },
+]
+---
+
+<div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+  <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+    <BriefcaseIcon class="h-6 w-6 flex-none" />
+    <span class="ml-3">Work</span>
+  </h2>
+  <ol class="mt-6 space-y-4">
+    {resume.map((role) => <Role role={role} />)}
+  </ol>
+</div>

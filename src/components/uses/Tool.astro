@@ -1,0 +1,19 @@
+---
+import Card from '../card/Card.astro'
+import CardTitle from '../card/Title.astro'
+import CardDescription from '../card/Desc.astro'
+
+type Props = {
+  href?: string
+  title: string
+}
+
+const { href, title } = Astro.props
+---
+
+<Card as="li">
+  <CardTitle as="h3" href={href}>
+    {title}
+  </CardTitle>
+  <CardDescription><slot /></CardDescription>
+</Card>

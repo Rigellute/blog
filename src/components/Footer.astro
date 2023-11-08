@@ -1,0 +1,31 @@
+---
+import ContainerInner from './ContainerInner.astro'
+import ContainerOuter from './ContainerOuter.astro'
+
+const today = new Date()
+
+const navLinkClasses = 'transition hover:text-teal-500 dark:hover:text-teal-400'
+---
+
+<footer class="mt-32 flex-none">
+  <ContainerOuter>
+    <div class="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+      <ContainerInner>
+        <div
+          class="flex flex-col items-center justify-between gap-6 sm:flex-row"
+        >
+          <div
+            class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+          >
+            <a class={navLinkClasses} href="/about"> About</a>
+            <a class={navLinkClasses} href="/projects">Projects</a>
+            <a class={navLinkClasses} href="/uses">Uses</a>
+          </div>
+          <p class="text-sm text-zinc-400 dark:text-zinc-500">
+            &copy; {today.getFullYear()} Alexander Keliris. All rights reserved.
+          </p>
+        </div>
+      </ContainerInner>
+    </div>
+  </ContainerOuter>
+</footer>
