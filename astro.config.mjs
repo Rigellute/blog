@@ -3,16 +3,16 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import rehypePrism from '@mapbox/rehype-prism'
 import alpinejs from '@astrojs/alpinejs'
-
 import prefetch from '@astrojs/prefetch'
+import syntaxTheme from './syntax-theme.json'
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    syntaxHighlight: 'prism',
-    rehypePlugins: [rehypePrism],
+    shikiConfig: {
+      theme: syntaxTheme,
+    },
   },
   site: 'https://keliris.dev',
   integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs(), prefetch()],
