@@ -17,4 +17,3 @@ export default defineConfig({
   site: 'https://keliris.dev',
   integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs(), prefetch()],
 })
-

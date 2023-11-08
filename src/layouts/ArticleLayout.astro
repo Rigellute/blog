@@ -34,16 +34,22 @@ const { title, pubDate, heroImage, description } = Astro.props
             />
           </button>
           <script is:inline>
-          const canGoBack =
-            new URL(document.referrer).host === window.location.host
-          const button = document.getElementById('back-button')
+          // The URL constructor can throw when url is bad
+          // Just ignore it
+          try {
+            const canGoBack =
+              new URL(document.referrer).host === window.location.host
+            const button = document.getElementById('back-button')
 
-          if (canGoBack) {
-            button.classList.toggle('hidden')
+            if (canGoBack) {
+              button.classList.toggle('hidden')
+            }
+            button?.addEventListener('click', () => {
+              history.back()
+            })
+          } catch {
+            // Do nothing
           }
-          button?.addEventListener('click', () => {
-            history.back()
-          })
           </script>
         </div>
         <article>
