@@ -17,7 +17,7 @@ const { title, pubDate, heroImage, description } = Astro.props
     slot="head"
     title={title}
     description={description}
-    image={heroImage}
+    image={heroImage?.src}
   />
   <Container class="mt-16 lg:mt-32">
     <div class="xl:relative">
