@@ -52,3 +52,11 @@ Run:
 ```sh
 cargo run --release
 ```
+
+## Updating syntax highlighting
+
+Probably won't be needed, but I wrote a script to help me quickly test different shiki themes.
+
+- Find a vscode theme in `.json` e.g. [Night Owl](https://github.com/sdras/night-owl-vscode-theme/blob/main/themes/Night%20Owl-color-theme.json).
+- Paste into the theme file: `pbpaste > syntax-theme.json`
+- Run the script to set the background to a darker color to match the site's theme: `node scripts/syntax-theme.mjs`.
