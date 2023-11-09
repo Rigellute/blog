@@ -14,6 +14,6 @@ export default defineConfig({
       theme: syntaxTheme,
     },
   },
-  site: 'https://keliris.dev',
+  site: import.meta.env.PUBLIC_VERCEL_URL,
   integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs(), prefetch()],
 })
