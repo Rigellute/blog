@@ -3,11 +3,12 @@ title: How to add a custom theme for syntax highlighting with Astro and Shiki
 description: Shiki makes use of vscode themes and Astro allows you to easily customise the Shiki config for markdown.
 pubDate: '2023-11-09'
 author: 'Alexander Keliris'
+heroImage: './carbon.png'
 ---
 
-One of the great things about [Astro](https://astro.build/) is that it comes with syntax highlighting for Markdown code blocks out-of-the-box: using [Shiki](https://shiki.matsu.io/) by default or letting you choose [Prism](https://prismjs.com/).
+Out-of-the-box, [Astro](https://astro.build/) comes with syntax highlighting for Markdown code blocks. This is such a breath of fresh air when you just want to hit the ground running. Astro uses [Shiki](https://shiki.matsu.io/) by default or lets you choose [Prism](https://prismjs.com/).
 
-I've written custom Prism themes before ([rigel theme](https://github.com/Rigellute/rigel/blob/master/www/css/prism.css)), and previous iterations of this blog used Prism to highlight code blocks.
+I've written custom Prism themes before ([rigel theme](https://github.com/Rigellute/rigel/blob/master/www/css/prism.css)), and previous iterations of this blog used Prism to highlight the code blocks.
 
 However, I am drawn to Shiki as it lets you use any of the innumerable vscode themes.
 
