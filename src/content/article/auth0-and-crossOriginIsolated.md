@@ -7,7 +7,7 @@ author: 'Alexander Keliris'
 
 I recently integrated [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login) into a React SPA but had a problem with the `loginWithPopup` flow (from the `@auth0/auth0-react` library).
 
-The popup would open, allowing the user to login. But then on success, the Auth0 redirect would result in the following error:
+The popup would open, allowing the user to log in. But then on success, the Auth0 redirect would result in the following error:
 
 ```
 Failed to execute 'postMessage' on 'DOMWindow':
@@ -33,7 +33,7 @@ Since my application requires these features, I needed to find a workaround that
 Here is a high-level overview of my workaround:
 
 1. On the login page, register an event listener for local storage. We will be listening for a change to an `isLoggedIn` flag set in the popup window.
-1. When the user clicks "login", open a popup window on a route that immediately triggers the Auth0 redirect.
+1. When the user clicks "login" open a popup window on a route that immediately triggers the Auth0 redirect.
 1. The user is redirected to Auth0 and logs in.
 1. Auth0 then redirects back to my site, we check for success, and set the `isLoggedIn` flag to a truthy value.
 1. The popup window can now close itself.
@@ -80,4 +80,4 @@ For local reproduction of this issue, I used [Caddy](https://caddyserver.com/) a
 1. Type `crossOriginIsolated` and hit enter: you will see it is `true`.
 1. Try using the `loginWithPopup` flow.
 
-After entering your credentials within the "Univerval Login" UI, the popup will just be a blank white screen. Open the dev tools for the popup window, and you should see the `postMessage` error from above.
+After entering your credentials within the "Universal Login" UI, the popup will just be a blank white screen. Open the dev tools for the popup window, and you should see the `postMessage` error from above.
