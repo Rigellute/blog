@@ -4,6 +4,8 @@ import '@fontsource-variable/inter'
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css'
 
+import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2'
+
 interface Props {
   title: string
   description: string
@@ -20,6 +22,9 @@ const { title, description, image = '/helmet.png' } = Astro.props
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Font preloads -->
+<link rel="preload" href={interFont} as="font" type="font/woff" crossorigin />
 
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
