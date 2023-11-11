@@ -4,7 +4,6 @@ import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import alpinejs from '@astrojs/alpinejs'
-import prefetch from '@astrojs/prefetch'
 import syntaxTheme from './syntax-theme.json'
 
 // https://astro.build/config
@@ -15,5 +14,8 @@ export default defineConfig({
     },
   },
   site: 'https://keliris.dev',
-  integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs(), prefetch()],
+  prefetch: {
+    prefetchAll: true,
+  },
+  integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs()],
 })

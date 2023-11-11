@@ -8,11 +8,7 @@ const { href } = Astro.props
 
 <desktop-navitem>
   <li>
-    <a
-      rel="prefetch"
-      href={href}
-      class:list={['relative block px-3 py-2 transition']}
-    >
+    <a href={href} class:list={['relative block px-3 py-2 transition']}>
       <slot />
       <span
         class="hidden absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"
