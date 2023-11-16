@@ -43,19 +43,21 @@ const { href } = Astro.props
         link.classList.add('text-teal-700')
         link.classList.add('dark:text-teal-400')
         highlight.classList.remove('hidden')
+        link.classList.add('hover:text-teal-700')
+        link.classList.add('dark:hover:text-teal-400')
       }
 
       const removeHighlight = () => {
         link.classList.remove('text-teal-700')
         link.classList.remove('dark:text-teal-400')
         highlight.classList.add('hidden')
+        link.classList.add('hover:text-teal-700')
+        link.classList.add('dark:hover:text-teal-400')
       }
 
       if (isActive) {
         addHighlight()
       } else {
-        link.classList.toggle('hover:text-teal-700')
-        link.classList.toggle('dark:hover:text-teal-400')
         removeHighlight()
       }
     }

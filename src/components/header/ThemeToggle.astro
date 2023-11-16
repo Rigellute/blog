@@ -32,6 +32,7 @@ import SunIcon from '../icons/SunIcon.astro'
       return 'light'
     })()
 
+    disableTransitionsTemporarily()
     if (theme === 'light') {
       document.documentElement.classList.remove('dark')
     } else {
@@ -68,13 +69,11 @@ import SunIcon from '../icons/SunIcon.astro'
         document.documentElement.classList.remove('[&_*]:!transition-none')
       }, 0)
     }
-  })
-</script>
 
-<script>
-  document.addEventListener('astro:after-swap', () => {
-    localStorage.theme === 'dark'
-      ? document.documentElement.classList.add('dark')
-      : document.documentElement.classList.add('light')
+    document.addEventListener('astro:after-swap', () => {
+      localStorage.theme === 'dark'
+        ? document.documentElement.classList.add('dark')
+        : document.documentElement.classList.add('light')
+    })
   })
 </script>
