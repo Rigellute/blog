@@ -63,28 +63,10 @@ import SunIcon from '../icons/SunIcon.astro'
     themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
     themeToggle.addEventListener('click', handleToggleClick)
 
-    // Taken from https://github.com/pacocoursey/next-themes/blob/main/packages/next-themes/src/index.tsx#L285-L303
     function disableTransitionsTemporarily() {
-      const css = document.createElement('style')
-      css.appendChild(
-        document.createTextNode(
-          `*{
-              -webkit-transition:none!important;
-              -moz-transition:none!important;
-              -o-transition:none!important;
-              -ms-transition:none!important;
-              transition:none!important
-              }`,
-        ),
-      )
-      document.head.appendChild(css)
-
-      // Force restyle
-      ;(() => window.getComputedStyle(document.body))()
-
-      // Wait for next tick before removing
-      setTimeout(() => {
-        document.head.removeChild(css)
+      document.documentElement.classList.add('[&_*]:!transition-none')
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('[&_*]:!transition-none')
       }, 0)
     }
 
