@@ -61,8 +61,10 @@ const { title, pubDate, heroImage, description } = Astro.props
 
 <script>
   const handleBackButtonReveal = () => {
+    console.log('is this ever invoked?')
     // The URL constructor can throw when url is bad, just ignore it
     try {
+      console.log('referrer', document.referrer)
       const canGoBack = new URL(document.referrer).host === window.location.host
       const button = document.getElementById('back-button')
 
