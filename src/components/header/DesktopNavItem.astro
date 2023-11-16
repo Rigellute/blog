@@ -39,21 +39,24 @@ const { href } = Astro.props
       const href = new URL(link.href).pathname
       const isActive = window.location.pathname === href
 
-      const toggleHighlight = () => {
-        link.classList.toggle('text-teal-700')
-        link.classList.toggle('dark:text-teal-400')
-        highlight.classList.toggle('hidden')
+      const addHighlight = () => {
+        link.classList.add('text-teal-700')
+        link.classList.add('dark:text-teal-400')
+        highlight.classList.remove('hidden')
       }
+
+      const removeHighlight = () => {
+        link.classList.remove('text-teal-700')
+        link.classList.remove('dark:text-teal-400')
+        highlight.classList.add('hidden')
+      }
+
       if (isActive) {
-        toggleHighlight()
+        addHighlight()
       } else {
-        // When not active, only show the highlight text on hover
-        if (highlight.classList.contains('hidden')) {
-          link.classList.toggle('hover:text-teal-700')
-          link.classList.toggle('dark:hover:text-teal-400')
-        } else {
-          toggleHighlight()
-        }
+        link.classList.toggle('hover:text-teal-700')
+        link.classList.toggle('dark:hover:text-teal-400')
+        removeHighlight()
       }
     }
   }
