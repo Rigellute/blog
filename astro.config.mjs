@@ -14,8 +14,5 @@ export default defineConfig({
     },
   },
   site: 'https://keliris.dev',
-  prefetch: {
-    prefetchAll: true,
-  },
   integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs()],
 })

@@ -104,28 +104,31 @@ const { isHomePage = false } = Astro.props
   }
 </>
 
-<script is:inline>
-  const isHomePage = window.location.pathname === '/'
-  const avatarRef = document.getElementById('avatarRef')
-  const headerRef = document.getElementById('headerRef')
+<script>
   let isInitial = true
 
-  const downDelay = avatarRef?.offsetTop ?? 0
   const upDelay = 64
 
-  function setProperty(property, value) {
+  function setProperty(property: string, value: string) {
     document.documentElement.style.setProperty(property, value)
   }
 
-  function removeProperty(property) {
+  function removeProperty(property: string) {
     document.documentElement.style.removeProperty(property)
   }
 
+  function getDownDelay() {
+    const avatarRef = document.getElementById('avatarRef')
+    return avatarRef?.offsetTop ?? 0
+  }
+
   function updateHeaderStyles() {
+    const headerRef = document.getElementById('headerRef')
     if (!headerRef) {
       return
     }
 
+    const downDelay = getDownDelay()
     const { top, height } = headerRef.getBoundingClientRect()
     const scrollY = clamp(
       window.scrollY,
@@ -163,6 +166,7 @@ const { isHomePage = false } = Astro.props
   }
 
   function updateAvatarStyles() {
+    const isHomePage = window.location.pathname === '/'
     if (!isHomePage) {
       return
     }
@@ -171,6 +175,8 @@ const { isHomePage = false } = Astro.props
     const toScale = 36 / 64
     const fromX = 0
     const toX = 2 / 16
+
+    const downDelay = getDownDelay()
 
     const scrollY = downDelay - window.scrollY
 
@@ -199,13 +205,17 @@ const { isHomePage = false } = Astro.props
     isInitial = false
   }
 
-  updateStyles()
-  window.addEventListener('scroll', updateStyles, { passive: true })
-  window.addEventListener('resize', updateStyles)
-
-  function clamp(number, a, b) {
+  function clamp(number: number, a: number, b: number) {
     const min = Math.min(a, b)
     const max = Math.max(a, b)
     return Math.min(Math.max(number, min), max)
   }
+
+  window.addEventListener('scroll', updateStyles, { passive: true })
+  window.addEventListener('resize', updateStyles)
+
+  document.addEventListener('astro:page-load', () => {
+    isInitial = true
+    updateStyles()
+  })
 </script>

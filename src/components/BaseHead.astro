@@ -5,6 +5,7 @@ import '@fontsource-variable/inter'
 import '../styles/global.css'
 
 import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
   title: string
@@ -50,3 +51,5 @@ const { title, description, image = '/helmet.png' } = Astro.props
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<ViewTransitions />
