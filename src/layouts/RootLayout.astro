@@ -19,5 +19,13 @@ const { isHomePage = false } = Astro.props
     <div class="flex w-full">
       <Layout isHomePage={isHomePage}><slot /></Layout>
     </div>
+    <script>
+      import { previousPath } from '../store'
+      // `astro:page-load` comes after `astro:after-swap`,
+      // so we have some time to check the previous path within `astro:after-swap` listeners
+      document.addEventListener('astro:page-load', () => {
+        previousPath.set(window.location.pathname)
+      })
+    </script>
   </body>
 </html>
