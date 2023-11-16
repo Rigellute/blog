@@ -13,6 +13,9 @@ export default defineConfig({
       theme: syntaxTheme,
     },
   },
+  prefetch: {
+    defaultStrategy: 'viewport',
+  },
   site: 'https://keliris.dev',
   integrations: [mdx(), sitemap(), react(), tailwind(), alpinejs()],
 })
