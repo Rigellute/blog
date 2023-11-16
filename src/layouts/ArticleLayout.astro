@@ -76,8 +76,8 @@ const { title, pubDate, heroImage, description } = Astro.props
       // Do nothing
     }
   }
-  handleBackButtonReveal()
-  document.addEventListener('astro:after-swap', () => {
+
+  document.addEventListener('astro:page-load', () => {
     handleBackButtonReveal()
   })
 </script>
