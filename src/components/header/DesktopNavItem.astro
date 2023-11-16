@@ -25,19 +25,35 @@ const { href } = Astro.props
       const link = this.querySelector('a')
       const highlight = this.querySelector('span')
       if (!link || !highlight) {
-        return
+        throw new Error('Link and highlight elements are required')
       }
 
+      this.handleHighlight(link, highlight)
+
+      document.addEventListener('astro:after-swap', () => {
+        this.handleHighlight(link, highlight)
+      })
+    }
+
+    handleHighlight(link: HTMLAnchorElement, highlight: HTMLSpanElement) {
       const href = new URL(link.href).pathname
       const isActive = window.location.pathname === href
 
-      if (isActive) {
+      const toggleHighlight = () => {
         link.classList.toggle('text-teal-700')
         link.classList.toggle('dark:text-teal-400')
         highlight.classList.toggle('hidden')
+      }
+      if (isActive) {
+        toggleHighlight()
       } else {
-        link.classList.toggle('hover:text-teal-700')
-        link.classList.toggle('dark:hover:text-teal-400')
+        // When not active, only show the highlight text on hover
+        if (highlight.classList.contains('hidden')) {
+          link.classList.toggle('hover:text-teal-700')
+          link.classList.toggle('dark:hover:text-teal-400')
+        } else {
+          toggleHighlight()
+        }
       }
     }
   }

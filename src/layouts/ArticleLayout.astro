@@ -33,23 +33,24 @@ const { title, pubDate, heroImage, description } = Astro.props
               class="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
             />
           </button>
-          <script is:inline>
-          // The URL constructor can throw when url is bad
-          // Just ignore it
-          try {
-            const canGoBack =
-              new URL(document.referrer).host === window.location.host
-            const button = document.getElementById('back-button')
+          <script>
+            document.addEventListener('astro:after-swap', () => {
+              // The URL constructor can throw when url is bad, just ignore it
+              try {
+                const canGoBack =
+                  new URL(document.referrer).host === window.location.host
+                const button = document.getElementById('back-button')
 
-            if (canGoBack) {
-              button.classList.toggle('hidden')
-            }
-            button?.addEventListener('click', () => {
-              history.back()
+                if (canGoBack) {
+                  button?.classList.toggle('hidden')
+                }
+                button?.addEventListener('click', () => {
+                  history.back()
+                })
+              } catch {
+                // Do nothing
+              }
             })
-          } catch {
-            // Do nothing
-          }
           </script>
         </div>
         <article>
