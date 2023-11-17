@@ -24,22 +24,22 @@ curl https://github.com/catppuccin/vscode/blob/compiled/mocha.json -o syntax-the
 
 ## Configure Astro
 
-Open your `astro.config.mjs` and add your theme to the markdown config: 
+Open your `astro.config.mjs` and add your theme to the markdown config:
 
 ```js
 // Import your json theme
 import syntaxTheme from './syntax-theme.json'
 
 export default defineConfig({
-    markdown: {
-        shikiConfig: {
-            theme: syntaxTheme,
-        },
+  markdown: {
+    shikiConfig: {
+      theme: syntaxTheme,
     },
+  },
 })
 ```
 
-You might need to restart your dev server, but then that's it 🚀! 
+You might need to restart your dev server, but then that's it 🚀!
 
 ## Tweak the theme
 
