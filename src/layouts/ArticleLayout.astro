@@ -9,7 +9,7 @@ import Prose from '../components/Prose.astro'
 
 type Props = CollectionEntry<'article'>['data'] & { id: string }
 
-const { title, pubDate, heroImage, description } = Astro.props
+const { title, pubDate, heroImage, description, socialImage } = Astro.props
 ---
 
 <RootLayout>
@@ -17,7 +17,7 @@ const { title, pubDate, heroImage, description } = Astro.props
     slot="head"
     title={title}
     description={description}
-    image={heroImage?.src}
+    image={socialImage?.src || heroImage?.src}
   />
   <Container class="mt-16 lg:mt-32">
     <div class="xl:relative">
