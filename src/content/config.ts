@@ -10,6 +10,7 @@ const article = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
+      socialImage: image().optional(),
     }),
 })
 
