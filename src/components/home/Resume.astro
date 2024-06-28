@@ -8,51 +8,63 @@ import logoEaze from '../../images/logos/eaze.png'
 import logoHagerty from '../../images/logos/hagerty.png'
 import logoWarby from '../../images/logos/warby.png'
 import kcLogo from '../../images/logos/keliris-consulting-logo.svg'
+import fintechLogo from '../../images/logos/fintech.svg'
 import BriefcaseIcon from '../icons/Briefcase.astro'
 import Role, { type Role as RoleType } from './Role.astro'
 
 const resume: RoleType[] = [
   {
-    company: 'Webb Technology',
-    title: 'Senior Full-Stack Engineer',
-    logo: logoWebb,
-    start: '2022',
+    company: 'US Fintech Company',
+    title: 'Vice President of Engineering',
+    logo: fintechLogo,
+    start: '2024',
     end: {
       label: 'Present',
       dateTime: new Date().getFullYear().toString(),
     },
+    iconStyle: {
+      backgroundColor: 'white',
+      padding: '3px',
+    },
+  },
+  {
+    company: 'Webb Technology',
+    title: 'Consultant',
+    logo: logoWebb,
+    start: '2022',
+    end: '2024',
   },
   {
     company: 'Warby Parker',
-    title: 'Senior Full-Stack Engineer',
+    title: 'Consultant',
     logo: logoWarby,
     start: '2022',
     end: '2023',
   },
   {
     company: 'Hagerty',
-    title: 'Senior Full-Stack Engineer',
+    title: 'Consultant',
     logo: logoHagerty,
     start: '2020',
     end: '2022',
   },
   {
     company: 'Eaze',
-    title: 'Senior React Native Engineer',
+    title: 'Consultant',
     logo: logoEaze,
     start: '2020',
     end: '2020',
   },
   {
     company: 'Formidable',
-    title: 'Senior Full-Stack Engineer',
+    title: 'Consultant',
     logo: logoFormidable,
     start: '2020',
     end: '2023',
   },
   {
     company: 'Hive',
-    title: 'Senior React Native Engineer',
+    title: 'Contract React Native Engineer',
     logo: logoHive,
     start: '2018',
     end: '2020',
@@ -66,10 +78,7 @@ const resume: RoleType[] = [
     title: 'Founder',
     logo: kcLogo,
     start: '2018',
-    end: {
-      label: 'Present',
-      dateTime: new Date().getFullYear().toString(),
-    },
+    end: '2024',
   },
   {
     company: 'Rota',
