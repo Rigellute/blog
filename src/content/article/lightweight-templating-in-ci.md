@@ -17,7 +17,7 @@ Let's say I want to provide runtime config for a web frontend. I'll do this by i
 
 My config is going to be different in each stage of my deployment pipeline, so I need to generate this file based on environment variables.
 
-Here is my javascript template:
+Here is my JavaScript template:
 
 ```js
 // config-template.js
@@ -27,7 +27,7 @@ window.myAppConfig = {
 }
 ```
 
-`envsubst` will subsitute the `${MY_API_URL}` and `${MY_AUTH_URL}` markers with matching environment variables.
+`envsubst` will substitute the `${MY_API_URL}` and `${MY_AUTH_URL}` markers with matching environment variables.
 
 ```sh
 export MY_API_URL=https://example.com export MY_AUTH_URL=https://auth.example.com
