@@ -14,6 +14,7 @@ const { class: className, large = false, ...props } = Astro.props
   {...props}
 >
   <Image
+    loading="eager"
     src={avatarImg}
     alt="Avatar"
     sizes={large ? '4rem' : '2.25rem'}
