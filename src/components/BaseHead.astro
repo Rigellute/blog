@@ -3,8 +3,6 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css'
 
-import { ViewTransitions } from 'astro:transitions'
-
 interface Props {
   title: string
   description: string
@@ -47,4 +45,8 @@ const { title, description, image = '/helmet.png' } = Astro.props
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<ViewTransitions />
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+</style>

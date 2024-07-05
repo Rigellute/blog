@@ -13,7 +13,8 @@ export default defineConfig({
     },
   },
   prefetch: {
-    defaultStrategy: 'viewport',
+    defaultStrategy: 'hover',
+    prefetchAll: true,
   },
   site: 'https://keliris.dev',
   integrations: [mdx(), sitemap(), react(), tailwind()],
