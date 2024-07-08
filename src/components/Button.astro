@@ -9,11 +9,11 @@ const variantStyles = {
 }
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
-  as: Tag
+  as?: Tag
   variant?: keyof typeof variantStyles
 }>
 
-const { variant, class: className, as: Tag, ...props } = Astro.props
+const { variant, class: className, as: Tag = 'button', ...props } = Astro.props
 
 const style =
   variant === 'secondary' ? variantStyles.secondary : variantStyles.primary
