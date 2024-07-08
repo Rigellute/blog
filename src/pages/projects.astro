@@ -10,6 +10,7 @@ import logoStar from '../images/logos/stargazer.svg'
 import logoRledger from '../images/logos/rledger.svg'
 import logoRedis from '../images/logos/redis.svg'
 import logoMusic from '../images/logos/music.svg'
+import logoSound from '../images/logos/sound.svg'
 import BaseHead from '../components/BaseHead.astro'
 import LinkIcon from '../components/icons/Link.astro'
 
@@ -52,6 +53,16 @@ const projects = [
       label: 'github.com',
     },
     logo: logoRedis,
+  },
+  {
+    name: 'THX "Deep Note" in JavaScript',
+    description:
+      'I recreated the iconic THX "Deep Note" using JavaScript and the Tone.js library.',
+    link: {
+      href: '/articles/deep-note',
+      label: 'keliris.dev/articles/deep-note',
+    },
+    logo: logoSound,
   },
 ]
 ---
