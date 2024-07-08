@@ -2,7 +2,7 @@
 import Button from '../../../components/Button.astro'
 ---
 
-<Button class:list={['not-prose']} id="start">Initialize</Button>
+<Button as="button" class:list={['not-prose']} id="start">Initialize</Button>
 
 <script>
   const playButton = document.querySelector<HTMLButtonElement>('#start')!
