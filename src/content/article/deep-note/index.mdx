@@ -1,0 +1,148 @@
+---
+title: Recreating the THX "Deep Note" in JavaScript
+description: I recreated the iconic THX "Deep Note" using JavaScript and the Tone.js library. Here's how I did it.
+pubDate: 2024-07-05
+author: Alexander Keliris
+socialImage: './deep-note.ts.png'
+---
+
+import DeepNote from './DeepNote.astro'
+
+In this blog post, I'll share how I recreated the iconic THX "Deep Note" using JavaScript and the Tone.js library.
+
+Try it out. (Best with headphones. If you're on mobile, be sure to unmute):
+
+<div class="flex justify-center">
+  <DeepNote />
+</div>
+
+## Tone.js
+
+[Tone.js](https://tonejs.github.io/) is a powerful framework for creating interactive music in the browser.
+It provides an elegant API for dealing with audio signals, synthesizers, effects, and more.
+It is easier to work with than the Web Audio API, allowing us to focus on the creative aspects of audio programming.
+
+## Defining the "Deep Note"
+
+The "Deep Note" is characterized by its unique crescendo effect, starting from a chaotic blend of tones that gradually converge into a harmonious chord.
+To achieve this, we define a set of notes that form a D Major chord, which will serve as our target harmony.
+
+```typescript
+const NOTES = [
+  'D0',
+  'D1',
+  'A1',
+  'D2',
+  'A2',
+  'D3',
+  'A3',
+  'D4',
+  'A4',
+  'D5',
+  'F#5',
+]
+```
+
+I took these notes from the sheet music for the "Deep Note" ([wikipedia](https://en.wikipedia.org/wiki/Deep_Note)):
+
+![deep note sheet music](https://upload.wikimedia.org/wikipedia/en/e/e7/THXDeepNoteScore35thAnniversary.jpg)
+
+## The Sound Engine
+
+The core of our implementation lies in creating audio nodes for each note in our chord.
+
+The sheet music specifies that each note start on a random frequency between 200 and 400 Hz and ramps to its target frequency:
+
+```typescript
+const frequencies = NOTES.map((note) => ({
+  // Random note between G3 and G4
+  start: getRandomInt(200, 400),
+  end: Tone.Frequency(note).toFrequency(),
+}))
+```
+
+We now have our frequency ranges for each note in the chord, and we can create the audio nodes:
+
+```typescript
+frequencies.forEach((freq) => {
+  // Create a synthesizer with a "fatsawtooth"
+  // oscillator for that rich, full sound.
+  const sawtoothSynth = new Tone.Synth({
+    oscillator: {
+      type: 'fatsawtooth',
+    },
+    envelope: {
+      attack: 3,
+      decay: 0.8,
+      sustain: 1.0,
+      release: 2.0,
+    },
+    // Randomly detune the oscillator to give it a more analog sound
+    detune: getRandomInt(-2, 2),
+  })
+
+  // Apply a vibrato effect for a slight oscillation in pitch,
+  // adding to the richness of the sound.
+  const vib = new Tone.Vibrato(freq.end, 0.1)
+
+  // Use a gain node to control the volume.
+  const gain = new Tone.Gain()
+
+  // Add a reverb effect for spatial depth.
+  const reverb = new Tone.Reverb(1)
+
+  // Add a low pass filter to cut off the high frequencies.
+  // Frequencies above 11,000 Hz will be gradually reduced in volume,
+  // creating a smoother and less harsh sound
+  // by removing high-frequency noise or harshness from the output audio
+  const filter = new Tone.Filter(11000, 'lowpass', -12)
+
+  // Create an envelope to control the frequency
+  // and gain of the synthesizer.
+  // This is the source of the sweeping sound
+  // that is characteristic of the THX Deep Note.
+  const envelope = new Tone.Envelope({
+    attack: 10,
+    decay: 9,
+    sustain: 1.0,
+    release: 0.0,
+  })
+
+  // Normalize the frequency and gain values to the desired range
+  // This allows the envelope to control the frequency and gain of the synthesizer
+  const freqScale = new Tone.Scale(freq.start, freq.end)
+  const gainScale = new Tone.Scale(0.05, 0.7)
+
+  // Connect the synthesizer to the gain node, vibrato, reverb, and filter
+  sawtoothSynth.connect(gain)
+  gain.connect(vib)
+  vib.connect(reverb)
+  reverb.connect(filter)
+
+  // Connect the envelope to the frequency and gain scales
+  envelope.connect(freqScale)
+  envelope.connect(gainScale)
+  freqScale.connect(sawtoothSynth.frequency)
+  gainScale.connect(gain.gain)
+
+  // Connect the filter to the main output
+  filter.toDestination()
+
+  // Start the synthesizer
+  sawtoothSynth.triggerAttackRelease(freq.start, 16)
+
+  // Start the envelope
+  envelope.triggerAttackRelease(5)
+})
+```
+
+## Source Code
+
+The full source can be found [here](https://github.com/Rigellute/blog/blob/master/src/content/article/deep-note/deep-note.ts).
+
+## Conclusion
+
+Recreating the THX "Deep Note" in JavaScript was a fun challenge. I'd like to try visualizing the sound,
+perhaps using WebGL or Three.js to create a dynamic audio-visual experience.
+
+If you have any feedback, please reach out to me on [Twitter/X](https://twitter.com/alexkeliris).

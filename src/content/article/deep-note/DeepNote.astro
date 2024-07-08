@@ -1,0 +1,37 @@
+---
+import Button from '../../../components/Button.astro'
+---
+
+<Button as="button" class:list={['not-prose']} id="start">Initialize</Button>
+
+<script>
+  const playButton = document.querySelector<HTMLButtonElement>('#start')!
+
+  let isInitialized = false
+  // Only import on mousedown to avoid `AudioContext "not allowed to start"` console warning
+  document.addEventListener('mousedown', async () => {
+    if (isInitialized) {
+      return
+    }
+
+    playButton.innerText = 'Start Deep Note'
+
+    const { DeepNote } = await import('./deep-note')
+
+    const deepNote = new DeepNote()
+
+    deepNote.subscribe((isPlaying) => {
+      playButton.innerText = isPlaying ? 'Stop Deep Note' : 'Start Deep Note'
+    })
+
+    playButton.addEventListener('click', () => {
+      if (deepNote.isPlaying) {
+        deepNote.stop()
+      } else {
+        deepNote.start()
+      }
+    })
+
+    isInitialized = true
+  })
+</script>
