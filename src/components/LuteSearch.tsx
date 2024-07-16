@@ -83,7 +83,7 @@ const Hit = ({ hit }: { hit: any }) => (
         (prop) =>
           hit[prop.value] && (
             <a
-              href={hit[prop.value]}
+              href={addSubdomainToUrl(hit[prop.value])}
               target="_blank"
               rel="noreferrer"
               key={prop.value}
@@ -263,4 +263,14 @@ const Refinement = ({
       }}
     />
   )
+}
+
+/**
+ * The spreadsheet links are out of date.
+ * This is a temporary solution to add the `browse` subdomain to the URL.
+ */
+function addSubdomainToUrl(url: string): string {
+  const urlObj = new URL(url)
+  urlObj.hostname = `browse.${urlObj.hostname}`
+  return urlObj.toString()
 }
