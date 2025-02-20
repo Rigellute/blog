@@ -72,15 +72,8 @@
     }
   }
 
-  function windowResized() {
-    calculateCanvasSize()
-    resizeCanvas(canvasWidth, canvasHeight)
-  }
-
   // Initial calculation on page load
   window.addEventListener('load', calculateCanvasSize)
-
-  window.addEventListener('resize', windowResized)
 
   class Boid {
     position = createVector(random(width), random(height))
