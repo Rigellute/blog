@@ -1,0 +1,39 @@
+---
+title: 'Boids'
+description: 'An interactive simulation of flocking behavior using the Boids algorithm, implemented with p5.js. Explore how simple rules create complex emergent behavior through adjustable alignment, cohesion, and separation controls.'
+pubDate: '2025-02-20'
+author: 'Alexander Keliris'
+socialImage: './boids.png'
+---
+
+import Boids from './Boids.astro'
+
+<Boids />
+
+I've seen some impressive Starling murmurations recently, and they have inspired me to implement the famous [Boids](https://www.red3d.com/cwr/boids/) simulation.
+
+## How It Works
+
+Boids use three simple steering behaviors to create complex flocking patterns:
+
+### Alignment
+
+Boids try to match the direction and speed of their neighbors. This creates coordinated movement within the flock. Try setting alignment to maximum to see boids moving in parallel paths.
+
+### Cohesion
+
+This behavior makes boids steer toward the average position of their neighbors. It keeps the flock together. With high cohesion values, you'll see tight, dense clusters forming.
+
+### Separation
+
+Prevents boids from crowding too close to their neighbors. This avoids collisions and creates more natural spacing. Increasing separation will cause the flock to spread out more.
+
+## Technical Implementation
+
+I used [p5.js](https://p5js.org/) and I started off by following [this excellent tutorial](https://www.youtube.com/watch?v=mhjuuHl6qHM) by The Coding Train.
+
+I also added a mouse/tap interaction that the boids will try to steer away from, give it a try!
+
+There's probably a bunch of mistakes in the simulation, and I'm certainly missing some more advanced features.
+
+I might come back and implement [quadtree](https://en.wikipedia.org/wiki/Quadtree) spatial partitioning for better performance. The current simulation is pretty heavy and can't support more than a few hundred boids.

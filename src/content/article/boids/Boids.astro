@@ -1,0 +1,228 @@
+---
+
+---
+
+<div id="sketch-container">
+  <div id="canvas-container"></div>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4 p-4 max-w-2xl mx-auto">
+    <div class="flex flex-col gap-2">
+      <label>Alignment</label>
+      <div id="align-slider"></div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label>Cohesion</label>
+      <div id="cohesion-slider"></div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label>Separation</label>
+      <div id="separation-slider"></div>
+    </div>
+  </div>
+</div>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"
+></script>
+<script is:inline>
+  let canvasWidth
+  let canvasHeight
+  let alignSlider
+  let cohesionSlider
+  let separationSlider
+  function getTotalBoids() {
+    return window.innerWidth < 640 ? 100 : 200 // 640px is Tailwind's sm breakpoint
+  }
+  const boids = []
+
+  function calculateCanvasSize() {
+    const container = document.getElementById('canvas-container')
+    canvasWidth = container.offsetWidth
+    canvasHeight = canvasWidth * 0.6 // 60% of width for aspect ratio
+  }
+
+  function setup() {
+    calculateCanvasSize()
+    const canvas = createCanvas(canvasWidth, canvasHeight)
+    canvas.parent('canvas-container')
+    canvas.elt.className = 'rounded-lg shadow-lg'
+
+    const rangeClassName = 'accent-slate-700 dark:accent-slate-200'
+    alignSlider = createSlider(0, 5, 1, 0.1)
+    alignSlider.parent('align-slider')
+    alignSlider.elt.className = rangeClassName
+    cohesionSlider = createSlider(0, 5, 1, 0.1)
+    cohesionSlider.parent('cohesion-slider')
+    cohesionSlider.elt.className = rangeClassName
+    separationSlider = createSlider(0, 5, 1, 0.1)
+    separationSlider.parent('separation-slider')
+    separationSlider.elt.className = rangeClassName
+    for (let i = 0; i < getTotalBoids(); i++) {
+      boids.push(new Boid())
+    }
+  }
+
+  function draw() {
+    // Use zinc-900 color (rgb(24 24 27))
+    background(39, 39, 42)
+
+    for (const boid of boids) {
+      boid.edges()
+      boid.flock(boids)
+      boid.update()
+      boid.show()
+    }
+  }
+
+  function windowResized() {
+    calculateCanvasSize()
+    resizeCanvas(canvasWidth, canvasHeight)
+  }
+
+  // Initial calculation on page load
+  window.addEventListener('load', calculateCanvasSize)
+
+  window.addEventListener('resize', windowResized)
+
+  class Boid {
+    position = createVector(random(width), random(height))
+    velocity = p5.Vector.random2D()
+    acceleration = createVector()
+    maxForce = 0.2
+    maxSpeed = 4
+    mouseAvoidWeight = 2.0
+    mouseAvoidRadius = 100
+
+    alignWeight = 1.0
+    cohesionWeight = 0.7 // Reduce cohesion to prevent tight clustering
+    separationWeight = 1.5 // Increase separation to prevent center-point crossing
+    perceptionRadius = 50
+
+    update() {
+      this.position.add(this.velocity)
+      this.velocity.add(this.acceleration)
+      this.velocity.setMag(this.maxSpeed)
+      this.acceleration.mult(0)
+    }
+
+    show() {
+      const angle = this.velocity.heading() + radians(90)
+      const size = 8 // Size of the triangle
+
+      push()
+      translate(this.position.x, this.position.y)
+      rotate(angle)
+
+      // Draw triangle
+      fill(228, 228, 231)
+      stroke(228, 228, 231)
+      strokeWeight(1)
+      beginShape()
+      vertex(0, -size)
+      vertex(-size / 2, size)
+      vertex(size / 2, size)
+      endShape(CLOSE)
+      pop()
+    }
+
+    align(boids) {
+      return this.calculateSteering(boids, 'align')
+    }
+
+    cohesion(boids) {
+      return this.calculateSteering(boids, 'cohesion')
+    }
+
+    separation(boids) {
+      return this.calculateSteering(boids, 'separation')
+    }
+
+    avoidMouse() {
+      const steering = createVector()
+      const mouse = createVector(mouseX, mouseY)
+      const distance = dist(this.position.x, this.position.y, mouse.x, mouse.y)
+
+      if (distance < this.mouseAvoidRadius) {
+        const diff = p5.Vector.sub(this.position, mouse)
+        diff.div(distance) // Linear falloff
+        steering.add(diff)
+        steering.setMag(this.maxSpeed)
+        steering.sub(this.velocity)
+        steering.limit(this.maxForce)
+      }
+
+      return steering
+    }
+
+    calculateSteering(boids, behavior) {
+      const steering = createVector()
+      let total = 0
+
+      for (const other of boids) {
+        const distance = dist(
+          this.position.x,
+          this.position.y,
+          other.position.x,
+          other.position.y,
+        )
+
+        if (other !== this && distance < this.perceptionRadius) {
+          // Add distance-based weighting for separation
+          if (
+            behavior === 'separation' &&
+            distance < this.perceptionRadius * 0.5
+          ) {
+            const diff = p5.Vector.sub(this.position, other.position)
+            diff.div(distance) // Linear falloff instead of square
+            steering.add(diff)
+          } else if (behavior === 'align') {
+            steering.add(other.velocity)
+          } else if (behavior === 'cohesion') {
+            steering.add(other.position)
+          }
+          total++
+        }
+      }
+
+      if (total > 0) {
+        steering.div(total)
+        if (behavior === 'cohesion') {
+          steering.sub(this.position)
+        }
+        steering.setMag(this.maxSpeed)
+        steering.sub(this.velocity)
+        steering.limit(this.maxForce)
+      }
+
+      return steering
+    }
+
+    flock(boids) {
+      const alignment = this.align(boids).mult(this.alignWeight)
+      const cohesion = this.cohesion(boids).mult(this.cohesionWeight)
+      const separation = this.separation(boids).mult(this.separationWeight)
+      const mouseAvoid = this.avoidMouse().mult(this.mouseAvoidWeight)
+
+      separation.mult(separationSlider.value())
+      cohesion.mult(cohesionSlider.value())
+      alignment.mult(alignSlider.value())
+
+      this.acceleration.add(alignment)
+      this.acceleration.add(cohesion)
+      this.acceleration.add(separation)
+      this.acceleration.add(mouseAvoid)
+    }
+
+    edges() {
+      if (this.position.x > width) {
+        this.position.x = 0
+      } else if (this.position.x < 0) {
+        this.position.x = width
+      }
+
+      if (this.position.y > height) {
+        this.position.y = 0
+      } else if (this.position.y < 0) {
+        this.position.y = height
+      }
+    }
+  }
+</script>
