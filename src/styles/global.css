@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+@config '../../typography.ts';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+}
+
+/* I haved moved the css needed for the lute search components here
+ * as using scoped <style> blocks do not seem to work with astro and tailwind v4.
+ */
+.text-color {
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.ais-RangeInput-separator {
+  @apply px-1 text-zinc-600 dark:text-zinc-400;
+}
+
+.ais-RangeInput-submit {
+  @apply ml-1 inline-flex items-center justify-center gap-2 rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70;
+}
+
+.ais-Highlight-highlighted {
+  @apply rounded bg-teal-300 not-italic dark:bg-teal-500;
+}
+
+@utility search-input {
+  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
+}
+
+#refinement-list input.ais-SearchBox-input {
+  @apply search-input w-full;
+}
+
+.ais-RangeInput-input {
+  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
+}
+
+.ais-SearchBox-submit {
+  @apply hidden;
+}
+
+.ais-SearchBox-reset {
+  @apply hidden;
+}
+
+.ais-Pagination-list {
+  @apply mt-12 flex justify-center;
+}
+
+.ais-Pagination-item {
+  @apply relative inline-flex items-center text-sm font-semibold text-zinc-600 ring-1 ring-inset ring-zinc-300 hover:bg-zinc-50 focus:z-20 focus:outline-offset-0 dark:text-zinc-400;
+}
+
+.ais-Pagination-item:first-child {
+  @apply rounded-l;
+}
+
+.ais-Pagination-item:last-child {
+  @apply rounded-r;
+}
+
+.ais-Pagination-link {
+  @apply px-3 py-1;
+}
+
+.ais-Pagination-link--selected {
+  @apply bg-teal-600;
+}
+
+@utility btn-primary {
+  @apply rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition transition-none hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70;
+}
+
+.ais-ClearRefinements-button {
+  @apply btn-primary inline-flex items-center justify-center;
+}
+
+.ais-Stats {
+  @apply text-right text-sm text-zinc-600 dark:text-zinc-400;
+}
