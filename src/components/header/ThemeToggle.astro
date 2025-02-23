@@ -17,7 +17,7 @@ import SunIcon from '../icons/SunIcon.astro'
   />
 </button>
 
-<script>
+<script is:inline>
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') || 'dark'
@@ -28,7 +28,7 @@ import SunIcon from '../icons/SunIcon.astro'
     return 'light'
   })()
 
-  const enable = disableTransitionsTemporarily()
+  disableTransitionsTemporarily()
   if (theme === 'light') {
     document.documentElement.classList.remove('dark')
   } else {
@@ -37,10 +37,10 @@ import SunIcon from '../icons/SunIcon.astro'
 
   window.localStorage.setItem('theme', theme)
 
-  const themeToggle = document.getElementById('themeToggle')!
+  const themeToggle = document.getElementById('themeToggle')
 
   const handleToggleClick = () => {
-    const enable = disableTransitionsTemporarily()
+    disableTransitionsTemporarily()
     const element = document.documentElement
     element.classList.toggle('dark')
 
@@ -49,34 +49,16 @@ import SunIcon from '../icons/SunIcon.astro'
     localStorage.setItem('theme', otherTheme)
 
     themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
-
-    enable()
   }
 
   const otherTheme = theme === 'dark' ? 'light' : 'dark'
   themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
   themeToggle.addEventListener('click', handleToggleClick)
 
-  function disableTransitionsTemporarily(nonce?: string) {
-    const css = document.createElement('style')
-    if (nonce) css.setAttribute('nonce', nonce)
-    css.appendChild(
-      document.createTextNode(
-        `*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`,
-      ),
-    )
-    document.head.appendChild(css)
-
-    return () => {
-      // Force restyle
-      ;(() => window.getComputedStyle(document.body))()
-
-      // Wait for next tick before removing
-      setTimeout(() => {
-        document.head.removeChild(css)
-      }, 1)
-    }
+  function disableTransitionsTemporarily() {
+    document.documentElement.classList.add('[&_*]:!transition-none')
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none')
+    }, 0)
   }
-
-  enable()
 </script>
