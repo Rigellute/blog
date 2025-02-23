@@ -28,7 +28,7 @@ import SunIcon from '../icons/SunIcon.astro'
     return 'light'
   })()
 
-  disableTransitionsTemporarily()
+  const enable = disableTransitionsTemporarily()
   if (theme === 'light') {
     document.documentElement.classList.remove('dark')
   } else {
@@ -40,7 +40,7 @@ import SunIcon from '../icons/SunIcon.astro'
   const themeToggle = document.getElementById('themeToggle')!
 
   const handleToggleClick = () => {
-    disableTransitionsTemporarily()
+    const enable = disableTransitionsTemporarily()
     const element = document.documentElement
     element.classList.toggle('dark')
 
@@ -49,16 +49,34 @@ import SunIcon from '../icons/SunIcon.astro'
     localStorage.setItem('theme', otherTheme)
 
     themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
+
+    enable()
   }
 
   const otherTheme = theme === 'dark' ? 'light' : 'dark'
   themeToggle.ariaLabel = `Switch to ${otherTheme} theme`
   themeToggle.addEventListener('click', handleToggleClick)
 
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
-    }, 0)
+  function disableTransitionsTemporarily(nonce?: string) {
+    const css = document.createElement('style')
+    if (nonce) css.setAttribute('nonce', nonce)
+    css.appendChild(
+      document.createTextNode(
+        `*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`,
+      ),
+    )
+    document.head.appendChild(css)
+
+    return () => {
+      // Force restyle
+      ;(() => window.getComputedStyle(document.body))()
+
+      // Wait for next tick before removing
+      setTimeout(() => {
+        document.head.removeChild(css)
+      }, 1)
+    }
   }
+
+  enable()
 </script>
