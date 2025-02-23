@@ -1,3 +1,4 @@
+import React from 'react'
 import { Disclosure, Transition } from '@headlessui/react'
 import {
   InstantSearch,
@@ -219,9 +220,7 @@ const Collapsible = ({
           <Disclosure.Button className="text-color btn-primary flex w-full justify-between text-left">
             <span>{title}</span>
             <ChevronUpIcon
-              className={`${
-                open ? 'rotate-180 transform' : ''
-              } h-5 w-5 text-zinc-500`}
+              className={`${open ? 'rotate-180 transform' : ''}  text-zinc-500`}
             />
           </Disclosure.Button>
           <Transition
