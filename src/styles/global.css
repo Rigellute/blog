@@ -116,3 +116,7 @@
 .ais-Stats {
   @apply text-right text-sm text-zinc-600 dark:text-zinc-400;
 }
+
+@view-transition {
+  navigation: auto;
+}
