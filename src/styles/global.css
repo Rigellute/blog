@@ -54,11 +54,11 @@
 }
 
 @utility search-input-base {
-  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
+  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 focus:outline-hidden sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
 }
 
 #refinement-list input.ais-SearchBox-input {
-  @apply search-input-base w-full;
+  @apply w-full search-input-base;
 }
 
 .search-input {
@@ -66,7 +66,7 @@
 }
 
 .ais-RangeInput-input {
-  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
+  @apply flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 focus:outline-hidden sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10;
 }
 
 .ais-SearchBox-submit {
@@ -82,7 +82,7 @@
 }
 
 .ais-Pagination-item {
-  @apply relative inline-flex items-center text-sm font-semibold text-zinc-600 ring-1 ring-inset ring-zinc-300 hover:bg-zinc-50 focus:z-20 focus:outline-offset-0 dark:text-zinc-400;
+  @apply relative inline-flex items-center text-sm font-semibold text-zinc-600 inset-ring-1 inset-ring-zinc-300 hover:bg-zinc-50 focus:z-20 focus:outline-offset-0 dark:text-zinc-400;
 }
 
 .ais-Pagination-item:first-child {
@@ -110,7 +110,7 @@
 }
 
 .ais-ClearRefinements-button {
-  @apply btn-primary-base inline-flex items-center justify-center;
+  @apply inline-flex items-center justify-center btn-primary-base;
 }
 
 .ais-Stats {

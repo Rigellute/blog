@@ -1,0 +1,25 @@
+---
+/**
+ * Applies the stored/system colour scheme.
+ *
+ * This belongs in <head> so the `dark` class is on <html> before the browser
+ * paints. Running it alongside the toggle button in <body> means several KB of
+ * markup — including `<body class="bg-zinc-50 dark:bg-black">` — are parsed
+ * first, which can flash the light theme at dark-mode users.
+ */
+---
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') || 'dark'
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  document.documentElement.classList.toggle('dark', theme === 'dark')
+  window.localStorage.setItem('theme', theme)
+</script>
