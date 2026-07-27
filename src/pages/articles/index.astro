@@ -32,7 +32,7 @@ const articles = (await getCollection('article')).sort(
                 description: article.data.description,
                 title: article.data.title,
                 date: article.data.pubDate,
-                slug: article.slug,
+                slug: article.id,
               }}
             />
           ))
