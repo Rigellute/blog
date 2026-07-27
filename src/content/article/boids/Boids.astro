@@ -79,6 +79,14 @@
     }
   }
 
+  // p5.js runs in global mode here: it looks `setup` and `draw` up off the
+  // window rather than importing them. Assigning them explicitly documents that
+  // contract, and stops the type checker reading them as dead code.
+  /** @type {any} */
+  const globalScope = window
+  globalScope.setup = setup
+  globalScope.draw = draw
+
   // Initial calculation on page load
   window.addEventListener('load', calculateCanvasSize)
 
