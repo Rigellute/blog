@@ -62,7 +62,7 @@ const articles = (await getCollection('article'))
               article={{
                 id: article.id,
                 date: article.data.pubDate,
-                slug: article.slug,
+                slug: article.id,
                 title: article.data.title,
                 description: article.data.description,
               }}
