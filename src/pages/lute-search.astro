@@ -2,6 +2,7 @@
 import RootLayout from '../layouts/RootLayout.astro'
 import SimpleLayout from '../layouts/SimpleLayout.astro'
 import BaseHead from '../components/BaseHead.astro'
+import Warning from '../components/icons/Warning.astro'
 import { LuteSearch as LuteSearchReact } from '../components/LuteSearch'
 
 const TOTAL_PIECES = (20000).toLocaleString()
@@ -17,6 +18,36 @@ const TOTAL_PIECES = (20000).toLocaleString()
     title="Search Lute Music"
     intro={`This index contains more than ${TOTAL_PIECES} lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'.`}
   >
+    <div
+      role="alert"
+      class="mb-12 rounded-2xl border border-amber-500/20 bg-amber-50/60 p-6 ring-1 ring-amber-500/5 dark:border-amber-400/20 dark:bg-amber-400/5"
+    >
+      <div class="flex gap-4">
+        <Warning
+          class="mt-0.5 h-6 w-6 shrink-0 text-amber-600 dark:text-amber-400"
+        />
+        <div>
+          <h2
+            class="text-base font-semibold tracking-tight text-amber-900 dark:text-amber-200"
+          >
+            This page is being retired at the end of August 2026
+          </h2>
+          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+            Sarge Gerbode's site now has its own search, which is kept up to
+            date with the latest additions to the archive. This page's index is
+            no longer being refreshed, so please switch over to the official
+            search.
+          </p>
+          <a
+            href="https://dj.lutemusic.org/search/?new"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-amber-700 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300"
+          >
+            Go to the official lutemusic.org search
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
     <LuteSearchReact client:only />
   </SimpleLayout>
 </RootLayout>
