@@ -23,5 +23,5 @@ pnpm-debug.log*
 .unlighthouse
 
 .idea
-# local clone of the upstream Spotlight template, kept for reference only
-tailwind-plus-spotlight/
+# local scratch checkouts, kept out of the repo
+.reference/

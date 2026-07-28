@@ -5,5 +5,5 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "exclude": ["dist", "tailwind-plus-spotlight"]
+  "exclude": ["dist", ".reference"]
 }
