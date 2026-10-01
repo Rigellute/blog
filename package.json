@@ -13,18 +13,10 @@
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/mdx": "^7.0.4",
-    "@astrojs/react": "^6.0.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "@headlessui/react": "^1.7.17",
-    "@meilisearch/instant-meilisearch": "^0.13.4",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
     "astro": "^7.1.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-instantsearch": "^7.0.1",
     "tailwindcss": "^4.3.3",
     "tone": "^15.0.4",
     "typescript": "^5.9.3"
