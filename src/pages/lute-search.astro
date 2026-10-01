@@ -3,20 +3,17 @@ import RootLayout from '../layouts/RootLayout.astro'
 import SimpleLayout from '../layouts/SimpleLayout.astro'
 import BaseHead from '../components/BaseHead.astro'
 import Warning from '../components/icons/Warning.astro'
-import { LuteSearch as LuteSearchReact } from '../components/LuteSearch'
-
-const TOTAL_PIECES = (20000).toLocaleString()
 ---
 
 <RootLayout>
   <BaseHead
-    title="Search Lute Music - Alexander Keliris"
-    description={`Search over ${TOTAL_PIECES} lute pieces.`}
+    title="Lute Music Search - Alexander Keliris"
+    description="This lute music search has been retired in favour of the official lutemusic.org search."
     image="/lute-1.jpg"
   />
   <SimpleLayout
-    title="Search Lute Music"
-    intro={`This index contains more than ${TOTAL_PIECES} lute music documents in French tablature compiled by Sarge Gerbode. Start typing to see results e.g. 'Dowland'.`}
+    title="Lute Music Search"
+    intro="This page used to search the lute music archive in French tablature compiled by Sarge Gerbode."
   >
     <div
       role="alert"
@@ -30,13 +27,12 @@ const TOTAL_PIECES = (20000).toLocaleString()
           <h2
             class="text-base font-semibold tracking-tight text-amber-900 dark:text-amber-200"
           >
-            This page is being retired at the end of August 2026
+            This page has been retired
           </h2>
           <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
             Sarge Gerbode's site now has its own search, which is kept up to
-            date with the latest additions to the archive. This page's index is
-            no longer being refreshed, so please switch over to the official
-            search.
+            date with the latest additions to the archive, so please use the
+            official search instead.
           </p>
           <a
             href="https://dj.lutemusic.org/search/?new"
@@ -48,6 +44,5 @@ const TOTAL_PIECES = (20000).toLocaleString()
         </div>
       </div>
     </div>
-    <LuteSearchReact client:only />
   </SimpleLayout>
 </RootLayout>

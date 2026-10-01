@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import react from '@astrojs/react'
 import syntaxTheme from './syntax-theme.json'
 
 import tailwindcss from '@tailwindcss/vite'
@@ -20,7 +19,7 @@ export default defineConfig({
   },
 
   site: 'https://keliris.dev',
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
